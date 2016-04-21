@@ -36,3 +36,27 @@ constants are declared using `const` keyword. Once they are declared you cannot 
 	const myAge = 30;
 	const yourAge;	// it will throw a syntax error. needs to be initialized when declared
 ```
+Constants are also a block-level declarations and variable hoisting wouldn't work for constants. If we try to redeclare already declared variables using `var` or `let` keywords, constant declaration will throw an error:
+```javascript
+	var myAge = 20;
+	let yourAge = 30;
+
+	const myAge = 25;
+	const yourAge = 23;
+```
+<h4>Declaring Objects as Constants</h4>
+If we create an object using a `const` keyword, we cannot change the object name but we can change the object content (variable and method values);
+
+```javascript
+	const newObject = {
+		myAge : 25
+	};
+
+	newObject.myAge = 30;	//this works
+
+	newObject = {
+		myName : "Max"
+	};						// will throw an error
+```
+
+<h4>Temporal Dead Zone (TDZ)</h4>
