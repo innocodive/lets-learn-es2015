@@ -60,3 +60,18 @@ If we create an object using a `const` keyword, we cannot change the object name
 ```
 
 <h4>Temporal Dead Zone (TDZ)</h4>
+When Javascript Engine reads through your code, it would look for the variable declarations. If it finds `var` declarations, it would be hoisted to the top of the global scope or a function scope. Because hoisting for `let` and `const` wouldn't work, they will be put in the Temporal Dead Zone. 
+
+<h4>`var` and `let` in Loops</h4>
+Have a look at this example: 
+```javascript
+	for (var i = 0; i < 5; i++) {
+  		console.log(calculate(i));
+	}
+	console.log("this is i outside the for Loop: " + i);	// i is 5 here
+
+	function calculate(i) {
+  		return i * 3;
+	}
+```
+Because `i` is declared using `var`, it gets hoisted to the top of the scope. That is why we can access to the value of the variable `i` outside the for loop. Replace the `var` with `let` and see the result. You will get "i is not defined" message.
