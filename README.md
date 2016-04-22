@@ -1,4 +1,4 @@
-<h1>lets-learn-es2015</h1>
+<h1>Let's learn es2015</h1>
 
 <p>Let's learn ES2015 together. I share my personal Javascript (ES2015) study notes</p>
  -------------------------------
@@ -9,4 +9,9 @@
  <ul>
  <li>Understanding ECMAScript 6 by Nicolas Zakas : (https://leanpub.com/understandinges6/read)</li>
  <li>ES6 & Beyond by Kyle Simpson (https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20%26%20beyond)</li>
+ <li>ES6 features in a Diagram: (https://github.com/lukaszewczak/es6-diagram)</li>
+ <li>Fantastic ES6 Resources : (https://github.com/ericdouglas/ES6-Learning)</li>
+ <li>list of ES6 Features and quick introductiion with examples: (https://github.com/lukehoban/es6features#readme)</li>
+ <li>Book : Exploring ES6 by Dr. Axel Rauschmayer : (http://exploringjs.com/es6/)</li>
+ <li>Javascript Allonge. The "Six" Edition by Reg "raganwald" Braithwaite: (https://leanpub.com/javascriptallongesix/read)</li>
  </ul>
