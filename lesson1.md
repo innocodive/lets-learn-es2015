@@ -75,3 +75,5 @@ Have a look at this example:
 	}
 ```
 Because `i` is declared using `var`, it gets hoisted to the top of the scope. That is why we can access to the value of the variable `i` outside the for loop. Replace the `var` with `let` and see the result. You will get "i is not defined" message.
+
+<h4>`let` and `const` in the Global Scope</h4>
