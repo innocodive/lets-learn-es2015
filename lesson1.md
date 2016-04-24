@@ -76,4 +76,30 @@ Have a look at this example:
 ```
 Because `i` is declared using `var`, it gets hoisted to the top of the scope. That is why we can access to the value of the variable `i` outside the for loop. Replace the `var` with `let` and see the result. You will get "i is not defined" message.
 
+<h4>`const` in Loops</h4>
+
+Have a look at this example:
+```javascript
+	for(const i = 0; i < 5; i++) {
+		console.log(i);
+	}
+```
+
+In this example, declaring a `const` and initializing is fine. First iteration will work. When it comes to `i++` stage it will throw an error, as you are attempting to change the value of `const i`. Have a look at another example:
+
+```javascript
+	var obj = {
+  		name : "Max",
+  		surname : "Charyyev",
+  		age : 20
+		};
+
+		for(const key in obj) {
+  			console.log(key);
+		}
+```
+Here, everything works. when it comes to `for ... in` and `for ... of` Loops, loop iteration creates a new binding for each iteration. We are not changing they `const key` value.
+
 <h4>`let` and `const` in the Global Scope</h4>
+
+Declaring a new variable in the Global Scope using `var` creates a new property for the Global Object (`window` in the browser).
