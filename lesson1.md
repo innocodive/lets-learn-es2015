@@ -102,4 +102,12 @@ Here, everything works. when it comes to `for ... in` and `for ... of` Loops, lo
 
 <h4>`let` and `const` in the Global Scope</h4>
 
-Declaring a new variable in the Global Scope using `var` creates a new property for the Global Object (`window` in the browser).
+Declaring a new variable in the Global Scope using `var` creates a new property for the Global Object (`window` in the browser). If we use `let` or `const` instead, we create a new binding in the Global Scope but we don't create a new property for window object. This also means we can't change existing global variables. Have a look at the example below:
+```javascript
+	let name = "Max";
+
+	console.log(name);
+	console.log(window.name === name);	// false
+```
+<b>best practice for `block bindings`:</b>
+<p>Use `const` for a variable declarations as default and use `let` if you know the variable value will change later.</p>
