@@ -47,7 +47,7 @@ Constants are also a block-level declarations and variable hoisting wouldn't wor
 	const yourAge = 23;
 ```
 <h4>Declaring Objects as Constants</h4>
-If we create an object using a `const` keyword, we cannot change the object name but we can change the object content (variable and method values);
+If we create an object using a `const` keyword, we cannot change the object name but we can change the object content (variable and method values). Situation is the ame with arrays. 
 
 ```javascript
 	const newObject = {
@@ -60,6 +60,8 @@ If we create an object using a `const` keyword, we cannot change the object name
 		myName : "Max"
 	};						// will throw an error
 ```
+
+`newObject` variable doesn't hold the actual object but a reference to that object. That is why the content of the object can be modified, but not the binding/reference to that object.
 
 <h4>Temporal Dead Zone (TDZ)</h4>
 When Javascript Engine reads through your code, it would look for the variable declarations. If it finds `var` declarations, it would be hoisted to the top of the global scope or a function scope. Because hoisting for `let` and `const` wouldn't work, they will be put in the Temporal Dead Zone. TDZ is basically <b>accessing-too-early</b> error. We need to also mention the unusual behaviour of `typeof`. We use `typeof` to check if any variable is declared or not. If the variable is declared using `let` after we check its type, it will throw a reference error. Because the variable is in TDZ. To avoid these type error, we should always declare the `let` vars before we access them. Have a look at the example below:
@@ -75,7 +77,22 @@ When Javascript Engine reads through your code, it would look for the variable d
 ```
 
 <h4>`var` and `let` in Loops</h4>
-Have a look at this example: 
+
+Have a look at this code snippet:
+
+```javascript
+	var numbers = [];
+
+	for(let i = 0; i < 4; i++) {
+		numbers.push(function() {
+			console.log(i);
+			});
+	}
+	numbers[2]();	// 2
+```
+Here `let i` first declares/initializes `i = 0`, and then redeclares a `new i` for each iteration of the Loop. To see the difference, replace `let i` with `var i`.
+
+Now have a look at this example: 
 ```javascript
 	for (var i = 0; i < 5; i++) {
   		console.log(calculate(i));
@@ -121,5 +138,37 @@ Declaring a new variable in the Global Scope using `var` creates a new property 
 	console.log(name);
 	console.log(window.name === name);	// false
 ```
+<h4>How functions behave in a Block Scope?</h4>
+
+2 very important things to mention when we use Functions in blocks `{}`:
+1) functions get hoisted to the top of the block. We don't have a TDZ problem here unlike `let` or `const` - declared variables in the Block Scope.
+2) Conditional Function Declarations in Block Scope is very different from ES5.
+
+Have a look at this example:
+
+```javascript
+	{
+		func();	//this works. can call a function before it is declared
+		function func() {}
+	}
+		func();	// Reference Error. func() doesn't exist outside the `{}` block
+
+	// block-scoped function declaration:
+
+	var a = 5;
+	if (a > 5) {
+    function foo() {
+        console.log( "1" );
+    	}
+	}
+	else {
+    function foo() {
+        console.log( "2" );
+    	}
+	}
+
+	foo(); 	// you get 2 in ES5, in ES6 you will get a Reference Error.
+```
+
 <b>best practice for `block bindings`:</b>
 <p>Use `const` for a variable declarations as default and use `let` if you know the variable value will change later.</p>
