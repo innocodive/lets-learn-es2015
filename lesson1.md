@@ -1,6 +1,8 @@
 <h1>Block Bindings</h1>
 
-When we declare a variable in Javascript using `var`, the declaration gets hoisted to the top of the function or to the top of the code if it is declared outside the function. ES6 introduced a <b>Block-level</b> Declaration. In block-level decrations variables are not accessible outside the block `{}` or functions. We declare variables using `let` keyword. While hoisting works for var declarations it wouldn't work for let declarations. That is why it is a good practice to declare variables at the top of the scope or a function.
+Variable scoping has always been done using `functions` or `IIFE` - Immediately Invoked Function Expressions in Javascript. ES6 (ES2015) introduced <b>Block Scoping<b>. We need `{}` and `let` to create a new scope.
+When we declare a variable in Javascript using `var`, the declaration gets hoisted to the top of the function or to the top of the code if it is declared outside the function. ES6 introduced a <b>Block-level</b> Declaration. In block-level decrations variables are not accessible outside the block `{}` or functions. We declare variables using `let` keyword. While hoisting works for `var` declarations it wouldn't work for `let` declarations. That is why it is a good practice to declare variables at the top of the scope or a function, when we use `let`.
+
 ```javascript
 	var myAge = 36, age = 50;
 	if(age > myAge) {
@@ -60,7 +62,17 @@ If we create an object using a `const` keyword, we cannot change the object name
 ```
 
 <h4>Temporal Dead Zone (TDZ)</h4>
-When Javascript Engine reads through your code, it would look for the variable declarations. If it finds `var` declarations, it would be hoisted to the top of the global scope or a function scope. Because hoisting for `let` and `const` wouldn't work, they will be put in the Temporal Dead Zone. 
+When Javascript Engine reads through your code, it would look for the variable declarations. If it finds `var` declarations, it would be hoisted to the top of the global scope or a function scope. Because hoisting for `let` and `const` wouldn't work, they will be put in the Temporal Dead Zone. TDZ is basically <b>accessing-too-early</b> error. We need to also mention the unusual behaviour of `typeof`. We use `typeof` to check if any variable is declared or not. If the variable is declared using `let` after we check its type, it will throw a reference error. Because the variable is in TDZ. To avoid these type error, we should always declare the `let` vars before we access them. Have a look at the example below:
+
+```javascript
+	if(typeof x === undefined) {
+		console.log("not yet");
+	}
+	if(typeof y === undefined) {	// this will throw a Reference Error
+		console.log("too early");
+	}
+	let y;
+```
 
 <h4>`var` and `let` in Loops</h4>
 Have a look at this example: 
