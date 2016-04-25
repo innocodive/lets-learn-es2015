@@ -1,6 +1,6 @@
 <h1>Block Bindings</h1>
 
-Variable scoping has always been done using `functions` or `IIFE` - Immediately Invoked Function Expressions in Javascript. ES6 (ES2015) introduced <b>Block Scoping<b>. We need `{}` and `let` to create a new scope.
+Variable scoping has always been done using `functions` or `IIFE` - Immediately Invoked Function Expressions in Javascript. ES6 (ES2015) introduced <b>Block Scoping</b>. We need `{}` and `let` to create a new scope.
 When we declare a variable in Javascript using `var`, the declaration gets hoisted to the top of the function or to the top of the code if it is declared outside the function. ES6 introduced a <b>Block-level</b> Declaration. In block-level decrations variables are not accessible outside the block `{}` or functions. We declare variables using `let` keyword. While hoisting works for `var` declarations it wouldn't work for `let` declarations. That is why it is a good practice to declare variables at the top of the scope or a function, when we use `let`.
 
 ```javascript
