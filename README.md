@@ -5,8 +5,6 @@
 
 <p> I first learned bits and pieces of ES2015, but after watching Douglas Crockford's talk on ES6 (https://www.youtube.com/watch?v=_EF-FO63MXs), I understood how developing Javascript applications using ES6 is so defferent from ES5-way. This is my personal study note on ES6 or ES2015.</p>
 
-<p>It is useful to see how your ES6 would translate to ES5. Babel REPL is a tool for that: (https://babeljs.io/repl/)</p>
-
  <h3>Reference:</h3>
  <ul>
  <li>Understanding ECMAScript 6 by Nicolas Zakas : (https://leanpub.com/understandinges6/read)</li>
@@ -17,3 +15,9 @@
  <li>Book : Exploring ES6 by Dr. Axel Rauschmayer : (http://exploringjs.com/es6/)</li>
  <li>Javascript Allonge. The "Six" Edition by Reg "raganwald" Braithwaite: (https://leanpub.com/javascriptallongesix/read)</li>
  </ul>
+
+ <h4>Useful Links</h4>
+
+-Writing on Github: Basic Styling and Syntax : (https://help.github.com/articles/basic-writing-and-formatting-syntax/)
+
+-It is useful to see how your ES6 would translate to ES5. Babel REPL is a tool for that: (https://babeljs.io/repl/)
