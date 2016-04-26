@@ -32,8 +32,9 @@ Things we can do now thanks to the introduction of `Template Literals` in ES6:
 - HTML Escaping
 
 ```javascript
+	// here is the Template Literals basic syntax
 	// we use backtick (`) instead of usual (") or (')
 
 	let str = `I am learning ES6`;
-	let str = `I am learning \'ES6\``;	// use backslash (\) to escape backtick (`)
+	let str = `I am learning \`ES6\``;	// use backslash (\) to escape backtick (`)
 ```
