@@ -30,6 +30,7 @@ Template Literals are Javascript expressions. Things we can do now thanks to the
 - Multiline Strings
 - Substitute a part of a string with a variable value
 - HTML Escaping
+- Tagged Templates
 
 ```javascript
 	// here is the Template Literals basic syntax
@@ -66,4 +67,65 @@ We can nest Template Literals:
 	`${who} learning ${what}` }`;
 
 	console.log(message);
+```
+
+<h6>Tagged Templates</h6>
+
+We basically pass the entire Template Literal with its Substitutions to a `TAG Function`, and this function performs the transformation on the string and returns the final string value. Here is the basic syntax for Tagged Templates:
+
+```javascript
+	let message = tag`template literal string`;	// here, `tag` is a Function
+```
+
+This is the basic syntax for the Tag Function:
+
+```javascript
+	function tag(literals, ...substitutions) {
+	//return final string value
+}
+```
+As you can see the `tag function` uses **REST/SPREAD** arguments. Consider this Template Literal example below:
+
+```javascript
+	let who = "I am", 
+	what = "ES6", 
+	message = printTempLiteral`Everyday little by little, ${ 
+	`${who} learning ${what}` }`;
+
+	console.log(message);
+```
+
+Function `printTempLiteral()` will receive 2 arguments. First it will receive `literals array`, basically anything except substituions:
+
+1. Empty string before the 1st substitution ("")
+2. String between 1st and 2nd substitions
+3. String after the 2nd substitution
+
+then it receives all the elements of `substitutions array`.
+So, `literals[0]` is always the 1st thing comes in the Final String. There is always one fewer substitution than literal, which means the expression `substitutions.length === literals.length - 1` is always true.
+
+So, here is the final form of our example:
+
+```javascript
+	function printTempLiteral(literals, ...substitutions) {
+    let result = "";
+
+    // run the loop only for the substitution count
+    for (let i = 0; i < substitutions.length; i++) {
+        result += literals[i];
+        result += substitutions[i];
+    }
+
+    // add the last literal
+    result += literals[literals.length - 1];
+
+    return result;
+	}
+
+	let who = "I am", 
+		what = "ES6", 
+		message = printTempLiteral`Everyday little by little, ${ 
+				`${who} learning ${what}` }`;
+
+	console.log(message);	// Everyday little by little, I am learning ES6
 ```
