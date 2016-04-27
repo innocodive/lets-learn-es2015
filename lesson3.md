@@ -25,7 +25,7 @@ Quote from `Understanding EcmaScript 6` Book:
 > The `startsWith()`, `endsWith()`, and `includes()` methods will throw an error if you pass a regular expression instead of a string. This stands in contrast to `indexOf()` and `lastIndexOf()`, which both convert a regular expression argument into a string and then search for that string.
 
 <h4>Template Literals</h4>
-Things we can do now thanks to the introduction of `Template Literals` in ES6:
+Template Literals are Javascript expressions. Things we can do now thanks to the introduction of `Template Literals` in ES6:
 
 - Multiline Strings
 - Substitute a part of a string with a variable value
@@ -37,4 +37,33 @@ Things we can do now thanks to the introduction of `Template Literals` in ES6:
 
 	let str = `I am learning ES6`;
 	let str = `I am learning \`ES6\``;	// use backslash (\) to escape backtick (`)
+```
+<h6>Multiline Strings</h6>
+
+We don't need to depend on arrays or new line (\n) to create a multiline strings as we used to do. We can put a multiline strings in a backtick (`) and it would do the job for us.
+```javascript
+	let str = `multiline string
+				example`;
+	console.log(str);
+```
+<h6>Substitutions</h6>
+Substitutions are Javascript expessions. We use substitution delimeter `${ }` to embed in a string any accesible local variable in the same scope.
+
+```javascript
+	let who = "I am", 
+	what = "ES6", 
+	message = `${who} learning ${what}`;
+
+	console.log(message);
+```
+
+We can nest Template Literals:
+
+```javascript
+	let who = "I am", 
+	what = "ES6", 
+	message = `Everyday little by little, ${ 
+	`${who} learning ${what}` }`;
+
+	console.log(message);
 ```
