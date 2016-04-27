@@ -129,3 +129,5 @@ So, here is the final form of our example:
 
 	console.log(message);	// Everyday little by little, I am learning ES6
 ```
+
+<h6>Using String.raw() tag in Template Literals</h6>
