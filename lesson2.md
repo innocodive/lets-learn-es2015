@@ -1,5 +1,7 @@
 <h3>Functions</h3>
 
+<h4>Setting Default Values for a function Parameter</h4>
+
 Setting Default Function parameter values didn't exist in pre-ES6 Javascript. We used to simulate that feature using Logixal OR (||) operator.
 
 ```javascript
@@ -24,28 +26,7 @@ Here is how we will achieve this in ES6:
 ```
 myProfile() function expects `name, surname and weight` parameters always be passed. `age and height` parameters have default values. When we call we **myProfile() function** we can either pass different values for `age, height` or we can use `default` values. To do that we need to pass `undefined` to the **myProfile()** function. We cannot pass `null`. It is considered to be valid value.
 
-<h4>Spread or Rest Operator</h4>
-
-ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a look at the example below:
-
-```javascript
-	function foo(...args) {
-    // `args` is already a real array
-
-    console.log( ...args );
-}
-foo(1, 2, 3, 4, 5);		// 1, 2, 3, 4, 5
-```
-We used to do
-```javascript
-	var args = Array.prototype.slice.call( arguments );		// turn `arguments` into a real array
-	// and
-	// pass all `args` as arguments to `foo(..)`
-    foo.apply( null, args );
-```
-<h4>Setting Default Values for a function Parameter</h4>
-
-Setting a Default Value for a Function paramater got much simpler with ES6. Have a look at this example:
+1 more example on Setting a Default Value for a Function paramater:
 
 ```javascript
 	function foo(x = 5, y = 10) {
@@ -72,4 +53,24 @@ This is how your Function `foo()` would look like in pre-ES6 Javascript:
 
     console.log(x + y);
 }
+```
+
+<h4>Spread or Rest Operator</h4>
+
+ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a look at the example below:
+
+```javascript
+	function foo(...args) {
+    // `args` is already a real array
+
+    console.log( ...args );
+}
+foo(1, 2, 3, 4, 5);		// 1, 2, 3, 4, 5
+```
+We used to do
+```javascript
+	var args = Array.prototype.slice.call( arguments );		// turn `arguments` into a real array
+	// and
+	// pass all `args` as arguments to `foo(..)`
+    foo.apply( null, args );
 ```
