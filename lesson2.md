@@ -55,6 +55,27 @@ This is how your Function `foo()` would look like in pre-ES6 Javascript:
 }
 ```
 
+<h4>`arguments` object behaviour</h4>
+
+`arguments` object behaviour changes when there is a default parameter values exist. It behaves the same in both ES5 strict Mode and ES6. In ES5 nonstrict mode the changes in function default parameter values reflects in `arguments` object but ES5 strict mode and ES6 changes in function default parameter values doesn't effect the `arguments` object. Have a look  at this example:
+
+```javascript
+	function argsx(one = 10, two) {
+  //console.log(one + "\n" + two);
+  
+  console.log(arguments[0] === undefined);  //true
+  console.log(arguments[1] === two);        //true
+  
+  one = 35;
+  two = 45;
+  
+  console.log(arguments[0] === one);        //false
+  console.log(arguments[1] === two);        //false
+}
+
+argsx(undefined, 20);
+```
+
 <h4>Spread or Rest Operator</h4>
 
 ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a look at the example below:
