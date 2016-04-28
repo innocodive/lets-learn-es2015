@@ -76,6 +76,10 @@ This is how your Function `foo()` would look like in pre-ES6 Javascript:
 argsx(undefined, 20);
 ```
 
+<h4>Using Functions as a Default Function Parameter Value</h4>
+
+
+
 <h4>Spread or Rest Operator</h4>
 
 ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a look at the example below:
