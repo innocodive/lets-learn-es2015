@@ -131,3 +131,39 @@ So, here is the final form of our example:
 ```
 
 <h6>Using String.raw() tag in Template Literals</h6>
+
+If we have to deal raw string data, the simplest way to achieve that is to use `String.raw()` tag.
+
+```javascript
+	let string1 = `multiline\nString`,
+		string2 = String.raw`Singline\nString`;
+
+		console.log(string1);
+		console.log(string2);
+```
+
+We can pass raw string data into template tags. We need to access to `literal.raw[]` array to get and process the raw string data. We use the same example we used before but with a small change:
+
+```javascript
+	function printTempLiteral(literals, ...substitutions) {
+    let result = "";
+
+    // run the loop only for the substitution count
+    for (let i = 0; i < substitutions.length; i++) {
+        result += literals.raw[i];		// get the raw values
+        result += substitutions[i];
+    }
+
+    // add the last literal
+    result += literals[literals.length - 1];
+
+    return result;
+    }
+
+    let who = "I am", 
+        what = "ES6", 
+        message = printTempLiteral`Everyday little by little\n, ${ 
+                `${who} learning ${what}` }`;
+
+    console.log(message);
+```
