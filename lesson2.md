@@ -78,7 +78,22 @@ argsx(undefined, 20);
 
 <h4>Using Functions as a Default Function Parameter Value</h4>
 
+Default Function Parameter Values could also be a function:
 
+```javascript
+	function getSurname() {
+  		return "Charyyev";
+	}
+
+	function getInitials(name, surname = getSurname()) {
+  		return name + " " + surname;
+	}
+
+	console.log(getInitials("Max"));
+	console.log(getInitials("Max", "Mulkomanoff"));
+```
+
+<h4>Function Default Parameter Value TDZ</h4>
 
 <h4>Spread or Rest Operator</h4>
 
