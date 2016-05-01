@@ -1,7 +1,22 @@
 <h1>Let's learn es2015</h1>
 
 <p>Let's learn ES2015 together. I share my personal Javascript (ES2015) study notes</p>
- -------------------------------
+
+<h4>Table of Contents</h4>
+
+- Block Bindings
+- Strings
+- Functions
+- Objects
+- Classes
+- Arrays
+- Destructuring
+- Sets & Maps
+- Iterators & Generators
+- Async & Javascript Promise
+- Proxies & Reflection
+- Modules
+ 
 
 <p> I first learned bits and pieces of ES2015, but after watching Douglas Crockford's talk on ES6 (https://www.youtube.com/watch?v=_EF-FO63MXs), I understood how developing Javascript applications using ES6 is so defferent from ES5-way. This is my personal study note on ES6 or ES2015.</p>
 
