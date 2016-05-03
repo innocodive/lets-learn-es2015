@@ -95,6 +95,22 @@ Default Function Parameter Values could also be a function:
 
 <h4>Function Default Parameter Value TDZ</h4>
 
+Function parameter initialization only happens when we <u>call</u> the function. If we try to access to any Function parameter which is not initialized yet, will throw an error. Situation here is exactly the same with what we experienced with `let` and `const`. Uninitialized function parameters are in TDZ, when they are called. Have a look at this example:
+
+```javascript
+	function getResult(num1 = num2, num2) {
+  		return num1 + num2;
+	}
+
+	console.log(getResult(10, 20));			//30
+	console.log(getResult(undefined, 10));	//num2 is not defined
+```
+When we call getResult() function with parameters `getResult(undefined, 10)`, will throw an error, because when `num1` is initialized `num2` is not initialized yet, it is in TDZ. 
+
+From <strong>Understanding ECMAScript 6</strong> book:
+> Function parameters have their own scope and their own TDZ that is separate from the function body scope. That means the default value of a parameter cannot access any variables declared inside the function body.
+
+ 
 <h4>Spread or Rest Operator</h4>
 
 ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a look at the example below:
