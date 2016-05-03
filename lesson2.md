@@ -110,7 +110,6 @@ When we call getResult() function with parameters `getResult(undefined, 10)`, wi
 From <strong>Understanding ECMAScript 6</strong> book:
 > Function parameters have their own scope and their own TDZ that is separate from the function body scope. That means the default value of a parameter cannot access any variables declared inside the function body.
 
- 
 <h4>Spread or Rest Operator</h4>
 
 ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a look at the example below:
@@ -130,3 +129,28 @@ We used to do
 	// pass all `args` as arguments to `foo(..)`
     foo.apply( null, args );
 ```
+
+Rest parameter comes with 2 restrictions:
+1) We can only have 1 rest parameter and it should be the last Function parameter.
+
+```javascript
+	function foo(...args, newargs) {
+    // `args` is already a real array
+
+    console.log( ...args );
+}
+foo(1, 2, 3, 4, 5);		// throws an error
+```
+
+2) rest parameter cannot be used in Object setter:
+
+```javascript
+	let ES6Object = {
+
+    set param(...value) {}	//We will se a message "Setter must have exactly one formal parameter."
+	};
+```
+
+<strong>Understanding ECMAScript 6</strong> book:
+> This restriction exists because object literal setters are restricted to a single argument. Rest parameters are, by definition, an infinite number of arguments, so they’re not allowed in this context.
+
