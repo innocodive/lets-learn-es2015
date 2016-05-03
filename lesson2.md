@@ -112,7 +112,7 @@ From <strong>Understanding ECMAScript 6</strong> book:
 
 <h4>Spread or Rest Operator</h4>
 
-ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a look at the example below:
+ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Main reason behind the introduction of the `REST parameter` is to replace `arguments` array-like object. Have a look at the example below:
 
 ```javascript
 	function foo(...args) {
@@ -122,15 +122,16 @@ ES6 introduced a new operator called <b>Spread/Rest Operator (...)</b>. Have a l
 }
 foo(1, 2, 3, 4, 5);		// 1, 2, 3, 4, 5
 ```
-We used to do
+We used to do (ES5):
 ```javascript
-	var args = Array.prototype.slice.call( arguments );		// turn `arguments` into a real array
+	var args = Array.prototype.slice.call( arguments );		
+	// arguments is an array-like object. turn `arguments` into a real array
 	// and
 	// pass all `args` as arguments to `foo(..)`
     foo.apply( null, args );
 ```
 
-Rest parameter comes with 2 restrictions:
+`Rest parameter` comes with 2 restrictions:<br/>
 1) We can only have 1 rest parameter and it should be the last Function parameter.
 
 ```javascript
