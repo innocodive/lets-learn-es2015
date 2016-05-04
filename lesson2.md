@@ -155,3 +155,24 @@ foo(1, 2, 3, 4, 5);		// throws an error
 <strong>Understanding ECMAScript 6</strong> book:
 > This restriction exists because object literal setters are restricted to a single argument. Rest parameters are, by definition, an infinite number of arguments, so they’re not allowed in this context.
 
+<h4>Use of `rest` and `default parameters` with Function Constructor</h4>
+
+With ECMAScript 6, we can now add Default Parameters and Rest Parameters to the Function Constructor. We need to assign a value to the default parameter:
+
+```javascript
+	var multiply = new Function("num1", "num2 = num1", "return num1 * num2");
+
+	console.log(multiply(10, 5)); //50
+	console.log(multiply(10));    //100
+```
+
+This is how we use `rest parameter` in Function Constructor:
+
+```javascript
+	var multiply = new Function("...args", "return args.length");
+
+	console.log(multiply(10, 5)); //2
+	console.log(multiply(10));    //1
+```
+
+This prints the length of the `args` array. One thing that we need to give an attention in these 2 examples is that the <strong>arguments</strong> to the Function Constructor and the Function body are in <strong>String</strong> form.
