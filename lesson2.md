@@ -181,7 +181,7 @@ This prints the length of the `args` array. One thing that we need to give an at
 
 Have a look at this example:
 
-```javascriptspread.apply(undefined, ["a", "b", "c"]);
+```javascript
 	function spread(a, b, c) {
     console.log(a, b, c);
 	}
