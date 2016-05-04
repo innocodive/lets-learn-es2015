@@ -176,3 +176,19 @@ This is how we use `rest parameter` in Function Constructor:
 ```
 
 This prints the length of the `args` array. One thing that we need to give an attention in these 2 examples is that the <strong>arguments</strong> to the Function Constructor and the Function body are in <strong>String</strong> form.
+
+<h4>spread operator examples</h4>
+
+Have a look at this example:
+
+```javascriptspread.apply(undefined, ["a", "b", "c"]);
+	function spread(a, b, c) {
+    console.log(a, b, c);
+	}
+
+	spread( ...["a", "b", "c"] ); 
+```
+We pass an array to the **spread function**, and this array elements will be spread out to its individual values as Function parameters. This is how we would do it with ES5:
+```javascript
+	spread.apply(undefined, ["a", "b", "c"]);
+```
