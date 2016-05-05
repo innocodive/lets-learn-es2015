@@ -192,3 +192,26 @@ We pass an array to the **spread function**, and this array elements will be spr
 ```javascript
 	spread.apply(undefined, ["a", "b", "c"]);
 ```
+
+<h4>ES6 name property</h4>
+
+ES6 added name property to Functions. It makes debugging easy.
+
+```javascript
+	function one() {}
+	var two = function() {};
+	var three = function four() {};
+
+	var object = {
+		myAge : function() {}
+	};
+
+	console.log(one.name);					//one
+	console.log(two.name);					//two
+	console.log(three.name);				//four
+	console.log(object.myAge.name);			//myAge
+
+	console.log(one.bind().name);			//bound one
+
+	console.log((new Function()).name);		//anonymous
+```
