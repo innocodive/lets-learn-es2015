@@ -215,3 +215,43 @@ ES6 added name property to Functions. It makes debugging easy.
 
 	console.log((new Function()).name);		//anonymous
 ```
+
+<h4>Find out how a Function is called</h4>
+
+ES6 introduced a new metaporty called <strong>new.target</strong>.
+Understanding ECMAScript 6 Book:
+> A metaproperty is a property of a non-object that provides additional information related to its target (such as new).
+
+<strong>Why do we need that metaproperty?</strong>
+Functions have 2 internal methods: [[Call]] and [[Construct]] internal methods. What is inside the Function (Function body) is gets executed by one of these internal methods. If [[Call]] method is called, it just executes the Function body. If [[Construct]] method is called, it creates a new object and sets `this` to the new target and executes the Function body.
+Now, if we want to find out how our Function is called, the commonly used method is using `instanceof` operator. When we call a Function using `new` operator, Javascript Engine calls [[Construct]] internal function method to create a new object, set `this` to the calling object and execute the Function. If we don't use `new` operator when we call a Function, then [[Call]] method executes the Function body but we don't have a new target object. Have a look at the examples below:
+
+```javascript
+	function Calculate(num1, num2) {
+  		if(this instanceof Calculate) {
+    		this.num1 = num1;
+    		this.num2 = num2;
+  		}
+	}
+
+	var one = new Calculate(10, 5);
+
+	console.log(one);		// {"num1":10,"num2":5}
+```
+Now, let's see what happens if we call the Callculate Function without using `new` operator.
+
+```javascript
+	function Calculate(num1, num2) {
+  		if(this instanceof Calculate) {
+    		this.num1 = num1;
+    		this.num2 = num2;
+  		} else {
+    		throw new Error("You forgot to use new operator. [[Call]] method got called. Target object is missing.");
+  		}
+	}
+
+	var one = new Calculate(10, 5);
+	var two = Calculate(5, 10);
+```
+
+We get an error message here, because `this` is not set to the target object. It shows the global object.
