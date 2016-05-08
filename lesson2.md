@@ -223,7 +223,7 @@ Understanding ECMAScript 6 Book:
 > A metaproperty is a property of a non-object that provides additional information related to its target (such as new).
 
 <strong>Why do we need that metaproperty?</strong>
-Functions have 2 internal methods: [[Call]] and [[Construct]] internal methods. What is inside the Function (Function body) is gets executed by one of these internal methods. If [[Call]] method is called, it just executes the Function body. If [[Construct]] method is called, it creates a new object and sets `this` to the new target and executes the Function body.
+Functions have 2 internal methods: [[Call]] and [[Construct]] internal methods. What is inside the Function (Function body) gets executed by one of these internal methods. If [[Call]] method is called, it just executes the Function body. If [[Construct]] method is called, it creates a new object and sets `this` to the new target and executes the Function body.
 Now, if we want to find out how our Function is called, the commonly used method is using `instanceof` operator. When we call a Function using `new` operator, Javascript Engine calls [[Construct]] internal function method to create a new object, set `this` to the calling object and execute the Function. If we don't use `new` operator when we call a Function, then [[Call]] method executes the Function body but we don't have a new target object. Have a look at the examples below:
 
 ```javascript
@@ -255,3 +255,40 @@ Now, let's see what happens if we call the Callculate Function without using `ne
 ```
 
 We get an error message here, because `this` is not set to the target object. It shows the global object.
+Now, we can check if the `new` operator is used when the Function is called through type checking. Have a look at the example below:
+
+```javascript
+	function Calculate(num1, num2) {
+  		if(typeof new.target === "function") {
+    		this.num1 = num1;
+    		this.num2 = num2;
+  		}
+	}
+
+	var one = new Calculate(10, 5);
+
+	console.log(one);
+```
+If we do `console.log(new.target)`, it will print Calculate Function. If we don't use `new` operator when we call a function, we will get an undefined return. Another example:
+
+```javascript
+	function Calculate(num1, num2) {
+  		if(typeof new.target === "function") {
+    		this.num1 = num1;
+    		this.num2 = num2;
+  		}
+	}
+
+	function DontCalculate(num1, num2){
+  		Calculate.call(this, num1, num2);
+	}
+
+		var one = new Calculate(10, 5);
+		var two = new DontCalculate(20, 30);
+
+		console.log(one);
+		console.log(two);
+```
+
+In this example `typeof new.target` for DontCalculate will be `undefined` and returned result will be an empty Object. It shows that using `Function.call(this)` approach also calls [[Call]] internal Function method, therefore new object is not created and new.target is undefined.
+
