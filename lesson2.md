@@ -329,8 +329,13 @@ Difference between Arrow Functions (=>) and traditional JS Functions. Arrow Func
 Arrow Functions are useful in eliminating `this` bindings related errors and confusions. Arrow Functions make the code optimization easy for a Javascript Engine.
 
 ```javascript
-	var returnNumber = value => value;
+| ES6 Arrow Functions 						| ES5 Function equivalent |
+|-------------------------------------------|-------------------------|
+|	var returnNumber = value => value; 		| "use strict";
 
-	console.log(returnNumber(10));
-	console.log(returnNumber.name);
+	console.log(returnNumber(10));			  var returnNumber = function returnNumber(value) {
+	console.log(returnNumber.name);			  return value;
+											  };
+											  console.log(returnNumber(10));
+											  console.log(returnNumber.name);
 ```
