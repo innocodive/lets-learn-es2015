@@ -292,3 +292,45 @@ If we do `console.log(new.target)`, it will print Calculate Function. If we don'
 
 In this example `typeof new.target` for DontCalculate will be `undefined` and returned result will be an empty Object. It shows that using `Function.call(this)` approach also calls [[Call]] internal Function method, therefore new object is not created and new.target is undefined.
 
+<h4>Block-Level Function in ES6</h4>
+
+Function Declarations inside the block ({}) in ES5 strict mode would give an error.
+
+```javascript
+	 "use strict";
+
+	if(true) {
+		console.log(Calculate());
+		console.log(Multiply());
+
+		function Calculate() {
+			console.log("function definition body");
+		}
+
+		let Multiply = function() {
+			console.log("function expression body");
+		}
+	}
+	console.log(typeof Calculate);
+	console.log(typeof Multiply);
+```
+This example wouldn't give the expected result in ES5 Strict Mode but it works in ES6. Function Declarations inside the block is considered as `Block-Level Functions` in ES6. Function Declarations get hoisted to the top of the block. That is why we can access the Function Declarations before we even they were declared. On the other hand, Function expressions which are declared using `let` would not be hoisted to the top of the block. That is why calling it before it was declared will give an error. This can be very handy feature when you decide to use hoisting or not in the block.
+Block-Level Functions are not accessible outside the block. In ES5 non-strict mode, `function Calculate() {}` would be hoisted to the Global Scope. That is why `typeof` would give us a `function`.
+
+<h4>Arrow Functions</h4>
+Difference between Arrow Functions (=>) and traditional JS Functions. Arrow Functions:
+
+- They have NO `this, super, new.target, arguments`. 
+- They don't have [[Construct]] internal Function method. can't be called using `new` opearator
+- No `prototype` property
+- No `arguments`. We can only use named Function parameters and Rest operators to access to Function arguments
+- Function arguments cannot have dublicate names in either mode
+
+Arrow Functions are useful in eliminating `this` bindings related errors and confusions. Arrow Functions make the code optimization easy for a Javascript Engine.
+
+```javascript
+	var returnNumber = value => value;
+
+	console.log(returnNumber(10));
+	console.log(returnNumber.name);
+```
