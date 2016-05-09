@@ -333,9 +333,10 @@ Arrow Functions are useful in eliminating `this` bindings related errors and con
 |-------------------------------------------|-------------------------|
 |	var returnNumber = value => value; 		| "use strict";
 
-	console.log(returnNumber(10));			  var returnNumber = function returnNumber(value) {
-	console.log(returnNumber.name);			  return value;
-											  };
-											  console.log(returnNumber(10));
-											  console.log(returnNumber.name);
+	console.log(returnNumber(10));			| var returnNumber = function returnNumber(value) {
+	console.log(returnNumber.name);			|  	return value;
+											|  };
+											|  console.log(returnNumber(10));
+											|  console.log(returnNumber.name);
+--------------------------------------------------------------------------|
 ```
