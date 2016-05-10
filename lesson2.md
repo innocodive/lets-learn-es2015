@@ -340,3 +340,57 @@ Arrow Functions are useful in eliminating `this` bindings related errors and con
 											|  console.log(returnNumber.name);
 --------------------------------------------------------------------------|
 ```
+```javascript
+	function calculate() {
+  		var num1 = 10;
+  		var num2 = 20;
+  		return num1 + num2;
+	}
+
+	var returnNumber = () => calculate();
+
+	console.log(returnNumber());
+```
+```javascript
+	var myName = () => "Max Charyyev";
+```
+```javascript
+	var result = (num1 + num2) => {
+		return num1 + num2;
+	};
+```
+```javascript
+	var result = () => ({
+		name : "Max",
+		surname : "Charyyev"
+	});
+```
+```javascript
+	// this is a typical IIFE. we define an anonymous function, call it immediately. create a scope.
+
+	let me = function(age) {
+  
+  	return {
+    	myInitials : function() {
+      		return "Max Charyyev";
+    	}
+  	};
+  
+	}(25);
+
+	console.log(me.myInitials());
+
+	// this is how we can achieve the same IIFE using Arrow Functions
+
+	let me = ((age) => {
+  
+  	return {
+    	myInitials : function() {
+      		return "Max Charyyev";
+    	}
+  	};
+  
+	})(25);
+
+	console.log(me.myInitials());
+```
