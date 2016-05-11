@@ -394,3 +394,70 @@ Arrow Functions are useful in eliminating `this` bindings related errors and con
 
 	console.log(me.myInitials());
 ```
+
+After seeing these examples, one thing takes my attention and it is <strong>shorter syntax</strong>. It improves readibility of the code if our functions are short. But in lengthy, complicated code out of habit we tend to look for `function` keyword to understand the scope and look for the `return` to see what gets returned. Basically, it doesn't improve the readibility in a complicated, long code.
+
+<h4>Arrow Functions and `this` binding</h4>
+
+Main reason `=>` is designed is to solve dynamic `this` binding issues in some code. Have a look at this example from a "Understanding ECMAScript 6" book:
+
+```javascript
+	var PageHandler = {
+
+    id: "123456",
+
+    init: function() {
+        document.addEventListener("click", function(event) {
+            this.doSomething(event.type);     // error
+        	}, false);
+    	},
+
+    doSomething: function(type) {
+        console.log("Handling " + type  + " for " + this.id);
+    	}
+	};
+```
+
+This code wouldn't work the way we expect. `this.doSomething(event.type)` is showing `document` object as a target, so, `doSomething()` function is not on document object but it is on `PageHandler` object. That is why we will get an error. Generally, these type of dynamic <strong>this</strong> related issues are solved using `bind(this)` or `self = this` approaches. We could change the code above slightly:
+
+```javascript
+	var PageHandler = {
+
+    id: "123456",
+
+    init: function() {
+        document.addEventListener("click", function(event) {
+            this.doSomething(event.type);     // error
+        }.bind(this), false);
+    },
+
+    doSomething: function(type) {
+        console.log("Handling " + type  + " for " + this.id);
+    }
+};
+```
+
+Doing `document.addEventListener().bind(this)`. bind(this) creates another function and binds its `this` to the current object which is `PageHandler`, not the target object, which is `document` object. We could use <strong>Arrow Functions</strong> to solve this issue.
+
+```javascript
+	var PageHandler = {
+
+    id: "123456",
+
+    init: function() {
+        document.addEventListener("click",
+                event => this.doSomething(event.type), false);
+    },
+
+    doSomething: function(type) {
+        console.log("Handling " + type  + " for " + this.id);
+    }
+};
+```
+
+Arrow Function has no `this` binding. Nonarrow Function which contains an arrow function would be target for `this`. In this example `this` for an arrow function would be the same with containing `init` function. 
+Now, what if we use have `this` binding where we didn't have to use `self = this` or `bind(this)` solution, but we decide to use `=>`. Have a look at the example below:
+
+```javascript
+	// coming soon
+```
