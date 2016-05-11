@@ -459,5 +459,32 @@ Arrow Function has no `this` binding. Nonarrow Function which contains an arrow 
 Now, what if we use have `this` binding where we didn't have to use `self = this` or `bind(this)` solution, but we decide to use `=>`. Have a look at the example below:
 
 ```javascript
-	// coming soon
+	var obj = {
+  		func1 : function() {
+    		console.log("function 1");
+    		this.func2();
+  		},
+  		func2 : function() {
+    		console.log("function 2");
+  		}
+	};
+
+	obj.func1();
 ```
+Let's write the same example using `=>`:
+```javascript
+	var obj = {
+  		func1 : () => {
+    		console.log("function 1");
+    		this.func2();
+  		},
+  		func2 : () => {
+    		console.log("function 2");
+  		}
+	};
+
+	obj.func1();	//function 1
+					//Cannot read property 'func2' of undefined
+```
+Arrow Functions get `this` from their parents. In our example it is a global object. That is why, `this` in <i>this.func2()</i> shows the global object where there is no func2() function.
+
