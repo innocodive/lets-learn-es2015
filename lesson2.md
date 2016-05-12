@@ -488,3 +488,15 @@ Let's write the same example using `=>`:
 ```
 Arrow Functions get `this` from their parents. In our example it is a global object. That is why, `this` in <i>this.func2()</i> shows the global object where there is no func2() function.
 
+<h4>Accessing the `arguments` in a parent Function using Arrow Functions</h4>
+
+Here is an example:
+```javascript
+	function argReturn() {
+  		return () => arguments[0];
+	}
+
+	var retr = new argReturn([10, 20], 30);
+
+	console.log(retr());
+```
