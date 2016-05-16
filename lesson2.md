@@ -535,3 +535,14 @@ Here is an example:
 
 	console.log(retr());
 ```
+
+<strong>So, where to use Arrow Functions? (http://bit.ly/1Sc0kZt)</strong>
+
+- Use `function` in the global scope and for `Object.prototype` properties.
+- Use `class` for object constructors.
+- Use `=>` everywhere else.
+
+<h4>Arrow Function Resource:</h4>
+- Real Life ES6 - Arrow Functions by Jack Franklin (http://bit.ly/1TVbe4e)
+- Where should I use Arrow Functions in ES6 (http://bit.ly/27qW2mC)
+- Use of Arrow Functions by 2ality: (http://bit.ly/1JUew4L)
