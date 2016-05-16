@@ -414,7 +414,23 @@ console.log(GitHubbers.map(function(pusher) {
 // ES6. Arrow Functions
 console.log(GitHubbers.map(pusher => pusher.pushes));
 ```
-Short, simple and clean.
+Short, simple and clean. 
+Below, we use ES6 Arrow Functions and Javascript Array Filter method to find out and print Prime numbers:
+
+```javascript
+	var isPrimeNumber = num => {
+  		if(num < 2) return false;
+    		for (var i = 2; i < num; i++) {
+        		if(num % i == 0)
+            		return false;
+    			}
+    	return true;
+	};
+
+	var first10 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	var primeNumbers = first10.filter(isPrimeNumber);
+	console.log(primeNumbers);
+```
 
 <h4>Arrow Functions and `this` binding</h4>
 
