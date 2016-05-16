@@ -395,7 +395,26 @@ Arrow Functions are useful in eliminating `this` bindings related errors and con
 	console.log(me.myInitials());
 ```
 
-After seeing these examples, one thing takes my attention and it is <strong>shorter syntax</strong>. It improves readibility of the code if our functions are short. But in lengthy, complicated code out of habit we tend to look for `function` keyword to understand the scope and look for the `return` to see what gets returned. Basically, it doesn't improve the readibility in a complicated, long code.
+After seeing these examples, one thing takes my attention and it is <strong>shorter syntax</strong>. It improves readibility of the code if our functions are short. But in lengthy, complicated code, out of habit we tend to look for `function` keyword to understand the scope and look for the `return` to see what gets returned. Basically, it doesn't improve the readibility in a complicated, long code.
+
+More Arrow Functions examples:
+
+```javascript
+	var GitHubbers = [
+  		{ name : "Mathias Bynens", pushes : 1451 },
+  		{ name : "Jack Franklin", pushes : 1298 },
+  		{ name : "Max Charyyev", pushes : 47 }
+	];
+
+// ES5
+console.log(GitHubbers.map(function(pusher) {
+  return pusher.pushes;
+}));
+
+// ES6. Arrow Functions
+console.log(GitHubbers.map(pusher => pusher.pushes));
+```
+Short, simple and clean.
 
 <h4>Arrow Functions and `this` binding</h4>
 
