@@ -33,6 +33,6 @@
 
  <h4>Useful Links</h4>
 
-- Writing on Github: Basic Styling and Syntax : (https://help.github.com/articles/basic-writing-and-formatting-syntax/)
-
-- It is useful to see how your ES6 would translate to ES5. Babel REPL is a tool for that: (https://babeljs.io/repl/)
+- [Writing on Github: Basic Styling and Syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
+- [GitHub Markdown Cheatsheet](http://bit.ly/1dQOfRK)
+- [It is useful to see how your ES6 would translate to ES5. Babel REPL is a tool for that](https://babeljs.io/repl/)
