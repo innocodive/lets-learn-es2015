@@ -28,7 +28,7 @@
  - [List of ES6 Features and quick introductiion with examples](https://github.com/lukehoban/es6features#readme)
  - [Exploring ES6 by Dr. Axel Rauschmayer](http://exploringjs.com/es6/)
  - [Javascript Allonge. The "Six" Edition by Reg "raganwald" Braithwaite](https://leanpub.com/javascriptallongesix/read)
-
+ 
  <h4>Useful Links</h4>
 - [Writing on Github: Basic Styling and Syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
 - [GitHub Markdown Cheatsheet](http://bit.ly/1dQOfRK)
