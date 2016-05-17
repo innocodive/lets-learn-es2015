@@ -4,7 +4,7 @@
 
 <h4>Table of Contents</h4>
 
-- Block Bindings
+- [Block Bindings](https://github.com/innocodive/lets-learn-es2015/blob/master/Block-binding.md)
 - Strings
 - Functions
 - Objects
