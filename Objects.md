@@ -25,6 +25,7 @@ Object Literals in ES5 is basically name - value pairs. It is short and concise.
 If we look at this example, we can see duplication of function properties and returned object parameters. In ES6, we can make this example even shorter. If object property names are the same as the function parameter names, we can only use object property names. 
 Learning ECMAScript 6 Book:
 > When a property in an object literal only has a name, the JavaScript engine looks into the surrounding scope for a variable of the same name. If it finds one, that variable’s value is assigned to the same name on the object literal.
+
 We can modify the above example for ES6:
 ```javascript
 	function initialize(name, surname) {
