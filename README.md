@@ -28,9 +28,9 @@
  - [Fantastic ES6 Resources](https://github.com/ericdouglas/ES6-Learning)
  - [List of ES6 Features and quick introductiion with examples](https://github.com/lukehoban/es6features#readme)
  - [Exploring ES6 by Dr. Axel Rauschmayer](http://exploringjs.com/es6/)
- - [Javascript Allonge. The "Six" Edition by Reg "raganwald" Braithwaite](https://leanpub.com/javascriptallongesix/read)
+ - [Javascript Allonge. The "Six" Edition by Reg "raganwald" Braithwaite](https://leanpub.com/javascriptallongesix/read).
 
- <h4>Useful Links</h4>
+<h4>Useful Links</h4>
 1. [Writing on Github: Basic Styling and Syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
 2. [GitHub Markdown Cheatsheet](http://bit.ly/1dQOfRK)
 3. [It is useful to see how your ES6 would translate to ES5. Babel REPL is a tool for that](https://babeljs.io/repl/)
