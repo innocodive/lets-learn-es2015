@@ -5,9 +5,9 @@
 <h4>Table of Contents</h4>
 
 - [Block Bindings](https://github.com/innocodive/lets-learn-es2015/blob/master/Block-binding.md)
-- Strings
-- Functions
-- Objects
+- [Strings](https://github.com/innocodive/lets-learn-es2015/blob/master/Strings.md)
+- [Functions](https://github.com/innocodive/lets-learn-es2015/blob/master/Functions.md)
+- [Objects](https://github.com/innocodive/lets-learn-es2015/blob/master/Objects.md)
 - Classes
 - Arrays
 - Destructuring
