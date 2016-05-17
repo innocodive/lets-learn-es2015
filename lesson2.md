@@ -547,13 +547,15 @@ Here is an example:
 - Where should I use Arrow Functions in ES6 (http://bit.ly/27qW2mC)
 - Use of Arrow Functions by 2ality: (http://bit.ly/1JUew4L)
 
-<h4>Turning Tail Call Optimization on in ES6  Strict Mode</h4>
+<h4>Tail Call Optimization (TCO) in ES6  Strict Mode</h4>
 
 What is a `Tail Call`? <br/>
 Tail Call is a Function call as a last statement in a Function. Javascript Engine optimizes the Call Stack in ES6 Strict Mode if certain conditions are met:
 - If a Tail Call is not a Closure
 - If a Tail Call is the last task in the Function
 - If a <strong>result</strong> of a Tail Call is returned
+
+Tail Call Optimization happens behind the scene and it is primary use case is recursive functions.
 
 ```javascript
 	function outer() {
