@@ -39,3 +39,28 @@ We can modify the above example for ES6:
 
 	console.log(initialize("Max", "Charyyev"));
 ```
+
+<h4>Concise Method Syntax</h4>
+
+ES6 introduces some minor changes to how we define an object method. Have a look at the example below:
+
+```javascript
+	// ES5
+	var me = {
+		name : "Max Charyyev",
+		printMyName : function() {
+			console.log(this.name);
+		}
+	};
+
+	// ES6
+	var me = {
+		name : "Max Charyyev",
+		printMyName() {
+			console.log(this.name);
+		}
+	};
+	
+	me.printMyName();
+```
+We don't have to specify a name for the method and we don't need a `function` keyword. The rest of the synatx is the same with ES5. `printMyName` method created on `me` object and an anonymous function is assigned to `printMyName` property.
