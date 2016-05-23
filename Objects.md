@@ -84,3 +84,16 @@ When we use bracket notation, we can set any string value as an Object property.
 
 	console.log(object["another name"]);
 ```
+In this example, `name` in `you[name]` is a <strong>computed property name</strong>. In ES6, computed property names are part of the Object Literal Syntax. So, the example below works in ES6:
+
+```javascript
+	var name = "your name";
+
+	var object = {
+  		"another name" : "Mary Magpie",
+  		[name] : "Mathew Hall"
+	};
+
+	console.log(object["another name"]);
+	console.log(object[name]);
+```
