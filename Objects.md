@@ -97,3 +97,8 @@ In this example, `name` in `you[name]` is a <strong>computed property name</stro
 	console.log(object["another name"]);
 	console.log(object[name]);
 ```
+
+<h4>New Global Object Methods</h4>
+
+Object.is() method to compare the values.
+Object.assign() method is introduced to perform object composition in Javascript, to enhance mixin() approach.
