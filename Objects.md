@@ -64,3 +64,23 @@ ES6 introduces some minor changes to how we define an object method. Have a look
 	me.printMyName();
 ```
 We don't have to specify a name for the method and we don't need a `function` keyword. The rest of the synatx is the same with ES5. `printMyName` method created on `me` object and an anonymous function is assigned to `printMyName` property.
+
+<h4>Square Brackets in Objects</h4>
+
+When we use bracket notation, we can set any string value as an Object property. Object property names with spaces makes it impossible to reference them later using dot notation.
+
+```javascript
+	var me = {}, you = {}, name = "your name";
+
+	me["my name"] = "Max Charyyev";
+	you[name] = "Alexander Gintsburg";
+
+	console.log(me["my name"]);
+	console.log(you[name]);
+
+	var object = {
+  		"another name" : "Mary Magpie",
+	};
+
+	console.log(object["another name"]);
+```
