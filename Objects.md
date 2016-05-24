@@ -117,3 +117,33 @@ Object.is() method works exactly the same with `===`. There are only acouple of 
 	console.log(Object.is(NaN, NaN));   //true
 	console.log(Object.is(+0, -0));     //false
 ```
+
+Object.assign() method:
+Mixins are used to shallow copy one object's properties and methods without inheriting from that object.
+
+```javascript
+	function mixin(receiver, supplier) {
+    Object.keys(supplier).forEach(function(key) {
+        receiver[key] = supplier[key];
+    });
+
+    return receiver;
+}
+
+	var object1 = {
+		name : "Max",
+		surname : "Charyyev",
+		getName : function() {
+			return this.name + " - " + this.surname;
+		}
+	};
+
+	object2 = {};
+
+	mixin(object2, object1);
+
+	object2.getName();
+```
+Because, this pattern is used often, ES6 added Object.assign() method. It accepts many suppliers. Latest supplier may overwrite the earlier suppliers properties on the receiver.
+`Object.assign(receiver, supplier1, supplier2);`
+
