@@ -100,5 +100,20 @@ In this example, `name` in `you[name]` is a <strong>computed property name</stro
 
 <h4>New Global Object Methods</h4>
 
-Object.is() method to compare the values.
-Object.assign() method is introduced to perform object composition in Javascript, to enhance mixin() approach.
+<strong>Object.is()</strong> method to compare the values.
+<strong>Object.assign()</strong> method is introduced to perform object composition in Javascript, to enhance mixin() approach.
+
+Object.is() method works exactly the same with `===`. There are only acouple of cases it will give you more accurate result than `===` operator. 
+- +0 and -0 are are not the same in Javascript Engine, but `===` operator will return true when they are compared.
+- NaN === NaN will return false, but Object.is() method will return true.
+
+```javascript
+	console.log(NaN == NaN);    //false
+	console.log(NaN === NaN);   //false
+
+	console.log(+0 == -0);      //true
+	console.log(+0 === -0);     //true
+
+	console.log(Object.is(NaN, NaN));   //true
+	console.log(Object.is(+0, -0));     //false
+```
