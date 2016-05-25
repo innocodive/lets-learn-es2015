@@ -210,3 +210,47 @@ ES5 had object.getPrototypeOf() method to get the object prototype but assumptio
 ```
 This example doesn't require much explanation. 
 Object prototype values are stored in internal property called [[prototype]].
+
+<h5>`Super` Reference</h5>
+
+ES6 introduced `super` to make it easy to access to any functionality in an object's prototype.
+
+```javascript
+	let foodShop = {
+  		action : "we serve delicious food",
+  		whatToEat() {
+    		return this.action;
+  		}
+	};
+
+	let itsu = {
+  		//action : "you can have noodles",
+  		whatToEat() {
+    		return super.whatToEat() + " and drinks";
+  		}
+	};
+
+	// foodShop -> itsu -> diner
+
+	Object.setPrototypeOf(itsu, foodShop);
+	let diner = Object.create(itsu);
+
+	console.log(foodShop.whatToEat());
+	console.log(itsu.whatToEat());
+	console.log(diner.whatToEat());
+
+	//we serve delicious food
+	//we serve delicious food and drinks
+	//we serve delicious food and drinks
+	/* 
+	Note: 
+		If we define `action` on itsu object we will get the result below:
+		we serve delicious food
+		you can have noodles and drinks
+		you can have noodles and drinks
+	*/
+```
+Super references are `NOT` dynamic. In the above example `super.whatToEat()` always refers to fooShop.whatToEat().
+If we had to do it ES5 way, we had to use <br/>
+`return Object.getPrototypeOf(this).whatToEat.call(this) + ", and drink";` enstead of
+`return super.whatToEat() + " and drinks";` in `itsu` object. But we would get and error, when we do `console.log(diner.whatToEat());`. 
