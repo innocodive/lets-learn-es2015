@@ -254,3 +254,5 @@ Super references are `NOT` dynamic. In the above example `super.whatToEat()` alw
 If we had to do it ES5 way, we had to use <br/>
 `return Object.getPrototypeOf(this).whatToEat.call(this) + ", and drink";` enstead of
 `return super.whatToEat() + " and drinks";` in `itsu` object. But we would get and error, when we do `console.log(diner.whatToEat());`. 
+
+<h4>ES6 Methods and [[HomeObject]] property</h4>
