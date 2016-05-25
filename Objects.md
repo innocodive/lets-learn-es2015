@@ -147,3 +147,36 @@ Mixins are used to shallow copy one object's properties and methods without inhe
 Because, this pattern is used often, ES6 added Object.assign() method. It accepts many suppliers. Latest supplier may overwrite the earlier suppliers properties on the receiver.
 `Object.assign(receiver, supplier1, supplier2);`
 
+<h5>Overwriting Object Literal properties</h5>
+
+```javascript
+	"use strict";
+
+	var learn = {
+	javascript : "ES5",
+	javascript : "ES6"
+	};
+
+	console.log(learn.javascript);
+```
+This example wouldn't work on ES5 Strict Mode (Syntax Error). It works on ES6 Strict Mode. Latest Object Literal Property value would overwrite the old property value.
+
+<h5>Object's own properties order</h5>
+
+```javascript
+	var object = {
+  		a:1,
+  		c:6,
+  		d:3,
+  		0:3,
+  		3:6,
+  		9:2,
+  		1:0
+	};
+
+	object.b = 34;
+
+	console.log(Object.getOwnPropertyNames(object).join(""));	//0139acdb
+```
+Based on what we see in this `key - value pairs` from the result, we can say that, numeric keys are sorted/grouped together, but all string keys are grouped together but not sorted, they are in the same order as they are added to the object, including the dynamic key added later which comes after the already added keys on the object.
+
