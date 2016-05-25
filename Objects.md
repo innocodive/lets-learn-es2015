@@ -180,3 +180,33 @@ This example wouldn't work on ES5 Strict Mode (Syntax Error). It works on ES6 St
 ```
 Based on what we see in this `key - value pairs` from the result, we can say that, numeric keys are sorted/grouped together, but all string keys are grouped together but not sorted, they are in the same order as they are added to the object, including the dynamic key added later which comes after the already added keys on the object.
 
+<h4>Change Object Prototype in ES6</h4>
+
+ES5 had object.getPrototypeOf() method to get the object prototype but assumption was the object prototype stays the same after its instatntiation. ES6 introduced a standard way of changing objects' prototype using `Object.setPrototypeOf()` method.
+
+```javascript
+	let pretAManger = {
+  		action : "you can have a sandwich",
+  		whatToEat() {
+    		return this.action;
+  		}
+	};
+
+	let itsu = {
+  		action : "you can have noodles",
+  		whatToEat() {
+    		return this.action;
+  		}
+	};
+
+	let foodShop = Object.create(pretAManger);
+	console.log(foodShop.whatToEat());
+	console.log(Object.getPrototypeOf(foodShop) === pretAManger);
+
+	Object.setPrototypeOf(foodShop, itsu);
+
+	console.log(foodShop.whatToEat());
+	console.log(Object.getPrototypeOf(foodShop) === itsu);
+```
+This example doesn't require much explanation. 
+Object prototype values are stored in internal property called [[prototype]].
