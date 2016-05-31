@@ -256,3 +256,11 @@ If we had to do it ES5 way, we had to use <br/>
 `return super.whatToEat() + " and drinks";` in `itsu` object. But we would get and error, when we do `console.log(diner.whatToEat());`. 
 
 <h4>ES6 Methods and [[HomeObject]] property</h4>
+
+According to ES6 specs `a method` is a function with a [[HomeObject]] internal property. [[HomeObject]] contains an object name whict it belongs and the value of [[HomeObject]] is only set when the function is first created.
+When a method is created it is assigned to an object which it belongs to and its [[HomeObject]] internal property is set to the same object. This distinction becomes very important especially when we use `super` keyword to access to the parent object properties.
+
+```javascript
+	// example
+```
+
