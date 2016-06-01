@@ -21,3 +21,19 @@ Have a look at the example below:
 Give an attention to these 2 important details:
 - In this line `let { activity1, activity2, activity3 } = habits;` these 3 variable names must be the same with  `habits` object property names. You cannot do this: `let { a1, a2, a3 } = habits;`.
 - You cannot do this: `let {act1, act2, act3 };`. we must initialize this structure like `let { a1, a2, a3 } = habits`.
+We can overwrite the existing variables:
+
+```javascript
+	let habits = {
+  		activity1 : "fitness training",
+  		activity2 : "eating healthy food",
+  		activity3 : "coding"
+	}, 
+ 	activity1 = "smoking",
+ 	activity2 = "sleeping",
+ 	activity3 = "binge drinking";
+
+	({ activity1, activity2, activity3 } = habits);	// give an attention to how this is destructured
+
+	console.log(activity1, activity2, activity3);
+```
