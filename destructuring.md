@@ -33,7 +33,9 @@ We can overwrite the existing variables:
  	activity2 = "sleeping",
  	activity3 = "binge drinking";
 
-	({ activity1, activity2, activity3 } = habits);	// give an attention to how this is destructured
-
+	({ activity1, activity2, activity3 } = habits);
+	/* 
+		give an attention to how the line above is destructured. A block statement cannot be on the left side of the `=`, that is why we put paranthesis around the statement to show that this is an expression.
+	*/
 	console.log(activity1, activity2, activity3);
 ```
