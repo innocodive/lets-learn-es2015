@@ -39,3 +39,53 @@ We can overwrite the existing variables:
 	*/
 	console.log(activity1, activity2, activity3);
 ```
+Another example:
+
+```javascript
+	let habits = {
+  		activity1 : "fitness training",
+  		activity2 : "eating healthy food",
+  		activity3 : "coding"
+	}, 
+ 	activity1 = "smoking",
+ 	activity2 = "sleeping",
+ 	activity3 = "binge drinking";
+ 
+ 	function activity(act) {
+   		console.log(act === habits);
+   		console.log(act.activity1);
+ 	}
+ 
+ 	activity({ activity1, activity2, activity3 } = habits);
+
+ 	/*
+ 		there is no trickin the above line of code. Assignment is done first and then `habits` object is passed to the `activity` function as a parameter.
+ 	*/
+
+	console.log(activity1, activity2, activity3);
+```
+One more example:
+```javascript
+	let habits = {
+  		activity1 : "fitness training",
+  		activity2 : "eating healthy food",
+  		activity3 : "coding"
+	}, 
+ 	activity1 = "smoking",
+ 	activity2 = "sleeping",
+ 	activity3 = "binge drinking",
+ 	onemore = "watching TV";
+ 
+ 	function activity(act) {
+   		console.log(act === habits);
+   		console.log(act.activity1);
+ 	}
+
+	({ activity1, activity2, activity3, onemore } = habits);
+
+	console.log(activity1, activity2, activity3, onemore);
+	/*
+		fitness training eating healthy food coding undefined
+	*/
+```
+We get undefined for `onemore` variable.
