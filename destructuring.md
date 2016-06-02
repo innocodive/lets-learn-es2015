@@ -89,3 +89,18 @@ One more example:
 	*/
 ```
 We get undefined for `onemore` variable.
+<p>If we want to have different variable names than object property names, this is how we do it:</p>
+```javascript
+	let habits = {
+  		activity1 : "fitness training",
+  		activity2 : "coding"
+	};
+
+	let { activity1 : a1, activity2 : a2 } = habits;
+	let { activity1 : x1, activity3 : x2 = "eating healthy food" } = habits;	//using default values
+
+	console.log(a1, a2);
+	console.log(x1, x2);
+```
+In the example above `activity1 : a1` means left of the colon (:) is a location of a value and right side is a name of the value.
+
