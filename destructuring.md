@@ -139,3 +139,23 @@ Array destructuring sysntax is very similar to Object destructuring. We pull out
 
 	console.log(one, two, three, four);
 ```
+We can overwrite the existing variables:
+```javascript
+	let dayInMyLife = ["train", "eat healthy", "code", "family time"], 
+		one = "sleep", 
+		two = "smoke", 
+		three = "be lazy";
+
+		[one, two, three] = dayInMyLife;
+
+		console.log(one, two, three);
+```
+
+We can specify default values in array destructuring:
+```javascript
+	let dayInMyLife = ["train", "eat healthy", "code", "family time"];
+
+	let [one, two, three, , five = "do nothing"] = dayInMyLife;
+
+	console.log(one, two, three, five);
+```
