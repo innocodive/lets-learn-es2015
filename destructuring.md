@@ -120,9 +120,13 @@ Have a look at the example below:
 	};
 
 	let { three : {four} } = habits;
+	let { three : { four : exercise } } = habits;	//give a different name to the local var
 
 	console.log(four.a, four.b);
+	console.log(exercise.a, exercise.b);
 ```
 
 In this line, `let { three : {four} } = habits;` again left side of the colon is a location of the value. If there is a curly brace on the right side of the colon, that means location is nested and go 1 more level deeper.
+
+<h4>Array Destructuring</h4>
 
