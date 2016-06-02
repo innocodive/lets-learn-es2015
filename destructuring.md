@@ -130,3 +130,12 @@ In this line, `let { three : {four} } = habits;` again left side of the colon is
 
 <h4>Array Destructuring</h4>
 
+Array destructuring sysntax is very similar to Object destructuring. We pull out data based on array element positions rather than named parameters. We also always need to initialize the array destructuring statement with var, let or const.
+```javascript
+	let dayInMyLife = ["train", "eat healthy", "code", "family time"];
+
+	let [one, two, three] = dayInMyLife;
+	let [, , , four] = dayInMyLife;
+
+	console.log(one, two, three, four);
+```
