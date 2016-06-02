@@ -104,3 +104,25 @@ We get undefined for `onemore` variable.
 ```
 In the example above `activity1 : a1` means left of the colon (:) is a location of a value and right side is a name of the value.
 
+
+<h5>Pulling out data from nested objects</h5>
+Have a look at the example below:
+```javascript
+	let habits = {
+  		one : "eating healthy",
+  		two : "coding",
+  		three : {
+    		four : {
+      			a : "training",
+      			b : "resting"
+    		}
+  		}
+	};
+
+	let { three : {four} } = habits;
+
+	console.log(four.a, four.b);
+```
+
+In this line, `let { three : {four} } = habits;` again left side of the colon is a location of the value. If there is a curly brace on the right side of the colon, that means location is nested and go 1 more level deeper.
+
