@@ -182,3 +182,17 @@ It works the same way how Nested Object Destructuring works.
 
 		console.log(one, two, three, four);
 ```
+
+<h5>Using REST items in array destructuring and cloning arrays</h5>
+
+Have a look at the example below:
+
+```javascript
+	let dayInMyLife = [["sleep", "smoke"], "train", "code", "family time"];
+
+		let [[ one ], ...two] = dayInMyLife;
+		let [...three] = dayInMyLife;
+
+		console.log(one, two[0]);
+		console.log(three);
+```
