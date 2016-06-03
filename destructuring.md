@@ -162,10 +162,23 @@ We can specify default values in array destructuring:
 
 <h5>Swap variable values using Array destructuring</h5>
 
+If we tried to swap values in ES5, we would use a 3rd temporary variable to do that. With ES6 array destructuring, we don't need a 3rd temporary variable but we need a temporary array (array literal) to do that.
+
 ```javascript
 	let a = 1, b = 2;
 
-	[a, b] = [b, a];
+	[a, b] = [b, a];	// right side of the (=) is a temporary array literal where value swapping happens
 
 	console.log(a, b);
+```
+<h5>Nested Array Destructuring</h5>
+
+It works the same way how Nested Object Destructuring works.
+
+```javascript
+	let dayInMyLife = ["train", ["sleep", "smoke"], "code", "family time"];
+
+		let [one, [ , two ], three, four] = dayInMyLife;
+
+		console.log(one, two, three, four);
 ```
