@@ -159,3 +159,13 @@ We can specify default values in array destructuring:
 
 	console.log(one, two, three, five);
 ```
+
+<h5>Swap variable values using Array destructuring</h5>
+
+```javascript
+	let a = 1, b = 2;
+
+	[a, b] = [b, a];
+
+	console.log(a, b);
+```
