@@ -196,3 +196,5 @@ Have a look at the example below:
 		console.log(one, two[0]);
 		console.log(three);
 ```
+<strong>One warning : </strong>REST should be last item in the array, no commas after REST item.
+`let [...three, four] = dayInMyLife;` this would throw an error.
