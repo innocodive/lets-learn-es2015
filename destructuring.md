@@ -198,3 +198,36 @@ Have a look at the example below:
 ```
 <strong>One warning : </strong>REST should be last item in the array, no commas after REST item.
 `let [...three, four] = dayInMyLife;` this would throw an error.
+
+Let's say I received a complex JSON data. We need to pull out specific data, both object and array data. We can achieve this using Object and Array Destructuring without reading through the entire JSON data.
+
+```javascript
+	let habits = {
+        goodHabits : {
+          work : {
+            one : "fitness training",
+            two : "eating healthy food",
+            three : "coding"
+          },
+          family : {
+            one : "family time"
+          }
+        },
+        badHabits : {
+          personal : {
+            one : "watching TV",
+            two : "eating unhealthy"
+          },
+          public : {
+            one : "smoking"
+          }
+        },
+        importanceOrder : [1, 2]
+    };
+    
+    let { goodHabits : { work },
+          importanceOrder : [ index ] } = habits;
+    
+    console.log(work.one);
+    console.log(index);
+```
