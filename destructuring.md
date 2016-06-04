@@ -231,3 +231,5 @@ Let's say I received a complex JSON data. We need to pull out specific data, bot
     console.log(work.one);
     console.log(index);
 ```
+
+<h5>Destructured Parameters</h5>
