@@ -233,3 +233,19 @@ Let's say I received a complex JSON data. We need to pull out specific data, bot
 ```
 
 <h5>Destructured Parameters</h5>
+When functions take many optional parameters, one common approach to deal with those optional parameters was to use `options` object inside the function. It also means we have to read through the function body to see what kind of optional parameters are used.
+
+```javascript
+	function createHabits(type, value, options) {
+  		options = options || {};
+  
+  		let intensity = options.intensity,
+      		repeat = options.repeat;
+	}
+
+	createHabits("good habit", "fitness training", 
+            {
+              intensity : "45 minutes of training",
+              repeat : "5 times a week"
+            });
+```
