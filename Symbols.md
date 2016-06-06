@@ -1,0 +1,1 @@
+<h4>New Primitive Type : Symbols</h4>
