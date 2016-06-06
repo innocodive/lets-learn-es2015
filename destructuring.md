@@ -249,3 +249,18 @@ When functions take many optional parameters, one common approach to deal with t
               repeat : "5 times a week"
             });
 ```
+We can rewrite the example above using destructured parameters with few changes:
+```javascript
+	function createHabits(type, value, { intensity, repeat, extras } = {}) {
+  		console.log(intensity);
+  		console.log(extras);
+	}
+  
+
+	createHabits("good habit", "fitness training", 
+            {
+              intensity : "45 minutes of training",
+              repeat : "5 times a week"
+            });
+```
+Missing function arguments will be set to undefined like in `console.log(extras);`. Another thing here is, all destructuring objects and arrays we've seen so far throws an error if the right side of the `=` is null or undefined like `{ intensity, repeat} = undefined`. That is why in the example above missing 3rd argument will throw an error. To prevent that we assign a default empty object like this `{ intensity, repeat, extras } = {}`.
