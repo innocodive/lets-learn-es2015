@@ -10,7 +10,7 @@
 - [Objects](https://github.com/innocodive/lets-learn-es2015/blob/master/Objects.md)
 - Classes
 - Arrays
-- Destructuring
+- [Destructuring] (https://github.com/innocodive/lets-learn-es2015/blob/master/destructuring.md)
 - Sets & Maps
 - Iterators & Generators
 - Async & Javascript Promise
