@@ -255,7 +255,6 @@ We can rewrite the example above using destructured parameters with few changes:
   		console.log(intensity);
   		console.log(extras);
 	}
-  
 
 	createHabits("good habit", "fitness training", 
             {
@@ -264,3 +263,14 @@ We can rewrite the example above using destructured parameters with few changes:
             });
 ```
 Missing function arguments will be set to undefined like in `console.log(extras);`. Another thing here is, all destructuring objects and arrays we've seen so far throws an error if the right side of the `=` is null or undefined like `{ intensity, repeat} = undefined`. That is why in the example above missing 3rd argument will throw an error. To prevent that we assign a default empty object like this `{ intensity, repeat, extras } = {}`.
+
+<p>We can also give a default values to destructured parameters:</p>
+```javascript
+	function createHabits(type, value, 
+			{ intensity = "45 mins workout", repeat = "5 times a week", extras } = {}) {
+  				console.log(intensity);
+  				console.log(extras);
+}
+
+	createHabits("good habit", "fitness training");
+```
