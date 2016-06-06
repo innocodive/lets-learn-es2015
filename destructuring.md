@@ -232,7 +232,7 @@ Let's say I received a complex JSON data. We need to pull out specific data, bot
     console.log(index);
 ```
 
-<h5>Destructured Parameters</h5>
+<h5>Destructured params as an optional function parameter</h5>
 When functions take many optional parameters, one common approach to deal with those optional parameters was to use `options` object inside the function. It also means we have to read through the function body to see what kind of optional parameters are used.
 
 ```javascript
