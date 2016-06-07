@@ -11,10 +11,16 @@ A symbol is a primitive type intruced in ES6. It enables developers to add non-s
 	object[habit] = "eating healthy food";
 	object[sport] = "bodybuilding";
 
-	console.log(object[habit]);
-	console.log(object[sport]);
+	console.log(object[habit]);						// eating healthy food"
+	console.log(object[sport]);						// bodybuilding
 
-	console.log("My favourite sport" in object);
-	console.log(sport);
-	console.log(typeof sport);
+	console.log("My favourite sport" in object);	//false
+	console.log(sport);								//Symbol("My favourite sport")
+	console.log(typeof sport);						// symbol
+```
+
+We can use symbols with `bracket notation` and wherever we use object literal's `computed property name` is used:
+
+```javascript
+	
 ```
