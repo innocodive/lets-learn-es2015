@@ -59,7 +59,8 @@ If we don't use a description parameter for for `Symbol.for()`, `console.log(acc
 
 ```javascript
 	let accNo = Symbol.for("accountNumber"),
-    accNo2 = Symbol.for("accountNumber");
+    accNo2 = Symbol.for("accountNumber"),
+    accNo3 = Symbol("accountNumber");
 
 	let object = {
   		[accNo] : 27458390,
@@ -72,6 +73,11 @@ If we don't use a description parameter for for `Symbol.for()`, `console.log(acc
 	console.log(accNo === accNo2);
 	console.log(object[accNo2]);
 	console.log(accNo2);
+
+	console.log(Symbol.keyFor(accNo));
+	console.log(Symbol.keyFor(accNo2));
+	console.log(Symbol.keyFor(accNo3));
 ```
 
-Symbol.for() method searches for the symbol with <i>accountNumber</i> key in the `global symbol registry`. 
+Symbol.for() method searches for the symbol with <i>accountNumber</i> key in the `global symbol registry`. if finds, it returns that symbol. If not, then creates a new symbol with <i>accountNumber</i> key and returns the new symbol. In the example above both accNo and accNo2 print the same number as they are the same symbol.
+<p>`console.log(Symbol.keyFor(accNo3));` prints <i>undefined</i> as accNo3 is not in the `global symbol registry`</p>
