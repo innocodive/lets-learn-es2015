@@ -95,3 +95,26 @@ Symbol.for() method searches for the symbol with <i>accountNumber</i> key in the
 	console.log(aNumber);
 ```
 Symbol coercion wouldn't happen automatically. You have to use `String()` or `toString()` to convert the symbol values to string.
+
+<h5>How to Retrieve Symbol Properties?</h5>
+
+```javascript
+	let accNo = Symbol.for("accountNumber"),
+    sCode = Symbol.for("sortCode");
+
+	let obj = {
+  		[accNo] : 12234567,
+  		[sCode] : "40-87-73",
+  		name : "Max",
+  		surname : "Charyyev"
+	};
+
+	let sym = Object.getOwnPropertyNames(obj);
+	let keys = Object.keys(obj);
+	console.log(sym);             //["name","surname"]
+	console.log(keys);            //["name","surname"]
+
+	let symbols = Object.getOwnPropertySymbols(obj);
+	console.log(symbols.length);  //2
+	console.log(obj[symbols[0]]); //12234567
+```
