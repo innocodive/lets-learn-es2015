@@ -43,3 +43,35 @@ We can use symbols with `bracket notation` and wherever we use object literal's 
 	console.log(object[habit]);		// eating healthy food
 	console.log(object[sport]);		// bodybuilding
 ```
+
+If we wanted to share Symbols (use accross many files or many objects share the same symbol property) we need to use `Symbol.for("description")` structure instead of `Symbol()`.
+```javascript
+	let accNo = Symbol.for("accountNumber");
+
+	let object = {};
+	object[accNo] = 27458390;
+
+	console.log(object[accNo]);
+	console.log(accNo);
+```
+
+If we don't use a description parameter for for `Symbol.for()`, `console.log(accNo)` will give us `Symbol(undefined)` result.
+
+```javascript
+	let accNo = Symbol.for("accountNumber"),
+    accNo2 = Symbol.for("accountNumber");
+
+	let object = {
+  		[accNo] : 27458390,
+  		[accNo2] : 22776655
+	};
+
+	console.log(object[accNo]);
+	console.log(accNo);
+
+	console.log(accNo === accNo2);
+	console.log(object[accNo2]);
+	console.log(accNo2);
+```
+
+Symbol.for() method searches for the symbol with <i>accountNumber</i> key in the `global symbol registry`. 
