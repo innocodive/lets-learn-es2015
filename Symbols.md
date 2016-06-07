@@ -122,3 +122,5 @@ Symbol coercion wouldn't happen automatically. You have to use `String()` or `to
 Object.keys() returns all enumerable property names. <br>
 Object.getOwnPropertyNames() returns all property names on a given object. <br>
 none of them would return symbol properties. We use `Object.getOwnPropertySymbols()` to return all symbol properties on a given object. Returned result would be an array of own property symbols.
+
+<h5>Wel-known Symbols</h5>
