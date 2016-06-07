@@ -81,3 +81,17 @@ If we don't use a description parameter for for `Symbol.for()`, `console.log(acc
 
 Symbol.for() method searches for the symbol with <i>accountNumber</i> key in the `global symbol registry`. if finds, it returns that symbol. If not, then creates a new symbol with <i>accountNumber</i> key and returns the new symbol. In the example above both accNo and accNo2 print the same number as they are the same symbol.
 <p>`console.log(Symbol.keyFor(accNo3));` prints <i>undefined</i> as accNo3 is not in the `global symbol registry`</p>
+<p>We can retrieve shared symbols using `Symbol.keyFor()` from global symbol registry. It looks for the shared symbol based on symbol keys.</p>
+<p>Global Symbol Registry is basically a global shared environment. To prevent the naming collision with the 3rd party libraries, it is good to namespace our symbol keys.</p>
+
+```javascript
+	let accNo = Symbol.for("accountNumber");
+
+	let aNumber = accNo / 5;  		//Cannot convert a Symbol value to a number
+	let aNumber1 = accNo + "abc"; 	//Cannot convert a Symbol value to a string
+	let aNumber2 = String(accNo) + "abc";
+	let aNumber3 = accNo.toString() + "abc";
+
+	console.log(aNumber);
+```
+Symbol coercion wouldn't happen automatically. You have to use `String()` or `toString()` to convert the symbol values to string.
