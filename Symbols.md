@@ -141,3 +141,6 @@ Well-known symbols represent common behaviors in JavaScript that used to be inte
 > Overwriting a method defined with a well-known symbol changes an ordinary object to an exotic object because this changes some internal default behavior. There is no practical impact to your code as a result, it just changes the way the specification describes the object.
 ~ Understanding ECMAScript 6 by Nicolas Zakas
 
+<h5>Symbol.hasInstance</h5>
+Every Function has `Symbol.hasInstance` method. This method is defined on the `Function.prototype`. `Symbol.hasInstance` property is <i>nonwritable</i> and <i>nonconfigurable</i> and <i>nonenumerable</i>. Symbol.hasInstance accepts 1 argument. Returns true if the argument is an instance of the function.
+
