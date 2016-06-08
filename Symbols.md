@@ -167,3 +167,19 @@ As we remember Symbol.hasInstance accepts 1 argument and returns true or false. 
 		console.log(bb instanceof Bodybuilding);	// supposed to be false, it prints true. why???
 ``` 
 
+<h5>Symbol.isConcatSpreadable</h5>
+
+`Symbol.isConcatSpreadable` property has a boolean value. it checks if an object has `length` property and `numeric keys`. Numeric keys should be added individually to the concat result.
+```javascript
+	let habits = {
+  		0 : "eat healthy",
+  		1 : "exercize every day",
+  		2 : "spend time with family",
+  		length : 3,
+  		[Symbol.isConcatSpreadable] : true
+	};
+
+	let allHabits = ["get enough sleep"].concat(habits);
+
+	console.log(allHabits.length + " : " + allHabits);
+```
