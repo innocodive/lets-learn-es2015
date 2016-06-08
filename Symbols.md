@@ -137,3 +137,7 @@ Well-known symbols represent common behaviors in JavaScript that used to be inte
 - Symbol.toPrimitive
 - Symbol.toStringTag
 - Symbol.unscopables
+
+> Overwriting a method defined with a well-known symbol changes an ordinary object to an exotic object because this changes some internal default behavior. There is no practical impact to your code as a result, it just changes the way the specification describes the object.
+~ Understanding ECMAScript 6 by Nicolas Zakas
+
