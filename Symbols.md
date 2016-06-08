@@ -144,3 +144,26 @@ Well-known symbols represent common behaviors in JavaScript that used to be inte
 <h5>Symbol.hasInstance</h5>
 Every Function has `Symbol.hasInstance` method. This method is defined on the `Function.prototype`. `Symbol.hasInstance` property is <i>nonwritable</i> and <i>nonconfigurable</i> and <i>nonenumerable</i>. Symbol.hasInstance accepts 1 argument. Returns true if the argument is an instance of the function.
 
+```javascript
+	// 2 statements below are the same
+
+	object instanceof Array;
+	Array[Symbol.hasInstance](object);
+```
+
+As we remember Symbol.hasInstance accepts 1 argument and returns true or false. We can redefine what value `Symbol.hasInstance`should return by changing its return value.
+
+```javascript
+	function Bodybuilding() {}
+
+	Object.defineProperty(Bodybuilding, Symbol.hasInstance, {
+		value : function(val) {
+			return false;
+		}
+		});
+
+		let bb = new Bodybuilding();
+
+		console.log(bb instanceof Bodybuilding);	// supposed to be false, it prints true. why???
+``` 
+
