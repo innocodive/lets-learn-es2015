@@ -124,3 +124,16 @@ Object.getOwnPropertyNames() returns all property names on a given object. <br>
 none of them would return symbol properties. We use `Object.getOwnPropertySymbols()` to return all symbol properties on a given object. Returned result would be an array of own property symbols.
 
 <h5>Wel-known Symbols</h5>
+Well-known symbols represent common behaviors in JavaScript that used to be internal-only operations before.
+
+- Symbol.hasInstance
+- Symbol.isConcatSpreadable
+- Symbol.iterator
+- Symbol.match
+- Symbol.replace
+- Symbol.search
+- Symbol.species
+- Symbol.split
+- Symbol.toPrimitive
+- Symbol.toStringTag
+- Symbol.unscopables
