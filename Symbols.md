@@ -187,3 +187,23 @@ As we remember Symbol.hasInstance accepts 1 argument and returns true or false. 
 ```
 We can set `Symbol.isConcatSpreadable` to false to prevent concatination.
 
+<h5>Symbol.match, Symbol.replace, Symbol.search, Symbol.split</h5>
+
+We can define these methods on an object which will be able to implement pattern matching, no regular expressions.
+
+```javascript
+	let habits = {
+  		[Symbol.match] : function(value) {},
+  		[Symbol.replace] : function(value, replace) {},
+  		[Symbol.search] : function(value) {},
+  		[Symbol.split] : function(value) {}
+	};
+
+	let string1 = "Bodybuilding",
+    	string2 = "eat healthy";
+    
+	let match = string1.search(habits),
+    	replace = string2.replace(habits),
+    	search = string1.search(habits),
+    	split = string2.split(habits);
+```
