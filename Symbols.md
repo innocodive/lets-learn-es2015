@@ -207,3 +207,12 @@ We can define these methods on an object which will be able to implement pattern
     	search = string1.search(habits),
     	split = string2.split(habits);
 ```
+<h5>Symbol.toPrimitive method</h5>
+
+Whenever we use `==` operator, Javascript converts objects to primitive values before they were compared. Which primitive value they should be converted was hidden from us. ES6 makes this changeable through using Symbol.toPrimitive method. <br>
+Symbol.toPrimitive method is defined on each standard type. When a conversion to a primitive is needed, `Symbol.toPrimitive(hint)` is called with only 1 argument.
+
+- hint = number : returns number
+- hint = string : returns string
+- hint = default : no preference
+
