@@ -138,7 +138,7 @@ Well-known symbols represent common behaviors in JavaScript that used to be inte
 - Symbol.toStringTag
 - Symbol.unscopables
 
-<p>Prior to ES6, internal workings of above methods were hidden from us. Symbols give us an access to the native behaviours of those methods. Those symbols above represent methods on Functions, Regular Expressions and so on.</p>
+<p>Prior to ES6, internal workings of above methods were hidden from us. Symbols give us an access to the native behaviours of those methods. Those symbols above represent methods on Functions, Regular Expressions and so on. These symbol methods are defined on prototypes of Functions and Regular Expressions.</p>
 
 > Overwriting a method defined with a well-known symbol changes an ordinary object to an exotic object because this changes some internal default behavior. There is no practical impact to your code as a result, it just changes the way the specification describes the object.
 ~ Understanding ECMAScript 6 by Nicolas Zakas
