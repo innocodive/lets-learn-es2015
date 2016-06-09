@@ -216,3 +216,5 @@ Symbol.toPrimitive method is defined on each standard type. When a conversion to
 - hint = string : returns string
 - hint = default : no preference
 
+Standard objects treat `default` mode as a number mode. Date treats default as a string. Using Symbol.toPrimitive() method we can override these dafault coercion behaviour.
+
