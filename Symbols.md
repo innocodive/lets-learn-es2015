@@ -228,3 +228,28 @@ Standard objects treat `default` mode as a number mode. Date treats default as a
 - Call valueOf() method : basically, return the PRIMITIVE value of the String object
 - None of the above worked? Throw an error
 
+We can override default conversion behaviours:
+
+```javascript
+	function convertPoundtoKg(weight, unit) {
+  		this.weight = weight;
+  		this.unit = unit;
+	}
+
+	Function.prototype[Symbol.toPrimitive] = function(hint) {
+  		switch(hint) {
+    		case "string":
+      			//code
+    		case "number":
+      			//code
+    		case "default":
+      			//code
+  		}
+	};
+
+	let convert = new convertPoundtoKg(70, "kg");
+
+	console.log(convert);
+```
+
+How you call the function will decide which mode gets triggered.
