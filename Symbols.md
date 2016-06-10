@@ -275,5 +275,22 @@ This is how we identify if the JSON is native or not:
 ES 6 introduced a well-known Symbol `Symbol.toStringTag`. It defines which value should be produced if `Object.prototype.toString.call(value)` is called on each object.
 
 ```javascript
-	
+	function Person(name) {
+  		this.name = name;
+	}
+
+	let max = new Person("Max");
+	console.log("1: " + max.toString());
+
+	Person.prototype[Symbol.toStringTag] = "Array";
+	console.log("2: " + max.toString());
+
+	Person.prototype.toString = function() {
+  		return this.name;
+	};
+
+	console.log("3: " + max.toString());
+	console.log("4: " + Object.prototype.toString.call(max));
 ```
+
+The result of calling `Object.prototype.toString` on the Person object is [object Array] which is what we would get calling on real Arrays. This shows that using `Object.prototype.toString` on objects is not a reliable way of identifying object's type anymore.
