@@ -218,3 +218,13 @@ Symbol.toPrimitive method is defined on each standard type. When a conversion to
 
 Standard objects treat `default` mode as a number mode. Date treats default as a string. Using Symbol.toPrimitive() method we can override these dafault coercion behaviour.
 
+<strong>Behaviour of the `Number Mode`</strong>
+- Call valueOf() method : basically, return the PRIMITIVE value of the String object
+- Call toString() method : basically, convert Number to String and return the PRIMITIVE value
+- None of the above worked? Throw an error
+
+<strong>Behaviour of the `String Mode`</strong>
+- Call toString() method : basically, convert Number to String and return the PRIMITIVE value
+- Call valueOf() method : basically, return the PRIMITIVE value of the String object
+- None of the above worked? Throw an error
+
