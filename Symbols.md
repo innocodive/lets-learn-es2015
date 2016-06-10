@@ -253,3 +253,27 @@ We can override default conversion behaviours:
 ```
 
 How you call the function will decide which mode gets triggered.
+
+<h5>Problem with identifying objects</h5>
+
+It is not easy to identify what type of objects we are dealing with in browsers when we pass objects between multiple environments like passing `Arrays`. Developers used to rely on `Object.prototype.toString.call(objectValue) to identify object type. JS Libraries included functions like that:
+
+```javascript
+	function isArray(value) {
+    	return Object.prototype.toString.call(value) === "[object Array]";
+	}
+```
+This is how we identify if the JSON is native or not:
+
+```javascript
+	function supportsNativeJSON() {
+    	return typeof JSON !== "undefined" &&
+        	Object.prototype.toString.call(JSON) === "[object JSON]";
+	}
+```
+
+ES 6 introduced a well-known Symbol `Symbol.toStringTag`. It defines which value should be produced if `Object.prototype.toString.call(value)` is called on each object.
+
+```javascript
+	
+```
