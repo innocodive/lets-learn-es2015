@@ -293,4 +293,17 @@ ES 6 introduced a well-known Symbol `Symbol.toStringTag`. It defines which value
 	console.log("4: " + Object.prototype.toString.call(max));
 ```
 
-The result of calling `Object.prototype.toString` on the Person object is [object Array] which is what we would get calling on real Arrays. This shows that using `Object.prototype.toString` on objects is not a reliable way of identifying object's type anymore.
+The result of calling `Object.prototype.toString` on the Person object is [object Array] which is what we would get calling on real Arrays. This shows that using `Object.prototype.toString` on objects is not a reliable way of identifying object's type anymore. <br>
+Changing string tag of any native object is also possible:
+
+```javascript
+	let object = {
+  		name : "Max",
+  		surname : "Charyyev"
+	};
+
+	Object.prototype[Symbol.toStringTag] = "Fitness";
+
+	console.log(Object.prototype.toString.call(object));
+```
+This may not be useful, but it is possible in ES6.
