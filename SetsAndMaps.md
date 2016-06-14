@@ -22,3 +22,19 @@ Sets example:
   		console.log("it is not initiated yet");
 	}
 ```
+Problem with ES5 way of doing `Sets`:
+```javascript
+	let person = Object.create(null);
+		let me = {},
+    		you = {};
+
+	person[2] = "Max";
+	person["2"] = "Charyyev";
+
+	console.log(person);	//{"2":"Charyyev"}
+
+	person[me] = "Michael";
+	person[you] = "John";
+
+	console.log(person);	//{"2":"Charyyev","[object Object]":"John"}
+```
