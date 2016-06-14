@@ -230,3 +230,16 @@ Maps are an ordered list of key-value pairs. Map keys and values can have any ty
 ```
 Objects and arrays can be used as keys and values and they wouldn't be converted to different types. Content of the original objects are not modified. 
 Maps has 3 methods <strong>(has(key), delete(key) and clear())</strong>. Maps has `size` property as well. 
+<br>
+<strong>How to initialize a Map?</strong><br>
+We pass an array with key-value pairs array. Confusing??? Have a look at the example below:
+
+```javascript
+	let map = new Map([["name", "Max"], ["arr1", [1, 2, 3]], ["arr2", ["one", "two"]]]);
+
+	console.log(map);		//[["name","Max"],["arr1",[1,2,3]],["arr2",["one","two"]]]
+
+	console.log(map.has("name"));		//true
+	console.log(map.get("arr1"));		//[1,2,3]
+	console.log(map.size);				//3
+```
