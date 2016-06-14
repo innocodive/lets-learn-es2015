@@ -154,3 +154,22 @@ We can use `[...value]` spread operator and `Sets` to eliminate duplicate values
 
 	console.log(zeroDuplicates(array));
 ```
+
+create an object and save it in a set. modify the object. then get the initial object value back from the set:
+
+```javascript
+	let obj = {},
+    set = new Set();
+    
+    set.add(obj);
+    console.log(set);   //[{}]
+    console.log(obj);   //{}
+    
+    obj = null;
+    console.log(set);   //[{}]
+    console.log(obj);   //null
+    
+    obj = [...set][0];
+    console.log(obj);   //{}
+```
+Important note is as long as a reference exists to the `obj` object, it cannot be garbage colected.
