@@ -116,3 +116,25 @@ Sets has a `forEach()` method to iterate over each element in the Set. It works 
   		}
 	});
 ```
+We can also `this` as a 2nd argument to `forEach()` callback function. We can also use `arrow functions` to achieve the same thing without using `this`. 
+
+```javascript
+	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let collection = new Set(arr);
+
+let operations = {
+  print(number) {
+    console.log(number);
+  },
+  calculate(set) {
+    set.forEach(function(number) {
+      if(number % 5 === 0) {
+        this.print(number);
+      }
+    }, this);
+  }
+};
+
+operations.calculate(collection); // 5, 10
+```
+
