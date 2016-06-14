@@ -199,3 +199,24 @@ We can cannot verify/check if the object reference is removed. has() method woul
 - We cannot store a primitive value in the weak set. All 3 weak set methods will throw an error, if we pass a primitive value to them
 - Weak sets have no `size` operator and no forEach() method. They are basically, non-iterable.
 
+<h5>Maps</h5>
+
+Maps are an ordered list of key-value pairs. Map keys and values can have any type unlike object properties where property key values are converted to a String.
+
+```javascript
+	let map = new Map(),
+  		obj1 = {name : "Max", surname : "Charyyev"},
+  		obj2 = {};
+
+		map.set(obj1 , "John");
+		map.set(obj2, [1, 2, 3, 4, 5]);
+		map.set("title", "web developer");
+		map.set("age", 25);
+
+		console.log(map.get(obj1));		//John
+		console.log(map.get(obj2));		//[1, 2, 3, 4, 5]
+		console.log(obj1);				//{name : "Max", surname : "Charyyev"}
+		console.log(obj2);				//{}
+		console.log(map.get("age"));	//25
+```
+Objects and arrays can be used as keys and values and they wouldn't be converted to different types. Content of the original objects are not modified. 
