@@ -61,3 +61,28 @@ Have a look at the example below:
 	console.log(Array.prototype.slice.call(collection));	//[]
 ```
 
+Situation is the same with when using empty objects as a set keys. The most important thing we need to keep in mind that `Set` uses `Object.is()` to compare values before it stores them.
+
+```javascript
+	let obj1 = {},
+    obj2 = {};
+    
+    console.log(Object.is(obj1, obj2)); //false
+    
+	let collection = new Set();
+
+	collection.add(obj1);
+	collection.add(obj2);
+	collection.add(obj1); //this will be ignored. no dublicates
+
+	console.log(collection);  //[{}, {}]
+	console.log(collection.size); //2
+
+	/*
+  		1) no dublicates
+  		2) ordered list
+	*/
+	let arr = [1, 2, 3, 4, 1, 3, 2, 6, 5, 2, 4, 7, 3];
+	let collection2 = new Set(arr);
+	console.log(collection2);			//[1,2,3,4,6,5,7]
+```
