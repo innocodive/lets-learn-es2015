@@ -59,6 +59,11 @@ Have a look at the example below:
 	// convert `collection` to an array. we get a new empty array
 	console.log(Array.isArray(collection));		//false
 	console.log(Array.prototype.slice.call(collection));	//[]
+
+	//this is how we convert Set into an Array
+	let arr = [...collection];
+	console.log(arr);
+	console.log(Array.isArray(arr));
 ```
 
 Situation is the same with when using empty objects as a set keys. The most important thing we need to keep in mind that `Set` uses `Object.is()` to compare values before it stores them.
