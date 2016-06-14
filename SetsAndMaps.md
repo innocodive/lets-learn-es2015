@@ -172,4 +172,4 @@ create an object and save it in a set. modify the object. then get the initial o
     obj = [...set][0];
     console.log(obj);   //{}
 ```
-Important note is as long as a reference exists to the `obj` object, it cannot be garbage colected.
+Important note is as long as a reference exists to the `obj` object, it cannot be garbage colected. We can call this <strong>Strong Set</strong> . This might eventually lead to a `Memory Leak`. To prevent ES6 also offers <strong>Weak Sets</strong>. If weak reference to the object in the set is the only reference, then the object will be garbage collected.
