@@ -38,3 +38,5 @@ Problem with ES5 way of doing `Sets`:
 
 	console.log(person);	//{"2":"Charyyev","[object Object]":"John"}
 ```
+`person[2]` == `person["2"]`. These 2 are basically, equal. Object property name will automatically be translated to String. <br>
+Another problem: If we use empty an object as an Object property key, empty object will also be translated to String, which it will become [object Object]. Any empty object, no matter what is it assigned to will be [object Object] when they are translated to Strings. As we see from the example, second assignment override the 1st ones.
