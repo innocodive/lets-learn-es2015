@@ -60,7 +60,7 @@ Have a look at the example below:
 	console.log(Array.isArray(collection));		//false
 	console.log(Array.prototype.slice.call(collection));	//[]
 
-	//this is how we convert Set into an Array
+	//this is how we convert Set into an Array. We use `spread operator`
 	let arr = [...collection];
 	console.log(arr);
 	console.log(Array.isArray(arr));
