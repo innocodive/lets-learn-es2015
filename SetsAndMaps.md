@@ -172,4 +172,30 @@ create an object and save it in a set. modify the object. then get the initial o
     obj = [...set][0];
     console.log(obj);   //{}
 ```
-Important note is as long as a reference exists to the `obj` object, it cannot be garbage colected. We can call this <strong>Strong Set</strong> . This might eventually lead to a `Memory Leak`. To prevent ES6 also offers <strong>Weak Sets</strong>. If weak reference to the object in the set is the only reference, then the object will be garbage collected.
+Important note is as long as a reference exists to the `obj` object, it cannot be garbage colected. We can call this <strong>Strong Set</strong> . This might eventually lead to a `Memory Leak`. To prevent this ES6 also offers <strong>Weak Sets</strong>. If weak reference to the object in the set is the only reference, then the object will be garbage collected.<br>
+
+We can create Weak sets using `WeakSet()` constructor. It has `add(), has() and delete()` methods.
+
+```javascript
+	let set = new WeakSet();
+
+	let arr = [1, 2, 3, 4, 5],
+    	obj = {one : 1, two : 2},
+    	name = "Max";
+
+	set.add(obj);
+	set.add(arr);
+	set.add(name);		// Invalid value used in weak set
+
+	console.log(set.has(obj));
+	console.log(set.has(arr));
+	console.log(set);
+
+	obj = null;		//removes the weak set reference. this object will be garbage collected
+```
+
+We can cannot verify/check if the object reference is removed. has() method wouldn't work. Javascript Engine removes the object reference to a weak set. Weak sets are only good if the only thing we want is track the object reference. A couple more points about the weak set: <br>
+- We cannot programmatically determine the weak set content
+- We cannot store a primitive value in the weak set. All 3 weak set methods will throw an error, if we pass a primitive value to them
+- Weak sets have no `size` operator and no forEach() method. They are basically, non-iterable.
+
