@@ -87,4 +87,17 @@ Situation is the same with when using empty objects as a set keys. The most impo
 	let arr = [1, 2, 3, 4, 1, 3, 2, 6, 5, 2, 4, 7, 3];
 	let collection2 = new Set(arr);
 	console.log(collection2);			//[1,2,3,4,6,5,7]
+
+	// Check the Set if the value exists using `has()` method
+
+	console.log(collection2.has(3));  //true
+	console.log(collection.has(3));   //false
+
+	// to delete items from a set
+	collection2.delete(5);
+	console.log(collection2);   //[1,2,3,4,6,7]
+
+	// empty the entire set
+	collection2.clear();
+	console.log(collection2);   //[]
 ```
