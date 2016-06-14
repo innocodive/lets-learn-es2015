@@ -125,21 +125,32 @@ We can also `this` as a 2nd argument to `forEach()` callback function. We can al
 
 ```javascript
 	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let collection = new Set(arr);
+	let collection = new Set(arr);
 
-let operations = {
-  print(number) {
-    console.log(number);
-  },
-  calculate(set) {
-    set.forEach(function(number) {
-      if(number % 5 === 0) {
-        this.print(number);
-      }
-    }, this);
-  }
-};
+	let operations = {
+  		print(number) {
+    		console.log(number);
+  		},
+  		calculate(set) {
+    		set.forEach(function(number) {
+      			if(number % 5 === 0) {
+        		this.print(number);
+      			}
+    		}, this);
+  		}
+	};
 
 operations.calculate(collection); // 5, 10
 ```
 
+We can use `[...value]` spread operator and `Sets` to eliminate duplicate values:
+
+```javascript
+	function zeroDuplicates(array) {
+  		return [...new Set(array)];
+	}
+
+	var array = [1, 2, 3, 7, 4, 1, 3, 2, 6, 3];
+
+	console.log(zeroDuplicates(array));
+```
