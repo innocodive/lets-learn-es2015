@@ -101,3 +101,18 @@ Situation is the same with when using empty objects as a set keys. The most impo
 	collection2.clear();
 	console.log(collection2);   //[]
 ```
+
+<h5>Iterating Sets</h5>
+
+Sets has a `forEach()` method to iterate over each element in the Set. It works in a same way like in Arrays and Maps. `set.forEach()` has 3 parameters. `set.forEach(function(key, value, set) {})`. key and value are always the same value. This is designed this way to keep method consistent with the same method on Arrays and Maps.
+
+```javascript
+	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	let collection = new Set(arr);
+
+	collection.forEach(function(key, value, set) {
+  		if(key%5 === 0) {
+    		console.log(key + " = " + value);		// 5 = 5, 10 = 10
+  		}
+	});
+```
