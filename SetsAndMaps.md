@@ -218,5 +218,15 @@ Maps are an ordered list of key-value pairs. Map keys and values can have any ty
 		console.log(obj1);				//{name : "Max", surname : "Charyyev"}
 		console.log(obj2);				//{}
 		console.log(map.get("age"));	//25
+
+		console.log(map.has(obj1));   //true
+		map.delete(obj1);
+		console.log(map.get(obj1)); //undefined
+		console.log(map.size);      //3
+		console.log(map.has(obj1)); //false
+		map.clear();
+
+		console.log(map.size);    //0
 ```
 Objects and arrays can be used as keys and values and they wouldn't be converted to different types. Content of the original objects are not modified. 
+Maps has 3 methods <strong>(has(key), delete(key) and clear())</strong>. Maps has `size` property as well. 
