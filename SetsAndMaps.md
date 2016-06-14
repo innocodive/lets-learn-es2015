@@ -81,6 +81,8 @@ Situation is the same with when using empty objects as a set keys. The most impo
 	/*
   		1) no dublicates
   		2) ordered list
+  		Here, the Set constructor argument is an Array.
+  		The Set constructor actually accepts any iterable object as an argument
 	*/
 	let arr = [1, 2, 3, 4, 1, 3, 2, 6, 5, 2, 4, 7, 3];
 	let collection2 = new Set(arr);
