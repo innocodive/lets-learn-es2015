@@ -248,3 +248,34 @@ We pass an array with key-value pairs array. Confusing??? Have a look at the exa
   	console.log(mMap === map);
 });
 ```
+<h5>Weak Map</h5>
+
+Weak Maps are useful to store a reference to objects. Every Key must be an object. 
+
+```javascript
+	let el = document.querySelector(".logo");
+
+  	let weakMap = new WeakMap();
+  	weakMap.set(el, "logo");
+
+  	let result = weakMap.get(el);
+  	console.log(result);
+  
+  	el.parentNode.removeChild(el);
+  	el = null;
+  	//above could be also be writen as below
+  	weakMap.delete(el);
+```
+
+Because, a weak map has no `size` property, we cannot check if the key is removed, but the memory occupied storing the value will be freed.<br>
+Weak Map has 2 methods: <strong>has() and delete()</strong> methods. it has no clear() method.
+
+```javascript
+	// initialize the WEAKMAP
+	let obj1 = {},
+    obj2 = {};
+	let wMap = new WeakMap([[obj1, "Max"], [obj2, [1, 2, 3, 4]]]);
+
+	console.log(wMap.has(obj1));
+	console.log(wMap.get(obj2));
+```
