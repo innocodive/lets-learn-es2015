@@ -242,4 +242,9 @@ We pass an array with key-value pairs array. Confusing??? Have a look at the exa
 	console.log(map.has("name"));		//true
 	console.log(map.get("arr1"));		//[1,2,3]
 	console.log(map.size);				//3
+
+	map.forEach(function(value, key, mMap) {
+  	console.log(key + " : " + value);
+  	console.log(mMap === map);
+});
 ```
