@@ -305,3 +305,7 @@ All object properties are public in both ES5 and ES6. There is no "native" way o
 	console.log(person.getName());
 ```
 Here, IIFE is assigned to a `Person` variable. We used a Weak Map as a Private Data. The advantage of using a private data is: when the object instance is destroyed the private data will be destroyed as well.
+
+Few Notes: 
+- If we want to use non-object keys in Maps, then we can't use Weak Maps, as they only accept object key, not primitive types.
+- If we need to interact with the Map content, then we might want to use regular Maps than Weak Maps as, we don't have much options to see the Weak Map contents. No `forEach()`, `clear()` methods or `size` propety.
