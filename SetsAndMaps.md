@@ -282,7 +282,7 @@ Weak Map has 2 methods: <strong>has() and delete()</strong> methods. it has no c
 
 <h5>Private Data</h5>
 
-All object properties are public in both ES5 and ES6. There is no "native" way of creating a private object data. There are many workarounds though: [More about private object data] (http://www.2ality.com/2012/03/private-data.html)
+All object properties are public in both ES5 and ES6. There is no "native" way of creating a private object data. There are many workarounds though: [More about private object data] (http://www.2ality.com/2012/03/private-data.html). Using object properties as a private data has 1 disadvantage: when the object instance is destroyed the private data will still take a space in the memory. It wouldn't be garbage collected. Using Weak Maps as a private data will solve that issue.
 
 ```javascript
 	let Person = (function() {
@@ -304,3 +304,4 @@ All object properties are public in both ES5 and ES6. There is no "native" way o
 
 	console.log(person.getName());
 ```
+Here, IIFE is assigned to a `Person` variable. We used a Weak Map as a Private Data. The advantage of using a private data is: when the object instance is destroyed the private data will be destroyed as well.
