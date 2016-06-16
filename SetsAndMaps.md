@@ -282,4 +282,25 @@ Weak Map has 2 methods: <strong>has() and delete()</strong> methods. it has no c
 
 <h5>Private Data</h5>
 
-All object properties are public in both ES5 and ES6. There is no "native" way of creating a private object data. 
+All object properties are public in both ES5 and ES6. There is no "native" way of creating a private object data. There are many workarounds though: [More about private object data] (http://www.2ality.com/2012/03/private-data.html)
+
+```javascript
+	let Person = (function() {
+
+    let privateData = new WeakMap();
+
+    function Person(name) {
+        privateData.set(this, { name: name });
+    }
+
+    Person.prototype.getName = function() {
+        return privateData.get(this).name;
+    };
+
+    return Person;
+	}());
+
+	let person = new Person("Max");
+
+	console.log(person.getName());
+```
