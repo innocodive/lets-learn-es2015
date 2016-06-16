@@ -13,7 +13,7 @@
 - [Destructuring] (https://github.com/innocodive/lets-learn-es2015/blob/master/destructuring.md)
 - [Symbols] (https://github.com/innocodive/lets-learn-es2015/blob/master/Symbols.md)
 - [Sets & Maps] (https://github.com/innocodive/lets-learn-es2015/blob/master/SetsAndMaps.md)
-- Iterators & Generators
+- [Iterators & Generators] (https://github.com/innocodive/lets-learn-es2015/blob/master/Iteratorsandgenerators.md)
 - Async & Javascript Promise
 - Proxies & Reflection
 - Modules
