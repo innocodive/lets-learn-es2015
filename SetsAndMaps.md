@@ -279,3 +279,7 @@ Weak Map has 2 methods: <strong>has() and delete()</strong> methods. it has no c
 	console.log(wMap.has(obj1));
 	console.log(wMap.get(obj2));
 ```
+
+<h5>Private Data</h5>
+
+All object properties are public in both ES5 and ES6. There is no "native" way of creating a private object data. 
