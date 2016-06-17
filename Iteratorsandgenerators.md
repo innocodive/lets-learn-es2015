@@ -29,4 +29,30 @@ Two important things about Generators:
 - Generator function a regular function with (*) in front of the function name
 - `yield` is an "iterated value"???
 - Generator Function stops execution after each yield statement
+- `yield` keyword can only be used inside the Generator function. We cannot use it even with functions inside the generator function. In that sense, `yield` acts like a `return` keyword.
+- We cannot create an Arrow Function which is also a Generator Function
 
+Generator functions are just functions, that is why they could be used as we use regular functions.
+
+```javascript
+	// Generator Function Expression
+	let Generator = function *(data) {
+  		yield data[0];
+	}
+```
+Generators can be an object method:
+```javascript
+	let object = {
+  		*generate(data) {
+    		for(let i=0; i < data.length; i++) {
+      		yield data[i];
+    		}
+  		}
+	};
+
+	let gen = object.generate([1, 2, 3]);
+
+	console.log(gen.next());
+	console.log(gen.next());
+	console.log(gen.next());
+```
