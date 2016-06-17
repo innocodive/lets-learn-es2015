@@ -26,7 +26,7 @@ ES6 introduced a `generator` function which returns an iterator.
 ```
 
 Some important points about Generators:
-- Generator function a regular function with (*) in front of the function name
+- Generator function is a regular function with (*) in front of the function name
 - `yield` is an "iterated value"???
 - Generator Function stops execution after each yield statement
 - `yield` keyword can only be used inside the Generator function. We cannot use it even with functions inside the generator function. In that sense, `yield` acts like a `return` keyword.
