@@ -59,7 +59,8 @@ Generators can be an object method:
 ```
 <h5>Iterables</h5>
 
-Arrays, Sets, Maps and Strings are `Iterables` in ES6. All iterables have `Symbol.iterator` property. `Symbol.iterator` well-known symbol (function) returns an iterator for the given object. Iterators which are created by Generators are also iterables. 
+Arrays, Sets, Maps and Strings are `Iterables` in ES6. All iterables have `Symbol.iterator` property. `Symbol.iterator` well-known symbol (function) returns an iterator for the given object. Iterators which are created by Generators are also iterables.<br>
+ES6 introduced `for of` loop. Iterables are designed to be used with `for of` loop. `for of` loop makes iteration over Javascript collection objects easy. That way we can focus on the content of the collection objects more than tracking the index.
 
 ```javascript
 	let goodHabits = ["eating healthy", "training", "coding"];
@@ -68,3 +69,10 @@ Arrays, Sets, Maps and Strings are `Iterables` in ES6. All iterables have `Symbo
   		console.log(habit);
 	}
 ```
+What happens in this code:
+- First `for of` loop call `Symbol.iterator` on an array to get the iterator
+- Then `ietrator.next()` method is called. It returns a result object with `value` property
+- `Value` is stored in `habit` variable
+- When `done` property on the result object is `true`, loop ends. `habit` never gets assigned an `undefined`
+
+note: We cannot use `for of` loop on null, undefined or non-iterable object.
