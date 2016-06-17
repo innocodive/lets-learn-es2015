@@ -25,7 +25,7 @@ ES6 introduced a `generator` function which returns an iterator.
 	console.log(generate.next().done);
 ```
 
-Two important things about Generators:
+Some important points about Generators:
 - Generator function a regular function with (*) in front of the function name
 - `yield` is an "iterated value"???
 - Generator Function stops execution after each yield statement
