@@ -27,10 +27,11 @@ ES6 introduced a `generator` function which returns an iterator.
 
 Some important points about Generators:
 - Generator function is a regular function with (*) in front of the function name
-- `yield` is an "iterated value"???
+- `yield` is an "iterable".
 - Generator Function stops execution after each yield statement
 - `yield` keyword can only be used inside the Generator function. We cannot use it even with functions inside the generator function. In that sense, `yield` acts like a `return` keyword.
 - We cannot create an Arrow Function which is also a Generator Function
+- Generators assign `Symbol.iterator` property by default
 
 Generator functions are just functions, that is why they could be used as we use regular functions.
 
@@ -55,4 +56,15 @@ Generators can be an object method:
 	console.log(gen.next());
 	console.log(gen.next());
 	console.log(gen.next());
+```
+<h5>Iterables</h5>
+
+Arrays, Sets, Maps and Strings are `Iterables` in ES6. All iterables have `Symbol.iterator` property. `Symbol.iterator` well-known symbol (function) returns an iterator for the given object. Iterators which are created by Generators are also iterables. 
+
+```javascript
+	let goodHabits = ["eating healthy", "training", "coding"];
+
+	for(let habit of goodHabits) {
+  		console.log(habit);
+	}
 ```
