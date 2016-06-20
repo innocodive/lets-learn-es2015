@@ -129,11 +129,14 @@ We know all collection objects have `[Symbol.iterator]` well-known Symbol on the
 	}	
 ```
 
-<h5>Built-in Iterators</h5>
-- Array Iterators
+<h4>Built-in Iterators</h4>
 - Collection Iterators: Arrays, Sets & Maps. All 3 have these built-in iterators
   - entries() iterator returns an iterator whose values are key-value pairs
   - values() iterator returns an iterator whose values are values of the collection
   - keys iterator iterator returns an iterator whose values are collection keys
 - String Iterators
 - NodeList Iterators
+
+<h5>Collection Iterators</h5>
+Collection Iterators are the most common iterators. We had a look at the Array Iterators above using some examples.
+<strong>entries() iterator</strong>
