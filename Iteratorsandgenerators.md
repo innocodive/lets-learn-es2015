@@ -75,4 +75,32 @@ What happens in this code:
 - `Value` is stored in `habit` variable
 - When `done` property on the result object is `true`, loop ends. `habit` never gets assigned an `undefined`
 
-note: We cannot use `for of` loop on null, undefined or non-iterable object.
+note: We cannot use `for of` loop on null, undefined or non-iterable object.<br>
+<strong>How does `for of` work?</strong>
+
+- get the default iterator
+- check if the object is iterable
+
+Have a look at the examples below:
+
+<strong>get the default Iterator?</strong>
+```javascript
+	let goodHabits = ["eating healthy", "training", "coding"];
+
+	let habit = goodHabits[Symbol.iterator]();
+	console.log(habit.next());
+```
+<strong>check if the object is `iterable`?</strong>
+
+```javascript
+	function isIterable(collection) {
+  		return typeof collection[Symbol.iterator] === "function";
+	}
+
+	console.log(isIterable(new Map()));       //true
+	console.log(isIterable([1, 2, 3]));       //true
+	console.log(isIterable(new WeakMap()));   //false
+	console.log(isIterable(new Set()));       //true
+
+```
+All these happens behind the scenes.
