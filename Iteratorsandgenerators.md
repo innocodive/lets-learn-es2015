@@ -112,7 +112,7 @@ We know all collection objects have `[Symbol.iterator]` well-known Symbol on the
 ```javascript
 	let iterableObject = {
   		items : [],
-  		*[Symbol.iterator]() {
+  		*[Symbol.iterator]() {				// this is a (*)generator.
     		for(let item of this.items) {
       		yield item;
     		}
@@ -128,3 +128,12 @@ We know all collection objects have `[Symbol.iterator]` well-known Symbol on the
   		console.log(object);
 	}	
 ```
+
+<h5>Built-in Iterators</h5>
+- Array Iterators
+- Collection Iterators: Arrays, Sets & Maps. All 3 have these built-in iterators
+  - entries() iterator returns an iterator whose values are key-value pairs
+  - values() iterator returns an iterator whose values are values of the collection
+  - keys iterator iterator returns an iterator whose values are collection keys
+- String Iterators
+- NodeList Iterators
