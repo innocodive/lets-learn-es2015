@@ -104,3 +104,11 @@ Have a look at the examples below:
 
 ```
 All these happens behind the scenes.
+
+<h5>Create your own iterables using `Symbol.iterator`</h5>
+Logic behind is 1st to create a collection object like Arrays or Sets and etc. How do we do it?<br>
+We know all collection objects have `[Symbol.iterator]` well-known Symbol on them. So, that is what we need to create `[Symbol.iterator]` function on objects:
+
+```javascript
+	
+```
