@@ -140,3 +140,35 @@ We know all collection objects have `[Symbol.iterator]` well-known Symbol on the
 <h5>Collection Iterators</h5>
 Collection Iterators are the most common iterators. We had a look at the Array Iterators above using some examples.
 <strong>entries() iterator</strong>
+It returns a key-value pairs for each item in a collection, everytime `next()` is called.
+
+```javascript
+	let habits = ["eating healthy", "training", "coding"];
+	let isbn = new Set([1234, 9876, 4536, 7653]);
+	let learning = new Map([["name", "Max"], ["age", 25], ["love", "coding"]]);
+
+	for(let entry of habits.entries()) {
+  		console.log(entry);
+	}
+
+	for(let entry of isbn.entries()) {
+  		console.log(entry);
+	}
+
+	for(let entry of learning.entries()) {
+  		console.log(entry);
+	}
+	/*
+		result we get
+		[0,"eating healthy"]
+		[1,"training"]
+		[2,"coding"]
+		[1234,1234]
+		[9876,9876]
+		[4536,4536]
+		[7653,7653]
+		["name","Max"]
+		["age",25]
+		["love","coding"]
+	*/
+```
