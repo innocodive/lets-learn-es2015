@@ -172,3 +172,5 @@ It returns a key-value pairs for each item in a collection, everytime `next()` i
 		["love","coding"]
 	*/
 ```
+<strong>values() iterator</strong>
+It basically returns the stored values of the collection.
