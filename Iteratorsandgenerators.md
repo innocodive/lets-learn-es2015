@@ -173,4 +173,6 @@ It returns a key-value pairs for each item in a collection, everytime `next()` i
 	*/
 ```
 <strong>values() iterator</strong>
-It basically returns the stored values of the collection.
+It basically returns the stored values of the collection. In this line of code `for(let entry of habits.entries()) {`, we just need to replace `entries()` with `values()`. <br>
+`for(let entry of habits.values()) {`. We will get only values, not key-value pairs.<br>
+<strong>keys() iterator</strong> returns only keys.
