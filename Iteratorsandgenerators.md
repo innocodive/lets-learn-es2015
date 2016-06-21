@@ -200,3 +200,18 @@ NodeList is a type that represents a collection of elements. NodeList's default 
 
 <h5>Better use of Iterators</h5>
 <strong>Passing arguments to iterators</strong><br>
+
+```javascript
+	function *iterate() {
+  		let first = yield  1;
+  		let second = (yield first * 2) + 5;
+  		let third = (yield second * 3);
+	}
+
+	let it = iterate();
+
+	console.log(it.next());     //{"value":1,"done":false}
+	console.log(it.next(2));    //{"value":4,"done":false}
+	console.log(it.next(5));    //{"value":30,"done":false}
+	console.log(it.next(2));    //{"value":undefined, "done":true}
+```
