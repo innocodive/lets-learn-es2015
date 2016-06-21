@@ -197,3 +197,6 @@ NodeList is a type that represents a collection of elements. NodeList's default 
   		console.log(div.id);
 	}
 ```
+
+<h5>Better use of Iterators</h5>
+<strong>Passing arguments to iterators</strong><br>
