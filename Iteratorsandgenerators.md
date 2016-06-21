@@ -176,3 +176,13 @@ It returns a key-value pairs for each item in a collection, everytime `next()` i
 It basically returns the stored values of the collection. In this line of code `for(let entry of habits.entries()) {`, we just need to replace `entries()` with `values()`. <br>
 `for(let entry of habits.values()) {`. We will get only values, not key-value pairs.<br>
 <strong>keys() iterator</strong> returns only keys.
+
+<h5>String Iterators</h5>
+ES5 didn't fully support Unicode, but ES6 does. Bracket notation in ES5 would iterate over code units, not characters, but ES6 works the opposite way.
+```javascript
+	let data = "AȺʆ";
+
+	for(let x of data) {
+  		console.log(x);
+	}
+```
