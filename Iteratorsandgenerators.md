@@ -186,3 +186,14 @@ ES5 didn't fully support Unicode, but ES6 does. Bracket notation in ES5 would it
   		console.log(x);
 	}
 ```
+<h5>NodeList Iterators</h5>
+
+NodeList is a type that represents a collection of elements. NodeList's default iterator acts the same as Array iterators. We can use `for of` loop to iterate NodeList elements.
+
+```javascript
+	let divs = document.querySelectorAll("div");
+
+	for(let div of divs) {
+  		console.log(div.id);
+	}
+```
