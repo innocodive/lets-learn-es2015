@@ -133,7 +133,7 @@ We know all collection objects have `[Symbol.iterator]` well-known Symbol on the
 - Collection Iterators: Arrays, Sets & Maps. All 3 have these built-in iterators
   - entries() iterator returns an iterator whose values are key-value pairs
   - values() iterator returns an iterator whose values are values of the collection
-  - keys iterator iterator returns an iterator whose values are collection keys
+  - keys() iterator iterator returns an iterator whose values are collection keys
 - String Iterators
 - NodeList Iterators
 
@@ -233,5 +233,31 @@ NodeList is a type that represents a collection of elements. NodeList's default 
 We pass an `Error` object to the `throw()` method. This stops the code execution.<br>
 We can catch errors inside the Generator using `try catch` block.
 ```javascript
-	
+	function *iterate() {
+  		let first = yield  1;
+  		let second;
+  		try {
+    		second = yield first + 15;
+  			} catch(err) {
+    			second = 20;
+  			}
+  		yield second + 13;
+  		yield second + 20;
+	}
+
+	let it = iterate();
+
+	console.log(it.next());
+	console.log(it.next(5));
+	console.log(it.next(10));
+	console.log(it.next());
+	console.log(it.throw(new Error("I am done with looping")));
+
+	/*
+		{"value":1,"done":false}
+		{"value":20,"done":false}
+		{"value":23,"done":false}
+		{"value":30,"done":false}
+		I am done with looping
+	*/
 ```
