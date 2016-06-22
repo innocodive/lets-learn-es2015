@@ -258,3 +258,27 @@ We can catch errors inside the Generator using `try catch` block.
 		{"value":40,"done":false}
 	*/
 ```
+Because, Generators are regular Functions, we can specify a return statement to return any value from the Generate when `next()` is called.
+
+```javascript
+	function *itReturn() {
+  		yield 1;
+  		return 20;
+  		yield 2;
+  		return 10;
+	}
+
+	let iterate = itReturn();
+
+	console.log(iterate.next());
+	console.log(iterate.next());
+	console.log(iterate.next());
+	/*
+		{"value":1,"done":false}
+		{"value":20,"done":true}
+		{value:"undefined", "done":true}
+	*/
+```
+2nd `next()` returns a `return` statement value. Any `next()` calls after the return statement will return a `undefined` value. Any other yields wouldn't be executed, but a returned object's value would be set to `undefined`.
+
+<strong>`speread` operator and `for of` ignore the return statement value</strong>
