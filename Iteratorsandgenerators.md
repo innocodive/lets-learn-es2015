@@ -324,3 +324,11 @@ We can combine many generators to use their values together, to pass their value
 ```
 So, the way we do the generator Delegation is we use yield with generator names. That way when `next()` is called yield will delegate the call to the relevant Generator. `return` statement value is also used.
 
+<h5>Asynchronius Task Running</h5>
+The reason why Generators are related to Asynchronius Programming is the fact that we can pause code in the middle of the execution.
+
+```javascript
+	$(".button").on("click", function(data)) {
+  		//do something
+	}
+```
