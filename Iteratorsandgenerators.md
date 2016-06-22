@@ -282,3 +282,40 @@ Because, Generators are regular Functions, we can specify a return statement to 
 2nd `next()` returns a `return` statement value. Any `next()` calls after the return statement will return a `undefined` value. Any other yields wouldn't be executed, but a returned object's value would be set to `undefined`.
 
 <strong>`speread` operator and `for of` ignore the return statement value</strong>
+
+<h5>Delegating Generators</h5>
+
+We can combine many generators to use their values together, to pass their values or return statement values to each other.
+```javascript
+	function *age() {
+  		yield 20;
+  		yield 30;
+  		return 2;
+	}
+
+	function *skills(number) {
+  		for(let i = 0; i < number; i++){
+    		yield "web developer";
+  		}
+	}
+
+	function *combine() {
+  		let result = yield *age();
+  		yield *skills(result);
+	}
+
+	let iterate = combine();
+
+	console.log(iterate.next());
+	console.log(iterate.next());
+	console.log(iterate.next());
+	console.log(iterate.next());
+	console.log(iterate.next());
+	/*
+		{"value":20,"done":false}
+		{"value":30,"done":false}
+		{"value":"web developer","done":false}
+		{"value":"web developer","done":false}
+		{"value":undefined, "done":true}
+	*/
+```
