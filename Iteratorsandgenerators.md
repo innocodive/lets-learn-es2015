@@ -237,27 +237,24 @@ We can catch errors inside the Generator using `try catch` block.
   		let first = yield  1;
   		let second;
   		try {
-    		second = yield first + 15;
+    		second = yield first + 17;
   			} catch(err) {
-    			second = 20;
-  			}
-  		yield second + 13;
-  		yield second + 20;
+    			second = 29;
+  		}
+  		yield second + 14;
+  		yield second + 11;
 	}
 
 	let it = iterate();
 
 	console.log(it.next());
 	console.log(it.next(5));
-	console.log(it.next(10));
-	console.log(it.next());
 	console.log(it.throw(new Error("I am done with looping")));
-
+	console.log(it.next());
 	/*
 		{"value":1,"done":false}
-		{"value":20,"done":false}
-		{"value":23,"done":false}
-		{"value":30,"done":false}
-		I am done with looping
+		{"value":22,"done":false}
+		{"value":43,"done":false}
+		{"value":40,"done":false}
 	*/
 ```
