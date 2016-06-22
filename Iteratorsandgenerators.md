@@ -301,6 +301,7 @@ We can combine many generators to use their values together, to pass their value
 
 	function *combine() {
   		let result = yield *age();
+  		yield result;
   		yield *skills(result);
 	}
 
@@ -311,11 +312,15 @@ We can combine many generators to use their values together, to pass their value
 	console.log(iterate.next());
 	console.log(iterate.next());
 	console.log(iterate.next());
+	console.log(iterate.next());
 	/*
 		{"value":20,"done":false}
 		{"value":30,"done":false}
+		{"value":2,"done":false}
 		{"value":"web developer","done":false}
 		{"value":"web developer","done":false}
 		{"value":undefined, "done":true}
 	*/
 ```
+So, the way we do the generator Delegation is we use yield with generator names. That way when `next()` is called yield will delegate the call to the relevant Generator. `return` statement value is also used.
+
