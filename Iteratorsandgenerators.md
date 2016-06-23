@@ -369,3 +369,5 @@ This is not different from other examples. All we do is we pass a Generator to a
   		console.log(yield second * 3);		//33
 	});
 ```
+<h5>Asynchronius Task Runner</h5>
+
