@@ -332,3 +332,40 @@ The reason why Generators are related to Asynchronius Programming is the fact th
   		//do something
 	}
 ```
+
+<h5>Task Runner with Data</h5>
+
+Basic Task Running code with passing data. <br>
+This is not different from other examples. All we do is we pass a Generator to a Function.
+```javascript
+	function run(taskDef) {
+
+	//we received a Generator function. we create an iterator
+    let task = taskDef();
+
+    // run the iterator
+    let result = task.next();
+
+    // this recursive function runs the iterator until result object's `done` property is false
+    function step() {
+
+        // check if done is not false
+        if (!result.done) {
+            result = task.next(result.value);
+            step();
+        }
+    }
+
+    // start the recursive function 1st time
+    step();
+
+}
+
+	run(function *() {
+  		let first = yield 1;
+  		console.log(first);					//1
+  		let second = yield first + 10;
+  		console.log(second);				//11
+  		console.log(yield second * 3);		//33
+	});
+```
