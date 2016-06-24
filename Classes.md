@@ -25,4 +25,5 @@ Notes on Javascript Classes:
 - Type of `Developers class` is still a Function. <i>Developers</i> class creates a function which behaves like a <i>constructor</i> method. 
 - `constructor` is defined inside the class.
 - Class declarations are `NOT HOISTED` but function declarations are hoisted
-- 
+- Code inside the Class declaration run in `Strict Mode` automatically. No other choice.
+- All methods inside a Class Declaration are non-enumerable.
