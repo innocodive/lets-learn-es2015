@@ -8,7 +8,7 @@
 - [Strings](https://github.com/innocodive/lets-learn-es2015/blob/master/Strings.md)
 - [Functions](https://github.com/innocodive/lets-learn-es2015/blob/master/Functions.md)
 - [Objects](https://github.com/innocodive/lets-learn-es2015/blob/master/Objects.md)
-- Classes
+- [Classes] (https://github.com/innocodive/lets-learn-es2015/blob/master/Classes.md)
 - Arrays
 - [Destructuring] (https://github.com/innocodive/lets-learn-es2015/blob/master/destructuring.md)
 - [Symbols] (https://github.com/innocodive/lets-learn-es2015/blob/master/Symbols.md)
