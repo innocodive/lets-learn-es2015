@@ -28,3 +28,27 @@ Notes on Javascript Classes:
 - Class declarations are `NOT HOISTED` but function declarations are hoisted
 - Code inside the Class declaration run in `Strict Mode` automatically. No other choice.
 - All methods inside a Class Declaration are non-enumerable.
+- Class Methods don't have internal [[Construct]] method. We cannot use `new` keyword on class methods.
+- Class constructor must be called using `new` keyword.
+
+Example above could be written as a Class Definition:
+```javascript
+	let Developers = class {
+  
+  	constructor(developer) {
+    	this.developer = developer;
+  	}
+  
+  	getDeveloper() {
+    	console.log(this.developer);
+  	}
+}
+
+	let dev = new Developers("javascript programmer");
+	dev.getDeveloper();                       //javascript programmer
+
+	console.log(typeof Developers);           //function
+	console.log(typeof dev);				          //object
+	console.log(dev instanceof Developers);   //true
+	console.log(dev instanceof Object);       //true
+```
