@@ -93,3 +93,17 @@ Classes can be passed into Functions as arguments.
 	let dev = returnObject(Developers);
 	console.log(dev.getDeveloper());		//Javascript Programmer
 ```
+<strong>create Singletons using Classes</strong><br>
+```javascript
+	let dev = new class {
+  		constructor(developer) {
+    		this.developer = developer;
+  		}
+  
+  		getDeveloper() {
+    		console.log(this.developer);
+  		}
+	}("Javascript Programmer");
+
+	console.log(dev.getDeveloper());
+```
