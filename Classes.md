@@ -17,6 +17,7 @@ ES6 introduced a `class` syntax. It is basically a syntactic sugar on the `custo
 	dev.getDeveloper();                       //javascript programmer
 
 	console.log(typeof Developers);           //function
+	console.log(typeof dev);				  //object
 	console.log(dev instanceof Developers);   //true
 	console.log(dev instanceof Object);       //true
 ```
