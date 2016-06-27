@@ -107,3 +107,20 @@ Classes can be passed into Functions as arguments.
 
 	console.log(dev.getDeveloper());
 ```
+<strong>Computed Names in Classes</strong><br>
+
+Class methods and Accessor properties can have `Computed Names`.
+```javascript
+	let methodName = "getDeveloper";
+	let dev = new class {
+  		constructor(developer) {
+    		this.developer = developer;
+  		}
+  
+  	[methodName]() {
+    	console.log(this.developer);
+  	}
+}("Javascript Programmer");
+
+	console.log(dev.getDeveloper());
+```
