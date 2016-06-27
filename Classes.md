@@ -56,7 +56,7 @@ Example above could be written as a Class Definition:
 	console.log(dev instanceof Object);       //true
 	console.log(Developers.name);			  //Developers
 ```
-<strong>Names Class Expressions</strong>
+<strong>Named Class Expressions</strong><br>
 Named Class Expressions only exist inside the Class. Outside the class, it would be undefined.
 ```javascript
 	let Developers = class Developers2{
