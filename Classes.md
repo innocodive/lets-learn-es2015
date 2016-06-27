@@ -124,3 +124,4 @@ Class methods and Accessor properties can have `Computed Names`.
 
 	console.log(dev.getDeveloper());
 ```
+<h5>Class Generator Methods</h5>
