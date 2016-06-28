@@ -125,3 +125,15 @@ Class methods and Accessor properties can have `Computed Names`.
 	console.log(dev.getDeveloper());
 ```
 <h5>Class Generator Methods</h5>
+Any method in a class can be a generator. We need to put `*` in front of a method name:
+```javascript
+	class fitClass {
+  		*myGenerator() {
+    		yield 1;
+    		yield 2;
+  		}
+	}
+
+	let myClass = new fitClass();
+	myClass.myGenerator();
+```
