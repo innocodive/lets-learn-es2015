@@ -136,4 +136,9 @@ Any method in a class can be a generator. We need to put `*` in front of a metho
 
 	let myClass = new fitClass();
 	myClass.myGenerator();
+	let genr = myClass.myGenerator();
+	console.log(genr.next());			//{"value":1,"done":false}
+	console.log(genr.next());			//{"value":2,"done":false}
+	console.log(genr.next());			//{"value":undefined,"done":true}
 ```
+
