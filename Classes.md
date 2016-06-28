@@ -142,3 +142,32 @@ Any method in a class can be a generator. We need to put `*` in front of a metho
 	console.log(genr.next());			//{"value":undefined,"done":true}
 ```
 
+If we need to iterate over a collection of values in a Class, we should define/create a default iterator using a Generator method.
+
+```javascript
+	class Workout {
+  		constructor() {
+    		this.items = [];
+  		}
+  		*[Symbol.iterator]() {
+    	/*
+    		we could either use the line below or use the for...of Loop
+    		yield *this.items.values();
+    	*/
+    	for(let item of this.items) {
+           yield item;
+        }
+  	}
+}
+
+	let workout = new Workout();
+
+	let exercises = ["dead lift", "squats", "heap thrust"];
+        exercises.forEach(function(exercise) {
+            workout.items.push(exercise);
+    });
+    
+  for(let x of workout) {
+    console.log(x);
+  }
+```
