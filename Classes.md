@@ -199,5 +199,30 @@ If we want Class instances share Class methods we add methods to Class prototype
 	console.log(exercise.train());  //exercise.train is not a function
 ```
 
-`train()` method is directly added to the `Workout` function. Function Object instances wouldn't have this method. This is how we simulate the `Static Members` in ES5.
+`train()` method is directly added to the `Workout` function. Function Object instances wouldn't have this method. This is how we simulate the `Static Members` in ES5.<br>
+ES6 classes simplified this process introducing a `static` keyword to use just before the static method. Any method in a class can be a static except the constructor.
 
+```javascript
+	class Workout {
+  
+  	constructor(muscle) {
+    	this.muscle = muscle;
+  	}
+  
+  	exercise() {
+    	console.log(this.muscle);
+  	}
+  
+  	static train(muscle) {
+    	return new Workout(muscle);
+  	}
+}
+
+	let workout = Workout.train("biceps");
+	console.log(workout);                 //{"muscle":"biceps"}
+
+	let exercise = new Workout("squats");
+	console.log(exercise.exercise());     //squats
+
+	console.log(exercise.train("triceps"));   //exercise.train is not a function
+```
