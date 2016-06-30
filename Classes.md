@@ -226,3 +226,34 @@ ES6 classes simplified this process introducing a `static` keyword to use just b
 
 	console.log(exercise.train("triceps"));   //exercise.train is not a function
 ```
+
+<strong>Inheritance in ES6 using Classes</strong>
+
+```javascript
+	class Lifestyle {
+  
+  constructor(eat, train) {
+    this.eat = eat;
+    this.train = train;
+  }
+  
+  eat() {
+    console.log(this.eat);
+  }
+  
+  train() {
+    console.log(this.train);
+  }
+}
+
+class Workout extends Lifestyle {
+  constructor(food, exercise) {
+    super(food, exercise);
+  }
+}
+
+let workout = new Workout("healthy food", "legs");
+
+console.log(workout.eat);
+console.log(workout.train);
+```
