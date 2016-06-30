@@ -171,3 +171,33 @@ If we need to iterate over a collection of values in a Class, we should define/c
     console.log(x);
   }
 ```
+
+<h5>Static Members</h5>
+
+If we want Class instances share Class methods we add methods to Class prototype, but if we want methods only on the Class, then we add methods only to Classes. To do that we need `Static Members`.
+```javascript
+	function Workout(muscle) {
+  		this.muscle = muscle;
+	}
+
+	//static method
+	Workout.train = function(muscle) {
+  		return new Workout(muscle);
+	}
+
+	let workout = Workout.train("biceps");
+	console.log(workout);           //{"muscle":"biceps"}
+
+	//instance method
+	Workout.prototype.exercise = function(muscle) {
+  		console.log(this.muscle);
+	}
+
+	let exercise = new Workout("Squats");
+	exercise.exercise();            //Squats
+
+	console.log(exercise.train());  //exercise.train is not a function
+```
+
+`train()` method is directly added to the `Workout` function. Function Object instances wouldn't have this method. This is how we simulate the `Static Members` in ES5.
+
