@@ -269,3 +269,38 @@ By the way, this is the default derived class example:
 - `super()` is responsible for initializing `this`. That is why we cannot call `this` before `super` in a derived class constructor
 - The only way to avoid calling super() is to return an object from the class constructor.
 
+<h5>Overriding Class Methods</h5>
+We can override parent class methods in the derived class. This is how it is done:
+
+```javascript
+	class SquareRoot {
+    constructor(number) {
+        this.number = number;
+    }
+    getSquareRoot() {
+        return Math.sqrt(this.number);
+    }
+}
+
+class bigSquareRoot extends SquareRoot {
+    constructor(number) {
+        super(number);
+    }
+    getSquareRoot() {
+    /* we could use one them, not at the same time :)
+    	1st expression is obvious
+    	2nd expression calls the `getSquareRoot()` method in the parent class
+    */
+        return Math.sqrt(this.number);
+        return super.getSquareRoot();
+    }
+}
+
+var result = new bigSquareRoot(144);
+
+console.log(result.getSquareRoot());                // 12
+console.log(result instanceof bigSquareRoot);      // true
+console.log(result instanceof SquareRoot);        // true
+```
+
+We override the parent class method using the same class method name in the derived class. This way parent class method no longer called unless we use `super` to access to the parent class method.
