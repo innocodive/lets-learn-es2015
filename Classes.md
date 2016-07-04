@@ -330,3 +330,27 @@ If the base class has a static member it is also inherited by the derived class.
 
 	console.log(sqrt.getSquareRoot());  //14.142135623730951
 ```
+
+<h5>Derived Class use cases</h5>
+Derived Class can extend any expression as long as the expression is eventually a function with a <strong>[[Construct]]</strong> internal method and a <strong>prototype</strong>.
+
+```javascript
+	function SquareRoot(number) {
+    	this.number = number;
+	}
+
+	SquareRoot.prototype.getSquareRoot = function() {
+  		return Math.sqrt(this.number);
+	};
+
+	class bigSquareRoot extends SquareRoot {
+    	constructor(number) {
+        	super(number);
+    	}
+	}
+
+	let sqrt = new bigSquareRoot(200);
+
+	console.log(sqrt.getSquareRoot());  //14.142135623730951
+```
+
