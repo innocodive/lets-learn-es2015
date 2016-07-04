@@ -378,3 +378,9 @@ Another example:
 
 	console.log(sqrt.getSquareRoot());  //14.142135623730951
 ```
+
+We can also create a common mixin example using ES6 Classes:
+
+```javascript
+	//mixin example
+```
