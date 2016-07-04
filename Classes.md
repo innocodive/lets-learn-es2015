@@ -228,7 +228,7 @@ ES6 classes simplified this process introducing a `static` keyword to use just b
 ```
 
 <strong>Inheritance in ES6 using Classes</strong><br>
-ES6 made it easy to do inheritance using classes. child class inheritance the parent class using `extends` keyword. `super` keyword is used to access to the parent class' constructor method. Have a look at the example below:
+ES6 made it easy to do inheritance using classes. child class inheritance the parent class using `extends` keyword. `super` keyword is used to access to the parent class' constructor method. Classes that inherit from other classes are called `derived classes`. Have a look at the example below:
 
 ```javascript
 	class SquareRoot {
@@ -252,3 +252,17 @@ console.log(result.getSquareRoot());                // 12
 console.log(result instanceof bigSquareRoot);      // true
 console.log(result instanceof SquareRoot);        // true
 ```
+
+By the way, this is the default derived class example:
+```javascript
+	class DerivedClass extends ParentClass {
+		constructor(...args) {
+			super(...args);
+		}
+	}
+```
+
+<strong>Notes on derived classes:</strong><br>
+- We have to use `super` keyword in derived classes if we define a constructor
+- If we don't use a constructor in a derived class super is automatically called using all the arguments when we create a new instance of a derived class.
+- 
