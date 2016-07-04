@@ -304,3 +304,29 @@ console.log(result instanceof SquareRoot);        // true
 ```
 
 We override the parent class method using the same class method name in the derived class. This way parent class method no longer called unless we use `super` to access to the parent class method.
+
+<h5>Static Members in Class Inheritance</h5>
+If the base class has a static member it is also inherited by the derived class.
+```javascript
+	class SquareRoot {
+    constructor(number) {
+        this.number = number;
+    }
+    getSquareRoot() {
+        return Math.sqrt(this.number);
+    }
+    static create(number) {
+      return new SquareRoot(number);
+    }
+}
+
+	class bigSquareRoot extends SquareRoot {
+    	constructor(number) {
+        	super(number);
+    	}
+	}
+
+	var sqrt = bigSquareRoot.create(200);
+
+	console.log(sqrt.getSquareRoot());  //14.142135623730951
+```
