@@ -267,3 +267,5 @@ By the way, this is the default derived class example:
 - If we don't use a constructor in a derived class super is automatically called using all the arguments when we create a new instance of a derived class.
 - `super()` is only used in derived classes
 - `super()` is responsible for initializing `this`. That is why we cannot call `this` before `super` in a derived class constructor
+- The only way to avoid calling super() is to return an object from the class constructor.
+
