@@ -354,3 +354,27 @@ Derived Class can extend any expression as long as the expression is eventually 
 	console.log(sqrt.getSquareRoot());  //14.142135623730951
 ```
 
+Another example:
+```javascript
+	function SquareRoot(number) {
+    	this.number = number;
+	}
+
+	SquareRoot.prototype.getSquareRoot = function() {
+  		return Math.sqrt(this.number);
+	};
+
+	function SQRT() {
+  		return SquareRoot;
+	}
+
+	class bigSquareRoot extends SQRT() {
+    	constructor(number) {
+        	super(number);
+    	}
+	}
+
+	let sqrt = new bigSquareRoot(200);
+
+	console.log(sqrt.getSquareRoot());  //14.142135623730951
+```
