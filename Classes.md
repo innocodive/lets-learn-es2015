@@ -227,33 +227,28 @@ ES6 classes simplified this process introducing a `static` keyword to use just b
 	console.log(exercise.train("triceps"));   //exercise.train is not a function
 ```
 
-<strong>Inheritance in ES6 using Classes</strong>
+<strong>Inheritance in ES6 using Classes</strong><br>
+ES6 made it easy to do inheritance using classes. child class inheritance the parent class using `extends` keyword. `super` keyword is used to access to the parent class' constructor method. Have a look at the example below:
 
 ```javascript
-	class Lifestyle {
-  
-  constructor(eat, train) {
-    this.eat = eat;
-    this.train = train;
-  }
-  
-  eat() {
-    console.log(this.eat);
-  }
-  
-  train() {
-    console.log(this.train);
-  }
+	class SquareRoot {
+    constructor(number) {
+        this.number = number;
+    }
+    getSquareRoot() {
+        return Math.sqrt(this.number);
+    }
 }
 
-class Workout extends Lifestyle {
-  constructor(food, exercise) {
-    super(food, exercise);
-  }
+class bigSquareRoot extends SquareRoot {
+    constructor(number) {
+        super(number);
+    }
 }
 
-let workout = new Workout("healthy food", "legs");
+var result = new bigSquareRoot(144);
 
-console.log(workout.eat);
-console.log(workout.train);
+console.log(result.getSquareRoot());                // 12
+console.log(result instanceof bigSquareRoot);      // true
+console.log(result instanceof SquareRoot);        // true
 ```
