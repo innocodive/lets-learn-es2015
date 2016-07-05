@@ -417,3 +417,12 @@ Inheriting from Built-in Objects using ES6 Classes are different from ES5 style 
 - In Classical inheritance value of `this` starts as an instance of the derived object and receives the parent object's functionality
 - In ES6 class-based inheritance value of `this` starts with all the functionality of the parent object
 
+```javascript
+	class ABC extends Array {}
+
+	let arr = new ABC("one", "two", "three", "four");
+	let chunk = arr.slice(0, 2);
+
+	console.log(arr instanceof ABC);
+	console.log(chunk instanceof ABC);
+```
