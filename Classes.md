@@ -379,8 +379,35 @@ Another example:
 	console.log(sqrt.getSquareRoot());  //14.142135623730951
 ```
 
-We can also create a common mixin example using ES6 Classes:
+We can also create a common <strong>mixin</strong> example using ES6 Classes:
 
 ```javascript
-	//mixin example
+	let mixinObject1 = {
+  		getSquareRoot() {
+    		return Math.sqrt(this.number);
+  		}
+	};
+
+	let mixinObject2 = {
+  		getMultiplication() {
+    		return this.number * this.number;
+  		}
+	};
+
+	function mixin(...mixinsArgs) {
+    	var parent = function() {};
+    	Object.assign(parent.prototype, ...mixinsArgs);
+    	return parent;
+	}
+
+	class DerivedMixin extends mixin(mixinObject1, mixinObject2) {
+  		constructor(number) {
+    		super();
+    		this.number = number;
+  		}
+	}
+
+let xyz = new DerivedMixin(144);
+console.log(xyz.getSquareRoot());       //12
+console.log(xyz.getMultiplication());   //20736
 ```
