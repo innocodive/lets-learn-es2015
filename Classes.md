@@ -411,3 +411,9 @@ let xyz = new DerivedMixin(144);
 console.log(xyz.getSquareRoot());       //12
 console.log(xyz.getMultiplication());   //20736
 ```
+
+<h5>Inheriting from Built-in Objects</h5>
+Inheriting from Built-in Objects using ES6 Classes are different from ES5 style classical inheritance. Difference in approach is based on how we create value of `this`:
+- In Classical inheritance value of `this` starts as an instance of the derived object and receives the parent object's functionality
+- In ES6 class-based inheritance value of `this` starts with all the functionality of the parent object
+
