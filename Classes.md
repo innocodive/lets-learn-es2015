@@ -426,3 +426,5 @@ Inheriting from Built-in Objects using ES6 Classes are different from ES5 style 
 	console.log(arr instanceof ABC);
 	console.log(chunk instanceof ABC);
 ```
+
+<h5>Symbol.species well-known symbol</h5>
