@@ -41,6 +41,7 @@ Array.from() method takes iterable or an array-like object as a 1st argument and
 ```javascript
 	function ArrayFrom() {
 		let args = Array.from(arguments);
+		// args is an instance of an Array
 	}
 ```
-
+The `Array.from()` method also uses `this` to determine the type of array to return.
