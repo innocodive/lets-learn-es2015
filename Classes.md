@@ -428,7 +428,7 @@ Inheriting from Built-in Objects using ES6 Classes are different from ES5 style 
 ```
 
 <h5>Symbol.species well-known symbol</h5>
-
+when inheriting from built-ins, any method that returns an instance of the built-in will automatically return a derived class instance instead.
 Following builtin types have `Symbol.species` property defined on them:
 - Array
 - ArrayBuffer (discussed in Chapter 10)
