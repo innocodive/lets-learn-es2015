@@ -40,8 +40,21 @@ We used to use `Array.prototype.slice.call(arrayLikeObject)` to convert array-li
 Array.from() method takes iterable or an array-like object as a 1st argument and converts the argument into an array.
 ```javascript
 	function ArrayFrom() {
-		let args = Array.from(arguments);
+		return Array.from(arguments);
 		// args is an instance of an Array
 	}
 ```
 The `Array.from()` method also uses `this` to determine the type of array to return.
+
+<strong>Array.from(arguments, mapping function)</strong>
+We can pass 2nd optional parameter to Array.from() method. Or if the mapping function is on an object, then we can pass a 3rd argument which represents `this`.
+
+```javascript
+	function ArrayFrom() {
+		return Array.from(arguments, (value) => value + 1);
+		// 2nd argument to Array.from() method is a mapping function (arrow function)
+	}
+
+	let aFrom = ArrayFrom(1, 2, 3, 4, 5);
+	console.log(aFrom);     //[2,3,4,5,6]
+```
