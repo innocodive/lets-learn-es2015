@@ -19,7 +19,7 @@
 - Modules
  
 
-<p> I first learned bits and pieces of ES2015, but after watching Douglas Crockford's talk on ES6 (https://www.youtube.com/watch?v=_EF-FO63MXs), I understood how developing Javascript applications using ES6 is so defferent from ES5-way. This is my personal study note on ES6 or ES2015.</p>
+<p> After watching Douglas Crockford's talk on ES6 (https://www.youtube.com/watch?v=_EF-FO63MXs), I understood how developing Javascript applications using ES6 is so defferent from ES5-way. This is my personal study note on ES6 or ES2015 and beyond.</p>
 
  <h3>Reference:</h3>
 
