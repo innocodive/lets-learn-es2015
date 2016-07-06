@@ -58,3 +58,21 @@ We can pass 2nd optional parameter to Array.from() method. Or if the mapping fun
 	let aFrom = ArrayFrom(1, 2, 3, 4, 5);
 	console.log(aFrom);     //[2,3,4,5,6]
 ```
+Array.from(args, object method, object)
+```javascript
+	let obj = {
+  		increase : 1,
+  
+  		add(value) {
+    		return value + this.increase;
+  		}
+	};
+
+	function ArrayFrom() {
+		return Array.from(arguments, obj.add, obj);
+	}
+
+	let aFrom = ArrayFrom(1, 2, 3, 4, 5);
+	console.log(aFrom);     //[2,3,4,5,6]
+```
+
