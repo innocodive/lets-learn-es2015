@@ -493,3 +493,35 @@ console.log(clone1 instanceof Parent);             // true
 console.log(clone2 instanceof Parent);             // true
 console.log(clone2 instanceof Child2);             //false
 ```
+
+<h5>new.target in Classes</h5>
+
+We can find out how a Class is being invoked using `new.target`. new.target is equal to the Class constructor function.
+```javascript
+	class SquareRoot {
+  		constructor(number) {
+    		if(new.target !== SquareRoot) {
+      			this.number = number;
+    		}
+  		}
+  
+  		getSquareRoot() {
+    		return Math.sqrt(this.number);
+  		}
+	}
+
+class bigSquareRoot extends SquareRoot {
+        constructor(number) {
+            super(number);
+        }
+    }
+
+let sqrt = new bigSquareRoot(144);
+console.log(sqrt.getSquareRoot());        //12
+
+let sqrtBase = new SquareRoot(25);
+console.log(sqrtBase.getSquareRoot());    //null
+```
+
+When a `bigSquareRoot` class inherits from `SquareRoot` class and calls the base class `new.taget` is equal to bigSquareRoot class constructor not the SquareRoot class constructor.
+
