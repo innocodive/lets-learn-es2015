@@ -428,3 +428,70 @@ Inheriting from Built-in Objects using ES6 Classes are different from ES5 style 
 ```
 
 <h5>Symbol.species well-known symbol</h5>
+
+Following builtin types have `Symbol.species` property defined on them:
+- Array
+- ArrayBuffer (discussed in Chapter 10)
+- Map
+- Promise
+- RegExp
+- Set
+- Typed Arrays
+
+`Symbol.species` property returns a constructor function (returns `this`). Using Symbol.species, any derived class can determine what type of value should be returned when a method returns an instance.
+
+```javascript
+	class MyArray extends Array {
+    static get [Symbol.species]() {
+        return Array;
+    }
+}
+
+let items = new MyArray(1, 2, 3, 4),
+    subitems = items.slice(1, 3);
+
+console.log(items instanceof MyArray);      // true
+console.log(subitems instanceof Array);     // true
+console.log(subitems instanceof MyArray);   //false
+console.log(subitems instanceof Array);     //true
+```
+As we see from this example, we determine what to type should be returned from the class instance. All inherited methods like slice() will return an instance of Array, but not the instance of MyArray.
+
+Understanding ECMAScript 6 Book:
+> In general, you should use the Symbol.species property whenever you might want to use this.constructor in a class method. Doing so allows derived classes to override the return type easily. Additionally, if you are creating derived classes from a class that has Symbol.species defined, be sure to use that value instead of the constructor.
+
+```javascript
+	class Parent {
+    static get [Symbol.species]() {
+        return this;
+    }
+
+    constructor(value) {
+        this.value = value;
+    }
+
+    clone() {
+        return new this.constructor[Symbol.species](this.value);
+    }
+}
+
+class Child1 extends Parent {
+    // empty
+}
+
+class Child2 extends Parent {
+    static get [Symbol.species]() {
+        return Parent;
+    }
+}
+
+let child1 = new Child1("foo"),
+    clone1 = child1.clone(),
+    child2 = new Child2("bar"),
+    clone2 = child2.clone();
+
+console.log(clone1 instanceof Child1);             // true
+console.log(clone1 instanceof Parent);             // true
+console.log(clone2 instanceof Parent);             // true
+console.log(clone2 instanceof Child2);             //false
+```
