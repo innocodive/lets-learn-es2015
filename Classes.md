@@ -475,9 +475,7 @@ Understanding ECMAScript 6 Book:
     }
 }
 
-class Child1 extends Parent {
-    // empty
-}
+class Child1 extends Parent {}
 
 class Child2 extends Parent {
     static get [Symbol.species]() {
