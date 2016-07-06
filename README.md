@@ -9,7 +9,7 @@
 - [Functions](https://github.com/innocodive/lets-learn-es2015/blob/master/Functions.md)
 - [Objects](https://github.com/innocodive/lets-learn-es2015/blob/master/Objects.md)
 - [Classes] (https://github.com/innocodive/lets-learn-es2015/blob/master/Classes.md)
-- Arrays
+- [Arrays] (https://github.com/innocodive/lets-learn-es2015/blob/master/Arrays.md)
 - [Destructuring] (https://github.com/innocodive/lets-learn-es2015/blob/master/destructuring.md)
 - [Symbols] (https://github.com/innocodive/lets-learn-es2015/blob/master/Symbols.md)
 - [Sets & Maps] (https://github.com/innocodive/lets-learn-es2015/blob/master/SetsAndMaps.md)
