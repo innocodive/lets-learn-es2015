@@ -1,6 +1,7 @@
 <h4>What is new?</h4>
 
 ES6 introduced many Array methods.
+<h5>Array.of()</h5>
 The new Array() constructor behaves differently based on the type and number of arguments passed to it. <strong>Array.of() method</strong> creates a new array. It is introduced to deal with the quirk of creating an array using Array Constructor. 
 ```javascript
 	let set1 = new Array(2),
@@ -33,4 +34,13 @@ Array.of() example. This exactly the same with the example above but we get slig
 ```
 Understanding ECMAScript 6 Book:
 > The Array.of() method does not use the Symbol.species property (discussed in Chapter 9) to determine the type of return value. Instead, it uses the current constructor (this inside the of() method) to determine the correct data type to return.
+
+<h5>Array.from()</h5>
+We used to use `Array.prototype.slice.call(arrayLikeObject)` to convert array-like objects into arrays. Array-like object is an object with numeric indices and and a length property. Since Array `slice()` method only needs numeric indices and a length property, it can work with array-like objects and would return an array.<br> 
+Array.from() method takes iterable or an array-like object as a 1st argument and converts the argument into an array.
+```javascript
+	function ArrayFrom() {
+		let args = Array.from(arguments);
+	}
+```
 
