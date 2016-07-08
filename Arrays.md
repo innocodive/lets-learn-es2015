@@ -97,3 +97,22 @@ Numbers Object has `Symbol.iterator` property.
 > If an object is both array-like and iterable, then the iterator is used by Array.from() to determine the values to convert.
 
 <h5>New Array Methods</h5>
+<strong>find() and findIndex() methods:</strong><br>
+Both find() and findIndex() accept two arguments: a callback function and an optional value to use for `this` inside the callback function. Methods return `true` if they find the element. They stop looking when the 1st matching element is found. Both methods are good to find an array element that matches the `condition` rather than a value. Use `indexOf()` or `lastIndexOf()` methods to a value.
+
+```javascript
+	let arr = [10, 20, 30, 40, 50];
+
+	console.log(arr.find(n => n > 30));
+```
+
+<strong>Array.fill(): </strong> method fills 1 or more Array elements with a specific value. It takes at least 1 element to fill and 2 optional elements. `Array.fill(element, startFrom, end)`.
+
+```javascript
+	let arr = [10, 20, 30, 40, 50];
+
+	//console.log(arr.fill(25));		//[25, 25, 25, 25, 25]
+	//console.log(arr.fill(1, 2, 4));
+	//console.log(arr.fill(5, 2));
+	console.log(arr.fill(25, 0, 2));    //[25,25,30,40,50]
+```
