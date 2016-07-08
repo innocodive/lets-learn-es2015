@@ -76,7 +76,7 @@ Array.from(args, object method, object)
 	console.log(aFrom);     //[2,3,4,5,6]
 ```
 
-`Array.from()` method can turn into any `Collection Object` method into an Array. Collection Objects (Array, Sets, Maps and Strings) are iterables. We can create our own iterable just adding `Symbol.iterator` method to it.
+`Array.from()` method can turn any `Collection Object` method into an Array. Collection Objects (Array, Sets, Maps and Strings) are iterables. We can create our own iterable just adding `Symbol.iterator` method to it.
 
 ```javascript
 	let numbers = {
@@ -93,3 +93,7 @@ console.log(sqrt);		//[3, 5, 12]
 ```
 Numbers Object has `Symbol.iterator` property.
 
+"Understanding ECMAScript" Book:
+> If an object is both array-like and iterable, then the iterator is used by Array.from() to determine the values to convert.
+
+<h5>New Array Methods</h5>
