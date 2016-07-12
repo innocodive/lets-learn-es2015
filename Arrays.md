@@ -143,3 +143,6 @@ Typed arrays allow the storage and manipulation of eight different numeric types
 6. Unsigned 32-bit integer (uint32)
 7. 32-bit float (float32)
 8. 64-bit float (float64)
+
+In order to use Typed Arrays we need to create an array buffer to store the data.
+<h6>Array Buffers</h6>
