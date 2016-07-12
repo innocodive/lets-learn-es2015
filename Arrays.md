@@ -135,11 +135,11 @@ They are there to work with Numeric Arrays. Typed Arrays are 1st created to use 
 Javascript Numbers (Integers and Floats) are stored as a 64 bit floating point reprsentations of numbers. <br>
 Typed arrays allow the storage and manipulation of eight different numeric types:
 
-1 - Signed 8-bit integer (int8)
-2 - Unsigned 8-bit integer (uint8)
-3 - Signed 16-bit integer (int16)
-4 - Unsigned 16-bit integer (uint16)
-5 - Signed 32-bit integer (int32)
-6 - Unsigned 32-bit integer (uint32)
-7 - 32-bit float (float32)
-8 - 64-bit float (float64)
+1. Signed 8-bit integer (int8)
+2. Unsigned 8-bit integer (uint8)
+3. Signed 16-bit integer (int16)
+4. Unsigned 16-bit integer (uint16)
+5. Signed 32-bit integer (int32)
+6. Unsigned 32-bit integer (uint32)
+7. 32-bit float (float32)
+8. 64-bit float (float64)
