@@ -190,3 +190,5 @@ Read-only Array Buffer View properties:
 	console.log(view1.byteOffset);              //0
 	console.log(view2.byteOffset);              //10
 ```
+
+<h5>Reading and Writing on Allocated Memory</h5>
