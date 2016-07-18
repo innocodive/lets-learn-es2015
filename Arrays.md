@@ -156,3 +156,37 @@ It is a memory location with specific size (in bytes). We can change the Array B
 	let newBuffer = buffer.slice(10, 15);
 	console.log(newBuffer.byteLength);      //5
 ```
+To write Array Buffers we need to create a view.
+
+<h5>Array Buffer Views</h5>
+`Views` are interfaces to Array Buffers. Views enable us to work on array buffers (read and write) in one of the numeric data types. We use `DataView()` constructor to create an Array Buffer View. `DataView(arrayBuffer, startFrom, numberOfBytes)`<br>
+We can create several views over the same array buffer, which can be useful if you want to use a single memory location for an entire application rather than dynamically allocating space as needed.
+```javascript
+	let arrBuffer = new ArrayBuffer(20);
+	console.log(arrBuffer.byteLength);         //20
+
+//view operates on entire allocated memory
+	let view = new DataView(arrBuffer);
+	console.log(view.byteLength);           //20
+
+//view operates on only part of the allocated memory
+	let view2 = new DataView(arrBuffer, 10, 5);
+	console.log(view2.byteLength);           //5
+```
+Read-only Array Buffer View properties:
+- buffer : The array buffer that the view is tied to
+- byteOffset : The second argument to the DataView constructor, if provided (0 by default)
+- byteLength : The third argument to the DataView constructor, if provided (the buffer’s byteLength by default)
+
+```javascript
+	let arrBuffer = new ArrayBuffer(20);
+	let view1 = new DataView(arrBuffer);
+	let view2 = new DataView(arrBuffer, 10, 5);
+
+	console.log(view1.buffer === arrBuffer);    //true
+	console.log(view2.buffer === arrBuffer);    //true
+	console.log(view1.byteLength);              //20
+	console.log(view2.byteLength);              //5
+	console.log(view1.byteOffset);              //0
+	console.log(view2.byteOffset);              //10
+```
