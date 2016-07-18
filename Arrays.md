@@ -147,7 +147,7 @@ Typed arrays allow the <strong>storage</strong> and <strong>manipulation</strong
 
 In order to use Typed Arrays we need to create an array buffer to store the data.
 <h6>Array Buffers</h6>
-It is a memory location with specific size (in bytes). We can create/allocate a memory using `ArrayBuffer()` constructor function. We can use `byteLength` property to retrieve the allocated memory size. We can use `slice()` Array method to create a new Array Buffer based on existing Array Buffer:
+It is a memory location with specific size (in bytes). We can change the Array Buffer content but we cannot change the Array Buffer size. We can create/allocate a memory using `ArrayBuffer()` constructor function. We can use `byteLength` property to retrieve the allocated memory size. We can use `slice()` Array method to create a new Array Buffer based on existing Array Buffer:
 
 ```javascript
 	let buffer = new ArrayBuffer(20);
