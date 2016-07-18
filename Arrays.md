@@ -123,7 +123,8 @@ Both find() and findIndex() accept two arguments: a callback function and an opt
 	console.log(arr.copyWithin(3, 0));		//[10,20,30,10,20,30]
 ```
 Start copying the `arr` Array elements starting from `arr[0]` and then paste those elements in the same array starting from `arr[3]`.
-We can limit how many array elements would be overwritten:
+We can limit how many array elements would be overwritten: <br>
+`Array.copyWithin(startPastingFrom, startCopyingFrom, numberOfElementsToPaste)`
 ```javascript
 	let arr = [10, 20, 30, 40, 50, 60];
 
