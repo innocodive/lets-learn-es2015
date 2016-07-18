@@ -132,9 +132,9 @@ console.log(arr.copyWithin(3, 0, 2));		//[10,20,30,10,20,60]
 ```
 
 <h5>Typed Arrays</h5>
-They are there to work with Numeric Arrays. Typed Arrays are 1st created to use with WebGL as native Javascript numbers were too slow. ESMAScipt 6 introduced Typed Arrays. ECMAScript 6 version of the Typed Arrays are the evolution of the WebGL Typed Arrays.<br>
+Typed Arrays are there to work with Numeric Arrays. Typed Arrays are 1st created to use with WebGL as native Javascript numbers were too slow. ESMAScipt 6 introduced Typed Arrays. ECMAScript 6 version of the Typed Arrays are the evolution of the WebGL Typed Arrays.<br>
 Javascript Numbers (Integers and Floats) are stored as a 64 bit floating point reprsentations of numbers. <br>
-Typed arrays allow the storage and manipulation of eight different numeric types:
+Typed arrays allow the <strong>storage</strong> and <strong>manipulation</strong> of eight different numeric types:
 
 1. Signed 8-bit integer (int8)
 2. Unsigned 8-bit integer (uint8)
