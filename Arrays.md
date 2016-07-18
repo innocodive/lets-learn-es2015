@@ -116,7 +116,7 @@ Both find() and findIndex() accept two arguments: a callback function and an opt
 	//console.log(arr.fill(5, 2));
 	console.log(arr.fill(25, 0, 2));    //[25,25,30,40,50]
 ```
-<strong>Array.copyWithin()</strong>: As name suggests it copies part or all elements of the array and pastes the elements inside the same array.
+<strong>Array.copyWithin()</strong>: As name suggests it copies part or all elements of the array and pastes the elements inside the same array. `Array.copyWithin(startPastingFrom, startCopyingFrom)`
 ```javascript
 	let arr = [10, 20, 30, 40, 50, 60];
 
