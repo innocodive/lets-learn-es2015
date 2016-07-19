@@ -262,9 +262,17 @@ Typed Array constructors have specific element sizes (between 1 and 4). Here is 
 	console.log(floats.length);         //2
 	console.log(floats.byteLength);     //8
 ```
-3 - Pass an object to create a Typed Array. Those objects as an arguments are below:
+3 - Pass an object to create a Typed Array. Those objects as an argument are below:
 - An Array
 - An Array-like Object
 - An Iterable
 - A Typed Array
+```javascript
+	let integers1 = new Int8Array([2, 20]);
+	let integers2 = new Int32Array(integers1);
 
+	console.log(integers1.length);                          //2
+	console.log(integers1.byteLength);                      //2
+	console.log(integers1.bufffer === integers2.buffer);    //false
+	console.log(integers1[1]);                              //20
+```
