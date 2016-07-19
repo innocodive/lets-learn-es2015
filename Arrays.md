@@ -250,3 +250,15 @@ Typed Array constructors have specific element sizes (between 1 and 4). Here is 
 	console.log(view2.byteOffset);              //10
 ```
 
+2 - 2nd way to create a Typed Array is passing a single element to the constructor. This arguments represents a number of elements not the byte size.
+
+```javascript
+	let integers = new Int8Array(5);
+	let floats = new Float32Array(2);
+
+	console.log(integers.length);       //5
+	console.log(integers.byteLength);   //5
+
+	console.log(floats.length);         //2
+	console.log(floats.byteLength);     //8
+```
