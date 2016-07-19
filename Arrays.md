@@ -275,4 +275,49 @@ Typed Array constructors have specific element sizes (between 1 and 4). Here is 
 	console.log(integers1.byteLength);                      //2
 	console.log(integers1.bufffer === integers2.buffer);    //false
 	console.log(integers1[1]);                              //20
+	
+	integers1[0] = 25;
+	integers1[1] = 35;
+
+	console.log(integers1[1]);                              //35
 ```
+
+<h5>Typed Array Methods</h5>
+Typed arrays also include a large number of methods that are functionally equivalent to regular array methods. We can use the following array methods on typed arrays:
+
+- copyWithin()
+- entries()
+- fill()
+- filter()
+- find()
+- findIndex()
+- forEach()
+- indexOf()
+- join()
+- keys()
+- lastIndexOf()
+- map()
+- reduce()
+- reduceRight()
+- reverse()
+- slice()
+- some()
+- sort()
+- values()
+
+1 thing that we need to give an attention:
+```javascript
+	let ints = new Int16Array([25, 50]),
+//map() returns an instance of a typed Array not an Array instance
+    mapped = ints.map(v => v * 2);
+
+	console.log(mapped instanceof Int16Array);  // true
+	console.log(mapped instanceof Array);       //false
+```
+
+Typed Arrays have the same methods as regular arrays:
+- entries() method
+- keys() method
+- values() method
+
+We can also use `spread operator` and `for - of` loop with Typed Arrays.
