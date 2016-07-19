@@ -215,4 +215,38 @@ little Endian means the least significant byte is at byte 0<br>
 	console.log(view.getInt16(1));		//5
 	console.log(view.getInt16(0));		//2560
 ```
-So far we only used DataView() constructor as an Array Buffer View. But we can also use Typed Array constructors. They are type-specific views for array buffers.
+So far we only used DataView() constructor as an Array Buffer View. But we can also use Typed Array constructors. They are type-specific views for array buffers. Here is the list of Typed array constructors:
+- Int8Array
+- Uint8Array
+- Uint8ClampedArray
+- Int16Array
+- Uint16Array
+- Int32Array
+- Uint32Array
+- Float32Array
+- Float64Array
+
+Typed Array constructors have specific element sizes (between 1 and 4). Here is how we find out element sizes:
+
+```javascript
+	console.log(UInt8Array.BYTES_PER_ELEMENT);      // 1
+	console.log(UInt16Array.BYTES_PER_ELEMENT);     // 2
+
+	let ints = new Int8Array(5);
+	console.log(ints.BYTES_PER_ELEMENT);            // 1
+```
+<h5>Creating type-specific Array Buffer Views</h5>
+1 - We can create a View using the same approach like `DataView`.
+```javascript
+	let arrBuffer = new ArrayBuffer(20);
+	let view1 = new Int8Array(arrBuffer);
+	let view2 = new Int8Array(arrBuffer, 10, 5);
+
+	console.log(view1.buffer === arrBuffer);    //true
+	console.log(view2.buffer === arrBuffer);    //true
+	console.log(view1.byteLength);              //20
+	console.log(view2.byteLength);              //5
+	console.log(view1.byteOffset);              //0
+	console.log(view2.byteOffset);              //10
+```
+
