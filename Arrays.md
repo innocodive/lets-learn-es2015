@@ -192,3 +192,27 @@ Read-only Array Buffer View properties:
 ```
 
 <h5>Reading and Writing on Allocated Memory</h5>
+
+DataView prototype has a method for each numeric data type to write to Array Buffer and a method to read from an Array Buffer. Here are the methods:<br>
+- getInt8(byteOffset, littleEndian)
+- setInt8(byteOffset, value, littleEndian)
+- getUint8(byteOffset, littleEndian)
+- setUint8(byteOffset, value, littleEndian)
+- getFloat32(byteOffset, littleEndian)
+- setFloat32(byteOffset, value, littleEndian)
+- getFloat64(byteOffset, littleEndian)
+- setFloat64(byteOffset, value, littleEndian)
+
+little Endian means the least significant byte is at byte 0<br>
+```javascript
+	let arrBuffer = new ArrayBuffer(3);
+	let view = new DataView(arrBuffer);
+
+	view.setInt8(0, 10);
+	view.setInt16(1, 5);
+
+	console.log(view.getInt8(0));		//10
+	console.log(view.getInt16(1));		//5
+	console.log(view.getInt16(0));		//2560
+```
+So far we only used DataView() constructor as an Array Buffer View. But we can also use Typed Array constructors. They are type-specific views for array buffers.
