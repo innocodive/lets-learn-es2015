@@ -321,3 +321,23 @@ Typed Arrays have the same methods as regular arrays:
 - values() method
 
 We can also use `spread operator` and `for - of` loop with Typed Arrays.
+
+<h5>of() and from() Typed Array Methods</h5>
+Arrays have Array.from() and Array.of() methods. Typed Arrays have of() and from() methods and they return typed arrays.
+```javascript
+	let integers = Int8Array.of(5, 10, 15);
+	let floats = Float32Array.from([1.5, 2.5]);
+
+	console.log(floats instanceof Array);           //false
+	console.log(floats instanceof Float32Array);    //true
+	console.log(integers[0]);                          //5
+	console.log(floats[1]);                            //2.5
+
+/*
+   we cannot do this. typed array size reamins the same. 
+   assigning a value to a non-existing typed array indices will be ignored
+*/
+	integers[3] = 10;
+	console.log(integers[3]);
+	console.log(integers.length);                     //3
+```
