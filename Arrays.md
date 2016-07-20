@@ -359,3 +359,28 @@ Typed Arrays have most of the regular Array methods except the ones which would 
 - splice()
 - unshift()
 
+There are 2 methods which only Typed Arrays have:
+- set() : copies another array into a typed array
+- subarray() : extracts part of an existing typed array into a new typed array
+
+```javascript
+	let integers = new Int16Array(5);
+	let arr1 = [1, 2, 3], arr2 = [4, 5];
+	integers.set(arr1);
+	integers.set(arr2, 3);
+
+	console.log(integers.toString());       //1, 2, 3, 4, 5
+```
+Example for subarray() method. subarray(start, end):
+```javascript
+	let arr = [10, 20, 30 ,40 , 50], 
+    integers = new Int16Array(arr);
+    
+let subArr1 = integers.subarray(),
+    subArr2 = integers.subarray(3),
+    subArr3 = integers.subarray(2, 4);
+    
+  console.log(subArr1.toString());          //10, 20, 30, 40, 50
+  console.log(subArr2.toString());          //40, 50
+  console.log(subArr3.toString());          //30, 40
+```
