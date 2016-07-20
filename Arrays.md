@@ -340,4 +340,12 @@ Arrays have Array.from() and Array.of() methods. Typed Arrays have of() and from
 	integers[3] = 10;
 	console.log(integers[3]);
 	console.log(integers.length);                     //3
+
+	/* 
+  		Typed arrays also have checks to ensure that only valid data types are used
+	*/
+
+	let validInt = new Int16Array("web developer");
+	console.log(validInt.length);					//1
+	console.log(validInt[0]);						//0
 ```
