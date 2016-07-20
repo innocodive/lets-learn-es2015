@@ -359,7 +359,7 @@ Typed Arrays have most of the regular Array methods except the ones which would 
 - splice()
 - unshift()
 
-There are 2 methods which only Typed Arrays have:
+There are 2 methods which only Typed Arrays have, regular Arrays don't have these 2 methods:
 - set() : copies another array into a typed array
 - subarray() : extracts part of an existing typed array into a new typed array
 
