@@ -19,3 +19,6 @@ Node.js popularized the The Callback Pattern:
   		//do something with the data
 	});
 ```
+Callback Pattern was problematic when it comes to accomplishing more complex functionalities like running 2 async operations in parallel or starting 2 async operations at the same time. ES6 Promises bring improvements to solve those mentioned issues.
+
+<h4>ES6 Promise basics</h4>
