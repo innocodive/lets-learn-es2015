@@ -349,3 +349,13 @@ Arrays have Array.from() and Array.of() methods. Typed Arrays have of() and from
 	console.log(validInt.length);					//1
 	console.log(validInt[0]);						//0
 ```
+
+<h5>Typed Array Methods</h5>
+Typed Arrays have most of the regular Array methods except the ones which would change the Array size. These are the list of Array Methods which Typed Arrays are missing:
+- concat()
+- pop()
+- push()
+- shift()
+- splice()
+- unshift()
+
