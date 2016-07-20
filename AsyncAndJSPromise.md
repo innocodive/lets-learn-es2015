@@ -1,2 +1,2 @@
-<h4>Async and Javascript Promises</h4>
+<h4>Asynchronous Programming and ES6 Promises</h4>
 
