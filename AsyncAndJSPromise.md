@@ -25,3 +25,8 @@ Callback Pattern was problematic when it comes to accomplishing more complex fun
 
 From [MDN] (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise):
 > The Promise object is used for asynchronous computations. A Promise represents an operation that hasn't completed yet, but is expected in the future.
+
+<strong>3 states of Promise:</strong> Promise has an internal property [[PromiseState]]. It is set to `pending`, `fullfilled` or `rejected`. We cannot programmatically access to this property value. `then()` method is what we need to monitor the promise state and take an action:
+- Pending
+- Fullfilled
+- Rejected
