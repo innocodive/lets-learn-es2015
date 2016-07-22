@@ -38,3 +38,33 @@ All promises have a `then()` method. Then() method takes 2 arguments (functions)
 Understanding ECMAScript 6 Book:
 > Any object that implements the then() method in this way is called a thenable. All promises are thenables, but not all thenables are promises.
 
+```javascript
+	let promise = readFile("sampleText.txt");
+
+	promise.then(function(result) {
+  		//fullfilled
+  		console.log(result);
+	}, function(error) {
+  			//rejected
+  			console.log(error.message);
+	});
+```
+catch() method is also acts like then() only when a rejection handler is associated with it:
+```javascript
+	promise.catch(function(err) {
+    	// rejection
+    	console.error(err.message);
+	});
+
+	// is the same as:
+
+	promise.then(null, function(err) {
+    	// rejection
+    	console.error(err.message);
+	});
+```
+
+We should always attach a rejection handler to a promise, otherwise it would fail silently.
+
+<strong>What is going to happen if we attach handlers after the promise fullfilled?</strong>
+Handlers will still be executed.
