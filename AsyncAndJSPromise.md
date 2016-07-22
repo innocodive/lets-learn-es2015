@@ -71,7 +71,7 @@ Handlers will still be executed.
 
 Each call to then() or catch() creates a new job to be executed when the promise is resolved. But these jobs end up in a separate job queue that is reserved strictly for promises.
 
-<h5>How to create a Promise?</h5>
+<h5>How to create an Unsettled Promise?</h5>
 We use a `Promise` constructor to create a new promise. The constructor accepts 1 argument, which is called `executor function`. An executor function accepts 2 arguments: `resolve() function` and `reject() function`. The resolve() function is called when the executor has finished successfully to signal that the promise is ready to be resolved, while the reject() function indicates that the executor has failed.
 ```javascript
 	function createPromise(filename) {
@@ -97,3 +97,26 @@ promise.then(function(result) {
 });
 ```
 
+The executor runs <strong>`immediately`</strong> when readFile() is called. When either resolve() or reject() is called inside the executor, a job is added to the job queue to resolve the promise. This is called job scheduling. Job scheduling basically means, don't run imediately, run later.
+Have a look at the example below:
+
+```javascript
+	let promise = new Promise(function(resolve, reject) {
+    	console.log("Promise");
+    	resolve();
+	});
+
+	promise.then(function() {
+    	console.log("Resolved.");
+	});
+
+	console.log("Hi!");
+
+	/*
+Promise
+Hi!
+Resolve
+	*/
+```
+
+Note that even though the call to then() appears before the console.log("Hi!") line, it doesn’t actually execute until later (unlike the executor). That’s because fulfillment and rejection handlers are always added to the end of the job queue after the executor has completed.
