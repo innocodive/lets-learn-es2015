@@ -13,7 +13,7 @@ The Event Model example:
 };
 ```
 
-Node.js popularized the The Callback Pattern:
+Node.js popularized the The Callback Pattern. Here is an example from jQuery:
 ```javascript
 	$.getJSON("jsonFile.txt", function(data) {
   		//do something with the data
@@ -31,7 +31,9 @@ From [MDN] (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Globa
 - Fullfilled
 - Rejected
 
-All promises have a `then()` method. Then() method takes 2 arguments (functions). 1st function is to call when the promise is fullfilled and the 2nd function is to call when the promise rejected.
+A promise represents a proxy for a value not necessarily known when the promise is created. Using this method, we can associate handlers to async action's eventual success value or failure reason. This way we make async methods to return values same like synchronous methods. Return a promise not the final value.
+
+All promises have a `then()` method. Then() method takes 2 arguments (functions). 1st function is to call when the promise is fullfilled and the 2nd function is to call when the promise rejected. Both promise arguments are optional, so we can listen to both or any of them separately.
 
 Understanding ECMAScript 6 Book:
 > Any object that implements the then() method in this way is called a thenable. All promises are thenables, but not all thenables are promises.
