@@ -120,3 +120,10 @@ Resolve
 ```
 
 Note that even though the call to then() appears before the console.log("Hi!") line, it doesn’t actually execute until later (unlike the executor). That’s because fulfillment and rejection handlers are always added to the end of the job queue after the executor has completed.
+
+<h5>How to create a Settled Promise?</h5>
+
+There are two methods that create settled promises given a specific value:
+- Promise.resolve()
+- Promise.reject()
+
