@@ -68,3 +68,32 @@ We should always attach a rejection handler to a promise, otherwise it would fai
 
 <strong>What is going to happen if we attach handlers after the promise fullfilled?</strong>
 Handlers will still be executed.
+
+Each call to then() or catch() creates a new job to be executed when the promise is resolved. But these jobs end up in a separate job queue that is reserved strictly for promises.
+
+<h5>How to create a Promise?</h5>
+We use a `Promise` constructor to create a new promise. The constructor accepts 1 argument, which is called `executor function`. An executor function accepts 2 arguments: `resolve() function` and `reject() function`. The resolve() function is called when the executor has finished successfully to signal that the promise is ready to be resolved, while the reject() function indicates that the executor has failed.
+```javascript
+	function createPromise(filename) {
+  return new Promise(function(resolve, reject) {
+    readFile(filename, function(error, result) {
+      //check if the call is failed
+      if(error) {
+        reject(error);
+        return;
+      } else {
+        resolve(result);
+      }
+    });
+  });
+}
+
+let promise = createPromise("mySampleTerxt.txt");
+
+promise.then(function(result) {
+  console.log(result);
+}, function(error) {
+  console.log(error.message);
+});
+```
+
