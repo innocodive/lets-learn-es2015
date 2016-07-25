@@ -75,26 +75,27 @@ Each call to then() or catch() creates a new job to be executed when the promise
 We use a `Promise` constructor to create a new promise. The constructor accepts 1 argument, which is called `executor function`. An executor function accepts 2 arguments: `resolve() function` and `reject() function`. The resolve() function is called when the executor has finished successfully to signal that the promise is ready to be resolved, while the reject() function indicates that the executor has failed.
 ```javascript
 	function createPromise(filename) {
-  return new Promise(function(resolve, reject) {
-    readFile(filename, function(error, result) {
-      //check if the call is failed
-      if(error) {
-        reject(error);
-        return;
-      } else {
-        resolve(result);
-      }
-    });
-  });
-}
+  		return new Promise(function(resolve, reject) {
+    
+    		readFile(filename, function(error, result) {
+      			//check if the call is failed
+      			if(error) {
+        			reject(error);
+        			return;
+      			} else {
+        			resolve(result);
+      			}
+    		});
+  		});
+	}
 
-let promise = createPromise("mySampleTerxt.txt");
+	let promise = createPromise("mySampleTerxt.txt");
 
-promise.then(function(result) {
-  console.log(result);
-}, function(error) {
-  console.log(error.message);
-});
+	promise.then(function(result) {
+  		console.log(result);
+	}, function(error) {
+  		console.log(error.message);
+	});
 ```
 
 The executor runs <strong>`immediately`</strong> when readFile() is called. When either resolve() or reject() is called inside the executor, a job is added to the job queue to resolve the promise. This is called job scheduling. Job scheduling basically means, don't run imediately, run later.
