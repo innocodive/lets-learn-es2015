@@ -89,7 +89,7 @@ We use a `Promise` constructor to create a new promise. The constructor accepts 
   		});
 	}
 
-	let promise = createPromise("mySampleTerxt.txt");
+	let promise = createPromise("mySampleText.txt");
 
 	promise.then(function(result) {
   		console.log(result);
@@ -98,15 +98,16 @@ We use a `Promise` constructor to create a new promise. The constructor accepts 
 	});
 ```
 
-The executor runs <strong>`immediately`</strong> when readFile() is called. When either resolve() or reject() is called inside the executor, a job is added to the job queue to resolve the promise. This is called job scheduling. Job scheduling basically means, don't run imediately, run later.
+The executor runs <strong>`immediately`</strong> before any code when readFile() is called. When either resolve() or reject() is called inside the executor, a job is added to the job queue to resolve the promise. This is called job scheduling. Job scheduling basically means, don't run imediately, run later.
 Have a look at the example below:
 
 ```javascript
 	let promise = new Promise(function(resolve, reject) {
     	console.log("Promise");
-    	resolve();
+    	resolve();		//Calling resolve() triggers an asynchronous operation
 	});
 
+//Functions passed to then() and catch() are executed asynchronously, and also added to the job queue
 	promise.then(function() {
     	console.log("Resolved.");
 	});
@@ -116,7 +117,7 @@ Have a look at the example below:
 	/*
 Promise
 Hi!
-Resolve
+Resolved
 	*/
 ```
 
