@@ -151,3 +151,21 @@ No job scheduling occurs. We need to listen to the promise to retrieve the value
 Understanding ECMAScript 6 Book:
 > If you pass a promise to either the Promise.resolve() or Promise.reject() methods, the promise is returned without modification.
 
+<h5>Create a non-promise thenable</h5>
+Both `Promise.resolve()` and `Promise.reject()` also accept `non-promise thenables` as arguments. When passed a non-promise thenable, these methods create `a new promise` that is called after the then() function.<br>
+A non-promise `thenable` is created when an object has a `then() method` that accepts a `resolve` and a `reject` argument.<br>
+At this point thenable doesn't have a promise characteristics except then() method. We can pass a thenable as an argument to the `Promise.resolve()` as an argument to convert thenable into a fullfilled promise:
+```javascript
+	let thenable = {
+		then : function(resolve, reject) {
+			resolve(100);
+	};
+};
+
+let yeap = Promise.resolve(thenable);
+
+yeap.then(function(value) {
+	console.log(value);
+});
+```
+Same example could be done using `Promise.reject()` and `nope.catch().
