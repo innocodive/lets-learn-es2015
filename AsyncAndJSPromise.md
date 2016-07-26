@@ -129,3 +129,25 @@ There are two methods that create settled promises given a specific value:
 - Promise.resolve()
 - Promise.reject()
 
+<h5>Settled Promises</h5>
+- Promise.resolve(): Accepts 1 argument and returns a promise in fullfilled state
+- Promise.reject(): Accepts 1 argument and returns a promise in rejected state
+
+No job scheduling occurs. We need to listen to the promise to retrieve the value:
+
+```javascript
+	let yeap = Promise.resolve(100);
+
+	yeap.then(function(value) {
+  		console.log(value);
+	});
+
+	let nope = Promise.reject(200);
+
+	nope.catch(function(value) {
+  		console.log(value);
+	});
+```
+Understanding ECMAScript 6 Book:
+> If you pass a promise to either the Promise.resolve() or Promise.reject() methods, the promise is returned without modification.
+
