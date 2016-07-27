@@ -159,7 +159,7 @@ At this point thenable doesn't have a promise characteristics except then() meth
 	let thenable = {
 		then : function(resolve, reject) {
 			resolve(100);
-	};
+	}
 };
 
 let yeap = Promise.resolve(thenable);
@@ -168,4 +168,7 @@ yeap.then(function(value) {
 	console.log(value);
 });
 ```
-Same example could be done using `Promise.reject()` and `nope.catch().
+Same example could be done using `Promise.reject()` and `nope.catch().<br>
+<strong>How to find out if a thenable is a promise?</strong><br>
+When you’re unsure if an object is a promise, passing the object through Promise.resolve() or Promise.reject() (depending on your anticipated result) is the best way to find out because promises just pass through unchanged.
+
