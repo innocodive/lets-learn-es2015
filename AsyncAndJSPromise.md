@@ -378,3 +378,5 @@ Promise reject example:
   		console.log(value);
 	});
 ```
+
+<h5>Async Task Running using Promises</h5>
