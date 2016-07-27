@@ -172,3 +172,35 @@ Same example could be done using `Promise.reject()` and `nope.catch().<br>
 <strong>How to find out if a thenable is a promise?</strong><br>
 When you’re unsure if an object is a promise, passing the object through Promise.resolve() or Promise.reject() (depending on your anticipated result) is the best way to find out because promises just pass through unchanged.
 
+<h5>Executor Function Errors</h5>
+If an error is thrown inside an executor, then the promise’s rejection handler is called.<br>
+There is an implicit try-catch inside every executor such that the error is caught and then passed to the rejection handler:
+```javascript
+	let promise = new Promise(function(resolve, reject) {
+  		throw new Error("fake error message");
+	});
+
+	promise.catch(function(error) {
+  		console.log(error.message);
+	});
+// example below is the same with the one above
+
+	let promise = new Promise(function(resolve, reject) {
+  		try {
+    		throw new Error("fake error message");
+  		} catch(err) {
+    		reject(err);
+  		}
+	});
+
+	promise.catch(function(error) {
+  		console.log(error.message);
+	});
+```
+An Error thrown in the Executor will only be reported if a rejection handler is attached to the promise, otherwise an error will be suppressed, another way of saying, it will fail silently.
+
+<h5>Rejection Handling in a Promise</h5>
+A `rejectionhandled` event is fired after these 2 things happen:
+- A javascript Promise is rejected
+- After a rejection is handled by the promise rejection handler
+
