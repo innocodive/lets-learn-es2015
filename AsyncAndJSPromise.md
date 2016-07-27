@@ -200,7 +200,32 @@ There is an implicit try-catch inside every executor such that the error is caug
 An Error thrown in the Executor will only be reported if a rejection handler is attached to the promise, otherwise an error will be suppressed, another way of saying, it will fail silently.
 
 <h5>Rejection Handling in a Promise</h5>
+During rejection handling process in browsers, the event handler for the browser events receives an event object with the following 3 properties:
+- type: The name of the event ("unhandledrejection" or "rejectionhandled")
+- promise: The promise object that was rejected
+- reason: The rejection value from the promise
+
 A `rejectionhandled` event is fired after these 2 things happen:
 - A javascript Promise is rejected
 - After a rejection is handled by the promise rejection handler
 
+The `unhandledrejection` event is fired when a JavaScript Promise is rejected but there is no rejection handler to deal with the rejection.
+```javascript
+	let rejected;
+
+	window.addEventListener("rejectionhandled", function (event) {
+  		console.log("Promise rejected! Reason: " + reason);
+	});
+
+	rejected = Promise.reject(new Error("Huuurrrayyy!"));
+```
+This is what we see on the browser console:
+```javascript
+/*
+	Promise {[[PromiseStatus]]: "rejected", [[PromiseValue]]: Error: Huuurrrayyy!
+    at <anonymous>:7:27}
+*/
+/*
+	Uncaught (in promise) Error: Huuurrrayyy!(…)
+*/
+```
