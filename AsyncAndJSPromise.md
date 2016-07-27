@@ -229,3 +229,20 @@ This is what we see on the browser console:
 	Uncaught (in promise) Error: Huuurrrayyy!(…)
 */
 ```
+
+<h5>Chaining Promises</h5>
+Call to `then()` and `catch()` always returns a new promise. 2nd promise is resolved only after the 1st promise fullfilled or rejected.
+```javascript
+	let promise = new Promise(function(resolve, reject) {
+  		resolve(100);
+	});
+
+	promise.then(function(value) {
+  		console.log(value);
+  		throw new Error("a fake error occurred!");
+	}).catch(function(error) {
+  		console.log(error.message);
+	});
+```
+Understanding ECMASript 6 Book:
+> Always have a rejection handler at the end of a promise chain to ensure that you can properly handle any errors that may occur.
