@@ -295,3 +295,86 @@ The below example is exactly the same with the above one:
 	});
 ```
 
+<h5>Dealing with Multiple Promises</h5>
+- Promice.all(): accepts an iterable. Returns a resolved promise after all promises are resolved
+- Promise.race(): accepts an iterable. Returns a resolved when any of the promises are resolved
+
+<strong>Promice.all()</strong>
+
+```javascript
+	let p1 = new Promise(function(resolve, reject) {
+    	resolve(42);
+	});
+
+	let p2 = new Promise(function(resolve, reject) {
+    	resolve(43);
+	});
+
+	let p3 = new Promise(function(resolve, reject) {
+    	resolve(44);
+	});
+
+	let p4 = Promise.all([p1, p2, p3]);
+
+	p4.then(function(value) {
+    	console.log(Array.isArray(value));  // true
+    	console.log(value[0]);              // 42
+    	console.log(value[1]);              // 43
+    	console.log(value[2]);              // 44
+	});
+```
+If any of the 3 promises were rejected, p4 would have been called immediately without waiting other 3 promises to be resolved. The rejection handler always receives a single value rather than an array, and the value is the rejection value from the promise that was rejected.
+
+<strong>Promice.race()</strong> : If the first promise to settle is fulfilled, then the returned promise is fulfilled; if the first promise to settle is rejected, then the returned promise is rejected.
+```javascript
+	let p1 = Promise.resolve(42);
+
+	let p2 = new Promise(function(resolve, reject) {
+    	resolve(43);
+	});
+
+	let p3 = new Promise(function(resolve, reject) {
+    	resolve(44);
+	});
+
+	let p4 = Promise.race([p1, p2, p3]);
+
+	p4.then(function(value) {
+    	console.log(value);     // 42
+	});
+```
+Promise reject example:
+```javascript
+	let p1 = new Promise(function(resolve, reject) {
+    	resolve(42);
+	});
+
+	let p2 = Promise.reject(43);
+
+	let p3 = new Promise(function(resolve, reject) {
+    	resolve(44);
+	});
+
+	let p4 = Promise.race([p1, p2, p3]);
+
+	p4.catch(function(value) {
+    	console.log(value);     // 43
+	});
+```
+
+<h5>Inheriting from Promises</h5>
+```javascript
+	class NewPromise extends Promise {
+
+    	newMethod1(resolve, reject) {}
+    	newMethod2(reject) {}
+	}
+
+	let promise = new NewPromise(function(resolve, reject) {
+    	resolve(100);
+	});
+
+	promise.then(function(value) {
+  		console.log(value);
+	});
+```
