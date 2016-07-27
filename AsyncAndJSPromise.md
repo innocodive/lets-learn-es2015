@@ -246,3 +246,52 @@ Call to `then()` and `catch()` always returns a new promise. 2nd promise is reso
 ```
 Understanding ECMASript 6 Book:
 > Always have a rejection handler at the end of a promise chain to ensure that you can properly handle any errors that may occur.
+
+<strong>Return Values in a Promise Chain</strong><br>
+```javascript
+	let promise = new Promise(function(resolve, reject) {
+  		resolve(100);
+	});
+
+	promise.then(function(value) {
+  		console.log(value);
+  		return value * 2;
+	}).then(function(value) {
+  		console.log(value);
+	});
+```
+One more example using 2 Promises:
+```javascript
+	let promise1 = new Promise(function(resolve, reject) {
+  		resolve(100);
+	});
+
+	let promise2 = new Promise(function(resolve, reject) {
+  		resolve(200);
+	});
+
+	promise1.then(function(value) {
+  		console.log(value);
+  		return promise2;
+	}).then(function(value) {
+  		console.log(value);
+	});
+```
+The below example is exactly the same with the above one:
+```javascript
+	let promise1 = new Promise(function(resolve, reject) {
+  		resolve(100);
+	});
+
+	promise1.then(function(value) {
+  		console.log(value);
+  
+  		let promise2 = new Promise(function(resolve, reject) {
+  			resolve(200);
+		});
+  		return promise2;
+	}).then(function(value) {
+  		console.log(value);
+	});
+```
+
