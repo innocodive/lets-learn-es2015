@@ -15,7 +15,7 @@
 - [Sets & Maps] (https://github.com/innocodive/lets-learn-es2015/blob/master/SetsAndMaps.md)
 - [Iterators & Generators] (https://github.com/innocodive/lets-learn-es2015/blob/master/Iteratorsandgenerators.md)
 - [Asynchronous Programming & ES6 Promises] (https://github.com/innocodive/lets-learn-es2015/blob/master/AsyncAndJSPromise.md)
-- Proxies & Reflection
+- [Proxies & Reflection] (https://github.com/innocodive/lets-learn-es2015/blob/master/Proxies.md)
 - Modules
  
 
