@@ -17,3 +17,19 @@ Arrays are considered an `exotic object` in ES6, because of its non-standard beh
 We can create proxies by calling `new Proxy()`. We use proxies in place of another object is called `target object`. Proxies and target objects are virtually the same in terms of functionality. We use proxies to intercept and override low-level operations on the target. This is done using `trap` functions which responds to certain operations.<br>
 `Reflection Object` is a collection of methods which provide the default behaviour for the same low-level operations which proxies can override.<br>
 Reflection API methods names are the same with proxy trap function names.
+
+Proxy Trap	| Overrides the Behavior Of	| Default Behavior
+------------|---------------------------|-----------------
+get	| Reading a property value	| Reflect.get()
+set	| Writing to a property	| Reflect.set()
+has	| The in operator	| Reflect.has()
+deleteProperty	| The delete operator	| Reflect.deleteProperty()
+getPrototypeOf	| Object.getPrototypeOf()	| Reflect.getPrototypeOf()
+setPrototypeOf	| Object.setPrototypeOf()	| Reflect.setPrototypeOf()
+isExtensible	| Object.isExtensible()	| Reflect.isExtensible()
+preventExtensions	| Object.preventExtensions()	| Reflect.preventExtensions()
+getOwnPropertyDescriptor	| Object.getOwnPropertyDescriptor()	| Reflect.getOwnPropertyDescriptor()
+defineProperty	| Object.defineProperty()	| Reflect.defineProperty
+ownKeys	| Object.keys, <br>Object.getOwnPropertyNames(), <br>Object.getOwnPropertySymbols()	| Reflect.ownKeys()
+apply	| Calling a function	| Reflect.apply()
+construct	| Calling a function with new	| Reflect.construct()
