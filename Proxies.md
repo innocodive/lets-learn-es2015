@@ -3,4 +3,17 @@ ES6 exposes inner-workings of the Javascript Engine. ES6 allows developers to cr
 <strong>What are proxies?</strong><br>
 Proxies are wrappers that can intercept and alter low-level operations of the JavaScript engine.<br>
 Arrays are considered an `exotic object` in ES6, because of its non-standard behaviour. You can modify array items changing `length` property, and adding more items to the array effects its `legnth` property. Developers couldn't mimic this behaviour in their own created objects before ES6. We can achieve this using `proxies` in ES6.
+```javascript
+	let arr = ["one", "two", "three"];
 
+	console.log(arr.length);      //3
+	arr.length = 2;
+	console.log(arr.length);      //2
+	console.log(arr);             //["one", "two"]
+```
+
+<h5>What are Proxies and Reflection API?</h5>
+
+We can create proxies by calling `new Proxy()`. We use proxies in place of another object is called `target object`. Proxies and target objects are virtually the same in terms of functionality. We use proxies to intercept and override low-level operations on the target. This is done using `trap` functions which responds to certain operations.<br>
+`Reflection Object` is a collection of methods which provide the default behaviour for the same low-level operations which proxies can override.<br>
+Reflection API methods names are the same with proxy trap function names.
