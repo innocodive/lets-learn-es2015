@@ -33,3 +33,18 @@ defineProperty	| Object.defineProperty()	| Reflect.defineProperty
 ownKeys	| Object.keys, <br>Object.getOwnPropertyNames(), <br>Object.getOwnPropertySymbols()	| Reflect.ownKeys()
 apply	| Calling a function	| Reflect.apply()
 construct	| Calling a function with new	| Reflect.construct()
+
+Each trap overrides some built-in behavior of JavaScript objects, allowing you to intercept and modify the behavior. If you still need to use the built-in behavior, then you can use the corresponding reflection API method.
+
+<strong>Proxy without a trap</strong><br>
+```javascript
+	let target = {}, handler = {};
+	let proxy = new Proxy(target, handler);
+
+	proxy.name = "proxy";
+	console.log(target.name);			//proxy
+
+	target.name = "target";
+	console.log(proxy.name);			//target
+```
+`proxy` forwards all operations directly to `target`. When "proxy" is assigned to the proxy.name property, name is created on `target`. The proxy itself is not storing this property. It, basically, forwards the operation to target.
