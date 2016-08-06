@@ -18,7 +18,7 @@ We can create proxies by calling `new Proxy()`. We use proxies in place of anoth
 `Reflection Object` is a collection of methods which provide the default behaviour for the same low-level operations which proxies can override.<br>
 Reflection API methods names are the same with proxy trap function names.
 
-Proxy Trap	| Overrides the Behavior Of	| Default Behavior
+Proxy Trap	| Overrides the Behaviour Of	| Default Behaviour
 ------------|---------------------------|-----------------
 get	| Reading a property value	| Reflect.get()
 set	| Writing to a property	| Reflect.set()
@@ -34,7 +34,7 @@ ownKeys	| Object.keys, <br>Object.getOwnPropertyNames(), <br>Object.getOwnProper
 apply	| Calling a function	| Reflect.apply()
 construct	| Calling a function with new	| Reflect.construct()
 
-Each trap overrides some built-in behavior of JavaScript objects, allowing you to intercept and modify the behavior. If you still need to use the built-in behavior, then you can use the corresponding reflection API method.
+Each trap overrides some built-in behavior of JavaScript objects, allowing you to intercept and modify the behaviour. If you still need to use the built-in behaviour, then you can use the corresponding reflection API method.
 
 <strong>Proxy without a trap</strong><br>
 ```javascript
