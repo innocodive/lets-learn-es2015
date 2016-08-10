@@ -55,3 +55,43 @@ Each trap overrides some built-in behavior of JavaScript objects, allowing you t
 `trapTarget` is a proxy's target and `receiver` is generally a proxy.<br>
 `Reflect.set(trapTarget, key, value, receiver)`<br>
 Reflect.set() accepts exactly the same arguments set Trap accepts.
+
+```javascript
+	let target = {
+    name: "target"
+};
+
+let proxy = new Proxy(target, {
+    set(trapTarget, key, value, receiver) {
+        //validate key and value
+        // and then add the property
+        return Reflect.set(trapTarget, key, value, receiver);
+    }
+});
+
+// adding a new property
+proxy.count = 1;
+console.log(proxy.count);       // 1
+console.log(target.count);      // 1
+```
+
+<strong>Object Shape Validation or get Trap</strong><br>
+Understanding ECMASript 6 Book:
+> An object shape is the collection of properties and methods available on the object. JavaScript engines use object shapes to optimize code, often creating classes to represent the objects.
+
+`get` Trap accepts 3 arguments:<br>
+`get(trapTarget, key, receiver)`. Reflect.get is the same: `Reflect.get(trapTarget, key, receiver)`<br>
+
+```javascript
+	let proxy = new Proxy({}, {
+        get(trapTarget, key, receiver) {
+            //check if key in receiver
+            //then add the property
+            return Reflect.get(trapTarget, key, receiver);
+        }
+    });
+
+// nonexistent properties throw an error
+console.log(proxy.nme);             // throws error
+```
+
