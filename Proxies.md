@@ -48,3 +48,10 @@ Each trap overrides some built-in behavior of JavaScript objects, allowing you t
 	console.log(proxy.name);			//target
 ```
 `proxy` forwards all operations directly to `target`. When "proxy" is assigned to the proxy.name property, name is created on `target`. The proxy itself is not storing this property. It, basically, forwards the operation to target.
+
+<strong>set Trap</strong><br>
+`set` trap receives 4 arguments:<br>
+`set(trapTarget, key, value, receiver)`<br>
+`trapTarget` is a proxy's target and `receiver` is generally a proxy.<br>
+`Reflect.set(trapTarget, key, value, receiver)`<br>
+Reflect.set() accepts exactly the same arguments set Trap accepts.
