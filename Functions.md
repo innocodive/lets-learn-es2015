@@ -218,7 +218,7 @@ ES6 added name property to Functions. It makes debugging easy.
 
 <h4>Find out how a Function is called</h4>
 
-ES6 introduced a new metaporty called <strong>new.target</strong>.
+ES6 introduced a new metaproperty called <strong>new.target</strong>.
 Understanding ECMAScript 6 Book:
 > A metaproperty is a property of a non-object that provides additional information related to its target (such as new).
 

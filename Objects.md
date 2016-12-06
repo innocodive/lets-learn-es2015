@@ -118,7 +118,7 @@ Object.is() method works exactly the same with `===`. There are only acouple of 
 	console.log(Object.is(+0, -0));     //false
 ```
 
-Object.assign() method:
+**Object.assign()** method:
 Mixins are used to shallow copy one object's properties and methods without inheriting from that object.
 
 ```javascript
