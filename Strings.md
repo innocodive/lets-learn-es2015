@@ -2,7 +2,7 @@
 
 First Javascript String method comes to mind when we search a substring in a string is `indexOf()` method. ES6 introduced 3 more methods to accomplish similar tasks. I also added there the repeat() method which is introduced in ES6. The repeat() method returns a string unlike other 3 strings.
 
-1. The **includes()** method returns true if the given text is found anywhere within the string. It returns false if not.
+1. The **includes()** method returns <b><u>true</b></u> if the given text is found anywhere within the string. It returns false if not.
 2. The **startsWith()** method returns true if the given text is found at the beginning of the string. It returns false if not.
 3. The **endsWith()** method returns true if the given text is found at the end of the string. It returns false if not.
 4. The **repeat()** takes a string as an argument and repeats it as given times.
